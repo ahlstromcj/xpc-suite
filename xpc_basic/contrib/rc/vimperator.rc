@@ -1,0 +1,43 @@
+"******************************************************************************
+"  Module:        vimperator.rc -- Chris Ahlstrom 03/21/2009
+"------------------------------------------------------------------------------
+"
+"  Maintainer:    Chris Ahlstrom <ahlstromcj@gmail.com>
+"  Last Change:   03/21/2009-05/31/2009
+"  License:       None.  Use it in any manner whatsover, and don't blame me.
+"  Usage:
+"
+"     This file is a personal settings file for the vimperator Firefox
+"     interface <http://vimperator.mozdev.org/>.
+"
+"     To use it, simply copy it to your home directory in this manner:
+"
+"        cp vimperator.rc ~/.vimperatorrc
+"
+" 1.2 (created: 2008/08/16 18:51:52)
+"
+"------------------------------------------------------------------------------
+
+" Mappings
+
+" Options:  Turn on menu, tools, bookmark toolbars, scroll bar.
+
+set guioptions+=mTBbn
+
+"Turn off beeps
+
+:set vb
+
+" Abbreviations
+
+source! ~/.vimperatorrc.local
+
+" Enlarge the URL hints a bit
+
+:hi -append Hint font-size:14px
+
+"------------------------------------------------------------------------------
+" End of vimperator.rc
+"------------------------------------------------------------------------------
+" vim: ts=3 sw=3 et ft=vim
+"------------------------------------------------------------------------------

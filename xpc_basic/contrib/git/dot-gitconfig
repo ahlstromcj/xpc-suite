@@ -1,0 +1,14 @@
+[user]
+	name = Chris Ahlstrom
+	email = ahlstromcj@gmail.com
+[core]
+	excludesfile = /home/ahlstrom/.gitignore
+	editor = vim
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[color]
+	ui = true

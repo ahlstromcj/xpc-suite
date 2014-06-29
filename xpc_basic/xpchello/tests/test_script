@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+#*****************************************************************************
+# test_script (xpchello/tests)
+#-----------------------------------------------------------------------------
+##
+# \file       	test_script
+# \library    	xpc_suite/xpchello test script
+# \author     	Chris Ahlstrom
+# \date       	2009-05-15
+# \update      2012-06-20
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+#  TODO:
+#
+#     Not yet written.
+#
+#-----------------------------------------------------------------------------
+
+cat << E_O_F
+
+The test program is here mainly for validating that linking to the
+properly-installed (e.g. in /usr/local/include and /usr/local/lib)
+XPCCUT library works.
+
+(Actually, in XPC 1.1, we're linking only locally at the moment.)
+
+Okay, on to the (trivial) test...
+
+E_O_F
+
+./xpchello_test --silent
+
+exit $?
+
+#*****************************************************************************
+# test (xpchello/tests)
+#------------------------------------------------------------------------------
+# Local Variables:
+# End:
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 ft=sh
+#----------------------------------------------------------------------------

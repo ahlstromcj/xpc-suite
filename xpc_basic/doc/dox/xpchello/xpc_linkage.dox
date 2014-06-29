@@ -1,0 +1,179 @@
+/******************************************************************************
+ * xpchello/doc/dox/xpc_linkage.dox
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides no code.  It provides only a Doxygen "Doxygen
+ *    information" page.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file       xpc_linkage.dox
+
+This document provides a discussion of the <b>XPC</b> <i>Hello</i> project
+and how it is linked to other <b>XPC</b> libraries to create the
+<b>xpchello</b> demonstration application.
+
+\library    xpc
+\page       xpc_linkage XPC Hello Linkage How-To
+\author     Chris Ahlstrom
+\version    $Revision$ (1.1.0)
+\date       2009-04-11
+\updates    2012-09-25
+\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license)
+\contents
+   -  \ref xpc_linkage_introduction
+   -  \ref xpc_linkage_process
+      -  \ref xpc_linkage_configure_ac
+
+\section xpc_linkage_introduction Introduction to 'pkgconfig' Linkage
+
+The <b>xpchello</b> application code is linked to one of the <b>XPC</b>
+libraries using "<i>pkg-config</i> linkage.  The <b>GNU</b> <i>pkg-config</i>
+system provides a way to do the following things necessary for linking
+an application:
+
+   -# Determine where the <tt>*.h</tt> header files for the library are
+      installed.
+   -# Determine where the <tt>*.a</tt>, <tt>*.la</tt>, <tt>*.so</tt> and
+      other actual library file are installed.
+   -# Provide these directories to the automake process so that the files
+      can be used to build the current project.
+   -# Determine the additional compiler flags that should be used.
+   -# Determine the additional linker flags that should be used.
+   -# Provide these flags to the automake process.
+   -# Provide other information about a library, such as who wrote it,
+      and a description of it.
+
+As is common in open-source projects, this information is stored in a
+human-readable text file.  You can examine one for yourself by viewing one
+of the files in your <tt>/usr/lib/pkgconfig</tt> directory.
+
+The "Hello" application uses only one of our <b>XPC</b> libraries -- the
+<b>XPCCUT</b> ("XPC C Unit-Test") library.  And actually, only the test
+application links to it.
+
+Furthermore, the test application build process assumes that the
+<b>XPCCUT</b> library has been installed in one of the expected directories
+(such as <tt>/usr</tt>, <tt>/usr/local</tt>, or <tt>/opt</tt>.
+
+\section xpc_linkage_process The Linkage Process
+
+This section describes how the <b>autoconf</b> and <b>automake</b> files
+were set up to link to the install <b>xpcccut</b> library.
+
+These steps can be done manually.  For example, to obtain the flags
+necessary to compile and link against the <b>xpccut</b> library, the
+developer could enter these commands:
+
+\verbatim
+   $ MY_CFLAGS=`pkg-config --cflags xpccut`
+   $ MY_LIBS=`pkg-config --libs xpccut`
+\endverbatim
+
+But the <b>GNU</b> tools make it even easier, and also perform a number of
+tedious checks and setup actions.
+
+By the way, be sure to read the <tt>pkg-config(1)</tt> man page.
+
+\verbatim
+   $ man pkg-config
+\endverbatim
+
+\subsection xpc_linkage_configure_ac Modifying the configure.ac file
+
+The <tt>configure.ac</tt> file is the template for configuring the whole
+project.  It contains directives to test for various libraries and resource,
+and directives to set up macros and make-files.
+
+For the purposes of linking to the <b>xpccut</b> library using the
+<i>pkg-config</i> system, the following lines are added:
+
+   -# <tt>PKG_CHECK_MODULES([XPCCUT], [xpccut-1.0 >= 1.0])</tt> \n
+      This line runs an <b>m4</b> macro that looks for the correct version
+      of the <b>xpccut</b> library.  It calls the <i>pkg-config</i>
+      application and creates the following symbols:
+      -  <tt>XPCCUT_CFLAGS</tt>
+      -  <tt>XPCCUT_LIBS</tt>
+      You can actually look at the installed <tt>xpccut-1.0.pc</tt> file to
+      see that the <b>C</b> flags are something like
+      <i>-I/usr/local/include/xpc-1.0</i> and the <i>ld</i> flags are
+      something like <i>-L/usr/local/lib/xpc-1.0 -lxpccut</i>.
+      Also note that this check looks only at the major and minor version
+      numbers, not the patch-level number.
+   -# <tt>CFLAGS="${CFLAGS} $COMMONFLAGS $XPCCUT_FLAGS"</tt>.  The resultant
+      flags are added to <tt>CFLAGS</tt>.
+
+In the next section, we skip the <tt>src</tt> directory and its make-file,
+where only the normal <i>xpchello</i> application is built, to examine
+the test application's setup, because that's the application that links to
+the <b>xpccut</b> library.
+
+\subsection xpc_linkage_test_makefile Modifying tests/Makefile.am
+
+The <b>automake</b> template make-file for the tests application has
+to be told where to find the <b>xpccut</b> library.  Here are the lines that
+have to be added to it:
+
+   -# <tt>XPCCUT_LIBS = \@XPCCUT_LIBS\@ </tt> \n
+      This line allows <i>configure</i> to expose the <tt>XPCCUT_LIBS</tt>
+      variable created by the <tt>PKG_CHECK_MODULES()</tt> module to be
+      added to the <tt>Makefile</tt> that gets generated in the
+      <tt>tests</tt> directory.
+   -# <tt>xpchello_test_LDADD = \@LIBINTL\@ -lpthread $(XPCCUT_LIBS)</tt> \n
+      This line adds something like
+      <tt>-L/usr/local/lib/xpc-1.0 -lxpccut</tt> to the normal linkage
+      specification needed for building the test application.
+   -# <tt>xpchello_test_lt_LDADD = \@LIBINTL\@ -lpthread $(XPCCUT_LIBS)</tt> \n
+      This line is the same as the previous one, but builds a
+      dynamically-linked version of the test application.
+
+Let's recapitulate the whole process from the very beginning, in terms of
+actual commands.  Note that we currently provide tar files with dates in
+them, instead of version numbers.  The current version is 1.0.0.  The dates
+below may not represent the lastest tar files you can find.
+
+   -# Install and build the <i>xpccut</i> library code:
+      -# <tt>$ tar xf xpccut-2009-04-23.tar.bz2</tt> \n
+         Unpack the code.  Preferably, do this in an <tt>xpc_suite</tt>
+         directory, because that's the home for all <b>XPC</b> projects.
+      -# <tt>$ cd xpccut-1.0</tt> \n
+         Change to the project directory.
+      -# <tt>$ ./bootstrap</tt> \n
+         By default, this script also configures for a release build.
+         If you want to see the available options, add the <tt>--help</tt>
+         option.
+      -# <tt>$ make</tt> \n
+         Build the library, documentation, and unit-test application.
+      -# <tt># make install</tt> \n
+         As root, install the library, header files, man pages, pkgconfig
+         file, and the HTML version of the Doxygen documentation.
+   -# Install and build the <i>xpchello</i> application code:
+      -# <tt>$ tar xf xpchello-2009-04-23.tar.bz2</tt> \n
+         Unpack the code.  Preferably, do this in the <tt>xpc_suite</tt>
+         directory, because that's the home for all <b>XPC</b> projects.
+         However, for better testing of the building and the installation 
+         of the other <b>XPC</b> libraries (e.g. <i>xpccut</i>, then unit-test
+         library), feel free to untar this file somewhere else, such as
+         <tt>~/tmp</tt>.
+      -# <tt>$ cd xpchello-1.0</tt> \n
+         Change to the project directory.
+      -# <tt>$ ./bootstrap --super-boot</tt> <b> . . . </b>\n
+         Run this command and others as explained in the \ref xpc_intl_process
+         section.  <i>gettextize</i> forces a prompt.
+         If the <b>xpccut</b> library has <i>not</i> been installed, you will
+         see the following message and an explanation:
+   \verbatim
+            No package 'xpccut-1.0' found
+   \endverbatim
+      -# <tt>$ cd tests</tt> \n
+         Change to the test directory.
+      -# <tt>$ make</tt> \n
+         Generate the <i>xpchello_test</i> test application.
+
+ *//*-------------------------------------------------------------------------*/
+
+/******************************************************************************
+ * xpchello/doc/dox/xpc_linkage.dox
+ *----------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *//*-------------------------------------------------------------------------*/

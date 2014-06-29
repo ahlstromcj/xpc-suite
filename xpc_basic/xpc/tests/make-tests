@@ -1,0 +1,82 @@
+#!/bin/sh
+#
+#******************************************************************************
+# make-tests
+#------------------------------------------------------------------------------
+##
+# \file       	make-tests
+# \library    	xpc
+# \author     	Chris Ahlstrom
+# \date       	03/02/2008-03/02/2008
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+#     The above is modified by the following to remove even the mild GPL
+#     restrictions:
+#
+#     Use this script in any manner whatsoever.  You don't even need to give
+#     me any credit.  But do not give me any blame, either.
+#
+#     However, keep in mind the value of the GPL in keeping software and its
+#     descendant modifications available to the community for all time.
+#
+# Unit-test script for the XPC library:
+#
+#     This file runs all of the unit tests that are ready.  It can be
+#     invoked via "make test" or by cd'ing to the tests directory and
+#     invoking "./make-tests".
+#
+#     This script runs all tests in quiet mode.  It is meant to be
+#     used with the "make test" option of the project build.
+#
+#     It will be refined as time goes on.
+#
+# ------------------------------------------------------------------------------
+
+FAILURE="no"
+TESTSDIR="."
+if [ "$1" != "" ] ; then
+   TESTSDIR="tests"
+fi
+
+echo "Commencing unit tests of the XPC library."
+
+#******************************************************************************
+# xpc_strings_unit_test
+#------------------------------------------------------------------------------
+#
+#     This test is currently small, and needs to be beefed up with a lot
+#     more unit tests.
+#
+#------------------------------------------------------------------------------
+
+$TESTSDIR/xpc_strings_unit_test --quiet
+if [ $? != 0 ] ; then
+   echo "xpc_strings_unit_test failed"
+   FAILURE="yes"
+fi
+
+#******************************************************************************
+# xpc_thread_unit_test
+#------------------------------------------------------------------------------
+#
+# $TESTSDIR/xpc_thread_unit_test --quiet
+# if [ $? != 0 ] ; then
+#    echo "xpc_thread_unit_test failed"
+#    FAILURE="yes"
+# fi
+
+echo "Unit tests of the XPC library finished."
+if [ "$FAILURE" == "yes" ] ; then
+   echo "At least one of the XPC library unit tests failed."
+   echo "Find out which one(s) and debug it."
+fi
+
+#******************************************************************************
+# make-tests
+#------------------------------------------------------------------------------
+# Local Variables:
+# End:
+#------------------------------------------------------------------------------
+# vim: ts=3 sw=3 ft=automake
+#------------------------------------------------------------------------------

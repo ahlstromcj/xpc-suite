@@ -1,0 +1,106 @@
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 0.1.3
+#
+# Note:  This setup requires the installation of xbindkeys, alsa-utils,
+#        mrxvt, iceweasel, and some other odds and ends
+#
+# If you edit this, do not forget to uncomment any lines that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h 
+# The XK_ is not needed. 
+#
+# List of modifier (on my keyboard): 
+#   Control, Shift, Mod1 (Alt), Mod2 (NumLock), 
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll). 
+#
+# Another way to specifie a key is to use 'xev' and set the 
+# keycode with c:nnn or the modifier with m:nnn where nnn is 
+# the keycode or the state returned by xev 
+#
+# This file is created by xbindkey_config 
+# The structure is : 
+# # Remark 
+# "command" 
+# m:xxx + c:xxx 
+# Shift+... 
+
+#keystate_numlock = enable
+#keystate_scrolllock = enable
+#keystate_capslock = enable
+
+#Show bound keys file
+"xbindkeys_show&"
+   control+shift + q
+
+# ca 2010-11-04
+# We no longer care about idiot buttons, and want to enable
+# only buttons found on most keyboards.
+
+#Volume Down
+# c:174
+# After xorg 7.4/xserver-xorg 1.5:
+# c:122 XF86AudioLowerVolume
+# "amixer -c 0 -- sset Master playback -35dB > /dev/null&"
+
+#Volume Down: Tux-F1
+"amixer -c 0 -- sset Front playback -35dB > /dev/null&"
+    m:0x40 + c:67
+    NoSymbol 
+
+#Volume Up
+# c:174
+# After xorg 7.4/xserver-xorg 1.5:
+# c:123 XF86AudioLowerVolume
+# "amixer -c 0 -- sset Master playback -20dB > /dev/null&"
+
+#Volume Down: Tux-F2
+"amixer -c 0 -- sset Front playback -20dB > /dev/null&"
+    m:0x40 + c:68
+    NoSymbol 
+
+#Mute/Unmute
+# c:160
+# After xorg 7.4/xserver-xorg 1.5:
+# c:121 XF86AudioMute
+#
+#"amixer -c 1 -- sset Master toggle&"
+#    m:0x0 + c:121
+#    NoSymbol 
+
+#Mute/Unmute: Tux-F3  (where Tux is the frickin' "Windows" key)
+#
+# On mlsrock, the main card is 0, and the main volume control is "Front"
+#
+# 0x0 is the down state, 0x40 is the release state.
+
+"amixer -c 0 -- sset Front toggle > /dev/null&"
+    m:0x40 + c:69
+    NoSymbol 
+
+#-------------------------------
+# Tux-F4 currently unassigned
+#-------------------------------
+
+#Play/Pause
+# "audio-player --play-pause > /dev/null&"
+# c:162
+# After xorg 7.4/xserver-xorg 1.5:
+# c:172 XF86AudioPlay
+#
+#"mpc toggle"
+#    m:0x0 + c:172
+#    NoSymbol 
+
+#Play/Pause: Tux-F5
+"mpc toggle"
+    m:0x40 + c:71
+    NoSymbol 
+
+# vim: ft=sh
+#
+# End of xbindkeys configuration

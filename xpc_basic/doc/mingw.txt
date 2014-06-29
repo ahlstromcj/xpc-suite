@@ -1,0 +1,197 @@
+GENTOO
+
+   http://en.gentoo-wiki.com/wiki/Crossdev
+
+      sys-devel/crossdev:
+
+         dev-util/mingw-runtime
+         dev-util/mingw64-runtime
+         dev-util/w32api
+
+      Supported architectures:
+
+      i686-pc-linux-gnu: The default x86 tuple for PCs.
+      x86_64-pc-linux-gnu: The default tuple for 64-bit x86 Machines (such as
+            the AMD 64 and IA64 architectures).
+      powerpc-unknown-linux-gnu: Support for PowerPC PCs, e.g. Apple Macintoshes.
+      arm-unknown-linux-gnu: Support for embedded devices based on ARM chips.
+      arm-softfloat-elf: For embedded devices with ARM chips without hardware
+            floats
+      arm-elf: For embedded devices with ARM chips with hardware floats
+      i686-pc-mingw32: Supports cross-compiling for 32-bit Windows (toolchain
+            based on mingw32).
+      i686-w64-mingw32: Supports cross-compiling for 32-bit Windows (toolchain
+            based on mingw64).
+      x86_64-w64-mingw32: Supports cross-compiling for 64-bit Windows
+            (toolchain based on mingw64).
+      avr: Supports cross-compiling for Atmel AVR-MCU's. 
+
+The command I used:
+
+   crossdev --target i686-pc-mingw32 --ov-output /usr/local/portage
+
+ # crossdev --target i686-pc-mingw32 --ov-output /usr/local/portage----------------------------------------------------------------------------------
+ * crossdev version:      20111118
+ * Host Portage ARCH:     amd64
+ * Target Portage ARCH:   x86
+ * Target System:         i686-pc-mingw32
+ * Stage:                 4 (C/C++ compiler)
+ * ABIs:                  default
+
+ * binutils:              binutils-[latest]
+ * gcc:                   gcc-[latest]
+ * headers:               w32api-[latest]
+ * libc:                  mingw-runtime-[latest]
+
+ * CROSSDEV_OVERLAY:      /usr/local/portage
+ * PORT_LOGDIR:           /var/log/portage
+ * PORTAGE_CONFIGROOT:    
+  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~ 
+  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~  -  _  -  ~ 
+!!! WARNING - Cannot auto-configure CHOST i686-pc-mingw32
+!!! You should edit /usr/i686-pc-mingw32/etc/portage/make.conf
+!!! by hand to complete your configuration
+ * Log: /var/log/portage/cross-i686-pc-mingw32-binutils.log
+ * Emerging cross-binutils ...
+
+Worked on the second try, though, but double-check!!!!
+   http://www.gentoo.org/proj/en/base/embedded/handbook/cross-compiler.xml
+
+   http://metastatic.org/text/libtool.html
+
+      Avoiding libtool minefields when cross-compiling
+
+   http://dev.gentoo.org/~vapier/CROSS-COMPILE-HOWTO
+
+      crossdev options
+
+   http://en.gentoo-wiki.com/wiki/Mingw
+
+   /etc/portage/package.use:
+
+      cross-i686-pc-mingw32/gcc doc gcj multilib nptl openmp libffi -gtk
+            -mudflap -objc -objc++ -objc-gc -selinux
+
+   http://www.gentoo-wiki.info/MinGW
+
+      emerge -va sys-devel/crossdev
+      echo 'PORTDIR_OVERLAY="/usr/local/overlays/crossdev"' >> /etc/make.conf
+      crossdev i686-mingw32
+      
+      (What is "layman" for?)
+
+
+   http://www.gentoo.org/proj/en/base/embedded/handbook/ 
+
+The normal toolchain consists of:
+
+   -  binutils
+   -  gcc/g++
+   -  glibc, uclibc, or newlib (C library)
+   -  linux-headers
+   -  gdb
+
+The cross-development toolchain adds:
+
+   -  crossdev
+
+   crossdev --target <target>
+   crossdev -t help
+   crossdev i686-mingw32
+
+Variable Value For Building Cross-Toolchain     Value For Building Windows binaries
+
+CBUILD               x86_64-pc-linux-gnu        x86_64-pc-linux-gnu
+CHOST                x86_64-pc-linux-gnu        arm-unknown-linux-gnu
+CTARGET              arm-unknown-linux-gnu      not set, redundant re CHOST
+ROOT                 not set -- defaults to /   /path/where/you/install
+PORTAGE_CONFIGROOT   not set -- defaults to /   /path/of/portage/env/for/arch
+
+(Use specific package versions)
+
+# crossdev --g [gcc version] --l [(g)libc version] --b [binutils version]
+      --k [kernel headers version] -P -v -t [tuple]
+
+(Use the stable version only)
+
+# crossdev -S -P -v -t [tuple]
+
+DEBIAN
+
+   http://wiki.njh.eu/Cross_Compiling_for_Win32
+
+   http://mingw-cross-env.nongnu.org/#introduction
+
+   Packages:
+
+      gcc-mingw32 or mingw32
+      mingw-w64
+      mingw32-binutils
+      mingw32-runtime
+      dpkg-cross (???)
+
+   Prefixes:
+
+      i386-mingw32msvc
+      i586-mingw32msvc
+
+   The correct dpkg-architecture name is: w32-i386
+   Afterwards, you are able to use the dpkg-cross tools to
+
+      -  create native packages for the "w32-i386" platform
+      -  convert them into cross compiling packages 
+
+/usr/bin/i586-mingw32msvc-cc -> i586-mingw32msvc-gcc
+/usr/bin/amd64-mingw32msvc-cc -> amd64-mingw32msvc-gcc
+
+My configure command:
+
+   mung % ../configure --host=i586-mingw32msvc
+               --with-mingw32=/usr/586-mingw32msvc
+
+Tools have names like i586-mingw32msvc-gcc.
+
+../configure --host=i686-w64-mingw32 --build=i686-pc-cygwin --with-msw
+--disable-debug --enable-unicode --disable-universal --disable-monolithic
+--enable-gui --disable-shared --enable-exceptions --without-odbc
+--without-opengl --enable-xrc --enable-html --with-regex=builtin
+--enable-richtext --disable-mediactrl --disable-aui --enable-ribbon
+--enable-propgrid --enable-stc --enable-std_string --enable-std_iostreams
+--enable-stl --silent --enable-stc CXX='i686-w64-mingw32-g++.exe'
+CC='i686-w64-mingw32-gcc.exe' LD='i686-w64-mingw32-g++.exe'
+
+../configure CFLAGS=-m64 CPPFLAGS=-m64 LDFLAGS=-m64 --define WX_CPU_AMD64
+--host=x86_64-w64-mingw32 --build=x86_64-pc-cygwin [YOUR_CONFIG_HERE]
+CXX='x86_64-w64-mingw32-g++.exe' CC='x86_64-w64-mingw32-gcc.exe'
+LD='x86_64-w64-mingw32-g++.exe'
+
+The: CFLAGS=-m64 CPPFLAGS=-m64 LDFLAGS=-m64 --define WX_CPU_AMD64 is to tell
+to the compiler to compile the executable in 64bit architecture
+
+
+http://wiki.njh.eu/Cross_Compiling_for_Win32
+
+
+./configure \
+    --target="i386-mingw32msvc"
+
+However, for gcc, I personally recommend to use at least the options:
+
+./configure \
+    --target="i386-mingw32msvc" \
+    --enable-version-specific-runtime-libs \
+    --with-gcc \
+    --with-gnu-ld \
+    --with-gnu-as \
+    --without-x \
+    --enable-threads=win32 \
+    --disable-win32-registry \
+    --enable-sjlj-exceptions
+
+
+http://wiki.filezilla-project.org/Cross_Compiling_FileZilla_3_for_Windows_under_Ubuntu_or_Debian_GNU/Linux#Debian
+
+   Patch snprintf bug in mingw32-runtime
+
+
+../configure --host=i586-mingw32msvc --with-mingw32=/usr/i586-mingw32msvc/

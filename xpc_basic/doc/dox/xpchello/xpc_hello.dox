@@ -1,0 +1,120 @@
+/******************************************************************************
+ * xpchello/doc/dox/xpc_hello.dox
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides no code.  It provides only a Doxygen "Doxygen
+ *    information" page.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file       xpc_hello.dox
+
+   This file describes the building of the <b>XPC</b> <i>Hello</i>
+   application.
+
+\library    xpchello application using the xpccut (unit-test) library
+\page       xpc_hello_mainpage XPC "Hello" Application
+\author     Chris Ahlstrom
+\version    $Revision$ (1.1.0)
+\date       2009-04-11
+\updates    2011-12-31
+\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+
+This document provides a discussion of the <b>XPC</b> Hello project and how
+it is set up to support the construction of an automake-based application,
+linked to one of the <b>XPC</b> external libraries.
+
+\contents
+   -  \ref xpc_hello_introduction
+   -  \ref xpc_library_suite_9
+
+This document is a work in progress.
+
+Note that you can build the detailed-design documentation by running
+<i>doxygen</i> against the <tt>doxygen.cfg</tt> in directory
+<tt>xpchello-1.0/doc/dox</tt>.
+
+\section xpc_hello_introduction Introduction
+
+The <b>XPC</b> <i>Hello</i> application provides a minimalist demonstration
+of internationalizing an application.
+
+It provides a good example of some of the main steps needed to create an
+internationalized application.
+
+In addition, a test application is provided to test linkage with other
+<b>XPC</b> libraries.  See the next section.
+
+Finally, this project also includes demonstration application for:
+
+   -  Internationalization
+   -  Usage of bad pointers
+   -  Core dumps
+   -  The setjump() function
+
+This project provides a small application to demonstrate the many facets
+(pun intended) of internationalizing an application within the context of
+GNU automake.  The application doesn't do much, and we provide only a bad
+Internet-lookup translation in Spanish.
+
+As an added 'hello', to show how to link to other XPC libraries, this project
+also provides a test application to verify that it can be linked to the XPC
+C unit-test library when that library is installed in the conventional GNU
+manner.  The C unit-test library package is called "xpccut-1.0".  The
+'hello' test program also illustrates installing and linking to a library
+that is supported by the GNU "pkgconfig" system.  It doesn't really do much
+in the way of testing, though.
+
+For detailed information on the XPC 'hello' project, see the Doxygen
+documentation generated from the files in the doc/dox sub-directory.  To
+generate this documentation, first install the "doxygen" and "graphviz"
+projects.  (Also install "texlive" if you want to generate the PDF form of
+the documentation.)  Then issue the following commands:
+
+   $  cd doc/dox
+   $  doxygen doxygen.cfg
+
+You can then browse the project documentation by load the link at
+
+   doc/dox/html/index.html
+
+Windows:
+
+   Sorry, at this time, this project does not support Windows, mostly due
+   to gettext.  I don't have a lot of motivation to get gettext() working
+   under Windows.  If you get it to work, please send me the files or
+   changes you needed.
+
+   This project might build under Cygwin, but I'm not sure if all of the
+   components needed (e.g. graphviz and autopoint) are available with
+   Cygwin/X.  Again, I will be happy to receive any fixes.
+
+\section xpc_library_suite_9 The XPC Library Suite
+
+There is a second application included in this project.  It is a small
+<i>Test</i> program.
+
+The <b>XPC</b> <i>Test</i> application provides a separate demonstration
+(and documentation) of how to link to the unit-test library of the <b>XPC
+Library Suite</b>.
+
+The <b>XPC Library Suite</b> is a handful of <b>C</b> libraries to provide
+code that I've found useful over the years, all unit-tested as much as we
+can stomach.
+
+The <i>Test</i> application project has much the same structure as the
+library suite, but it is not part of the suite, even though we keep it in
+the same directory tree.  The <i>Test</i> application requires that the
+<b>XPC Unit-Test Library</b> be built and installed separately.
+
+The <b>XPC Unit-Test Library</b> includes a lot more than just unit-testing.
+Be sure to download it from where you got the <i>Hello</i> project, and
+check it out.
+
+*//*--------------------------------------------------------------------------*/
+
+/******************************************************************************
+ * xpchello/doc/dox/xpc_hello.dox
+ *-----------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *//*-------------------------------------------------------------------------*/

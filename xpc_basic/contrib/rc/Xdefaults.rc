@@ -1,0 +1,204 @@
+! Chris Ahlstrom 2011-10-18 to 2011-10-22
+!
+! to match gnome-terminal "Linux console" scheme
+! foreground/background
+
+! ------------ Resource name "URxvt"
+
+! Transparency without a compositing manager.
+!
+! Shading ranges from darkest (0) to no shading (100) to lightest (200).
+! Blur radius is in pixels.
+
+URxvt.transparent : true
+URxvt.tintColor : #142020
+URxvt.shading : 110
+URxvt.blurRadius : 30
+
+! Transparency under compositing manager
+
+URxvt.depth  : 32
+URxvt.background  : rgba:0000/0000/0000/aaaa
+
+! URxvt*borderLess:true
+
+! URxvt*background: #000000
+! URxvt*foreground: #ffffff
+
+URxvt*background  : #142020
+URxvt*foreground  : #ffdfaf
+
+! Colors for man pages
+
+URxvt.colorIT : #87af5f
+URxvt.colorBD : #00a0a0
+URxvt.colorUL : #00a000
+
+! Colors for scroll-bar
+
+URxvt.scrollColor : #808080
+URxvt.troughColor : #202020
+
+! Fading of text, in percent
+
+URxvt.fading : 50
+URxvt.fadeColor : #142020
+
+! Colors.  Gnome-terminal and Mrxvt varieties supplied.
+
+! black
+
+URxvt.color0  : #000000
+URxvt.color8  : #555555
+
+! red
+
+URxvt.color1  : #AA0000
+URxvt.color9  : #FF5555
+
+! green
+
+URxvt.color2  : #00AA00
+URxvt.color10 : #55FF55
+
+! yellow
+
+URxvt.color3  : #AA5500
+URxvt.color11 : #FFFF55
+
+! blue
+
+URxvt.color4  : #0000AA
+URxvt.color12 : #5555FF
+
+! magenta
+
+URxvt.color5  : #AA00AA
+URxvt.color13 : #FF55FF
+
+! cyan
+
+URxvt.color6  : #00AAAA
+URxvt.color14 : #55FFFF
+
+! white
+
+URxvt.color7  : #AAAAAA
+URxvt.color15 : #FFFFFF
+
+! URxvt*font: xft:Arimo:pixelsize=12
+! URxvt*boldFont: xft:Arimo:pixelsize=12
+
+! URxvt*font: xft:Droid-Sans:pixelsize=12
+! URxvt*boldFont: xft:Droid-Sans:pixelsize=12
+
+URxvt*font: xft:Monospace:pixelsize=14
+! URxvt*boldFont: xft:Monospace:pixelsize=14
+
+URxvt*letterSpace: -1
+
+! URxvt.perl-ext-common : default,matcher
+
+! URxvt.perl-ext-common: default,tabbed
+! URxvt.urlLauncher     : firefox
+! URxvt.matcher.button  : 1
+
+! ------------ Resource name "emrxvt"
+!
+! Using this resource name with urxvt makes it closely match the appearance
+! of my mrxvt setup.
+!
+emrxvt.geometry : 82x54
+
+! Transparency without a compositing manager.
+!
+! Shading ranges from darkest (0) to no shading (100) to lightest (200).
+! The tintColor is such that black (#000000) deeply shades the background,
+! while white (#ffffff) very lightly shades it, preserving the colors.
+! Blur radius is in pixels.
+
+emrxvt.transparent : true
+emrxvt.tintColor : #ffffff
+emrxvt.shading : 40
+emrxvt.blurRadius : 30
+
+! Transparency under compositing manager
+
+emrxvt.depth  : 32
+emrxvt.background  : rgba:0000/0000/0000/aaaa
+
+! emrxvt*borderLess:true
+
+emrxvt*background  : #142020
+emrxvt*foreground  : #ffdfaf
+
+! Colors for man pages
+
+emrxvt.colorIT : #87af5f
+emrxvt.colorBD : #00a0a0
+emrxvt.colorUL : #00a000
+
+! Colors for scroll-bar
+
+emrxvt.scrollColor : #808080
+emrxvt.troughColor : #202020
+
+emrxvt*font: xft:Monospace:pixelsize=14
+
+! Uncomment the following if you don't want BOLD text to be used.
+! Allowing bold text makes some file types in 'ls' bold, and some
+! keywords in C (under vim) bold.  If you don't like bold file/directory
+! names in 'ls', then modify /etc/DIR_COLORS as the preferred method.
+!
+! emrxvt*boldFont: xft:Monospace:pixelsize=14
+
+! Fading of text, in percent
+!
+! Doesn't seem to have any effect
+
+emrxvt.fading : 50
+emrxvt.fadeColor : #142020
+
+! Colors.  Gnome-terminal and Mrxvt varieties supplied.
+
+! black
+
+emrxvt.color0  : #101010
+emrxvt.color8  : #303030
+
+! red
+
+emrxvt.color1  : #ef0000
+emrxvt.color9  : #ff0000
+
+! green
+
+emrxvt.color2  : #00a000
+emrxvt.color10 : #00f000
+
+! yellow
+
+emrxvt.color3  : #909000
+emrxvt.color11 : #c0c000
+
+! blue
+
+emrxvt.color4  : #0000ff
+emrxvt.color12 : #0000ff
+
+! magenta
+
+emrxvt.color5  : #ef00ef
+emrxvt.color13 : #a000a0
+
+! cyan
+
+emrxvt.color6  : #00c0c0
+emrxvt.color14 : #00c0c0
+
+! white
+
+emrxvt.color7  : #b0b0b0
+emrxvt.color15 : #e0e0e0
+
+! End of .Xdefaults

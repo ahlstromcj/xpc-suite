@@ -1,0 +1,1066 @@
+/******************************************************************************
+ * Module:        xpc_nice_classes.dox -- Chris Ahlstrom 11/24/2006
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides no code.  It provides only a Doxygen "class
+ *    information" page.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file    xpc_nice_classes.dox
+
+   This file provides a collection of advice from various sources about the
+   creation of good <b>C++</b> classes and functions.
+
+\page    xpc_nice_classes Nice Regular Classes and Coding Conventions
+\author  Chris Ahlstrom
+\version $Revision$ (1.1.0)
+\date    2009-06-11
+\updates 2012-09-25
+\license $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+
+This document describes the coding conventions for a <i>nice</i> and
+<i>regular class</i>.
+
+\section xpc_nice_classes_intro Introduction
+
+   This section provides a fast tutorial on writing class functions and
+   friendly global functions.  In addition, it illustrates coding
+   conventions pretty similar to what one might like to use in everyday
+   code.
+
+   It declares all the items of a "nice" class and a "regular" class.
+   Demonstrates the basics of some useful techniques for improving the
+   consistency and maintainability of a class.
+
+   For this discussion, assume that all the following occur as inline
+   functions in the class declaration
+
+\verbatim
+         class X : public B {};
+\endverbatim
+
+   Let class <b>T</b> represent a built-in type; let <b>B</b> and <b>Y</b>
+   represent any other type.  Let instances of each class be denoted by
+   the same letter, in lower case.
+
+   The following code fragments represent some of the more important
+   constructors, operators, and destructors that can be written, and the
+   things needing to be done by each of them for efficiency, safety, and
+   maintainability.
+
+\section xpc_nice_classes_background Background
+
+   Margaret Ellis and her colleagues group the functions in the categories
+   of "regular" and "nice".  No, "regular" is \e not what's normal for you.
+   These two terms summarize classes that have behavior consistent with that
+   of the built-in classes.  There should be few surprises in the usage of a
+   regular or nice class.
+
+\section xpc_nice_classes_characteristics Characteristics of Nice and Regular Classes
+
+<b> Regular classes provide the following functions: </b>
+
+\verbatim
+copy constructor           Construct an X whose value is the same as x
+destructor                 Destroy this X object
+principal assignment op    Set this object to x & return a reference to it
+equality op                Return true if & only if x1 & x2 have same value
+inequality op              Return true if & only if x1 & x2 not the same
+\endverbatim
+
+<b> Nice classes provide the following functions: </b>
+
+\verbatim
+default constructor        Construct an object with a null value
+copy constructor           Construct an X whose value is the same as x
+destructor                 Destroy this X object
+assignment op              Set this object to x and return a reference to it
+equality op                Return true if & only if x1 and x2 have same value
+\endverbatim
+
+   As noted in
+   http://en.wikibooks.org/wiki/C%2B%2B_Programming/Classes/Nice_Class,
+   "nice" classes can be called "container-safe" classes.
+
+   Note that we provide a relatively simple class declaration, followed
+   by a well-documented inline definition for each function.  This should
+   give you quite a jump start on your own nice classes.  Thanks to the
+   books of Bjarne Stroustrop, Scott Meyers, and Stan Lippman, as well
+   as code by Paul Pedriana, and an article by Ellis.
+
+\section xpc_nice_classes_semantics Semantics of Copying and Assignment
+
+   Here, we discuss the copy constructor, the principal assignment
+   operator (PAO), a copy() function, and a clone() function.  The copy() and
+   clone() functions are useful in containing common code used in the
+   writing of the copy constructor and principle assignment operator.
+
+\verbatim
+                                    copy      principle
+   Item                        constructor   assignment   copy()    clone()
+
+   Destination exists                no         yes       yes         no
+   Need to delete old items          no         yes       yes         no
+   Need to create new items          yes        yes       yes         yes
+\endverbatim
+
+   Note the need for creation and deletion.  This means you should also
+   write a pair of functions such as "allocate()" and "deallocate()" or
+   "create()" and "destroy()".  Often, all of these functions are also
+   useful in the other constructors or in the destructor.  See, for example,
+   \ref xpc_nice_classes_func_princ_assign_op.
+
+\todo
+   Point to some code in other project that uses something like copy(),
+   clone(), allocate(), and deallocate().
+
+   You might call this "the Tao of PAO".  In any case, GUI frameworks
+   like MFC and OWL often hide the copy constructor and assignment
+   operator because writing them correctly can be hard work!
+
+\section xpc_nice_classes_retval_optimization Return-Value Optimization
+
+   "Return value optimization" (RVO) is a technique for avoiding temporary
+   variables created by the compiler to return results to the caller of a
+   function.
+
+   See http://www.cs.cmu.edu/~gilpin/c++/performance.html#returnvalue for a
+   discussion of one form of RVO.  This isn't what is normally meant by RVO,
+   though.
+
+   It involves the difference between these two calls:
+
+\verbatim
+const T operator + (const T & lhs, const T & rhs)
+{
+   T result(lhs);             // copy lhs into result
+   return result += rhs;      // add rhs to it and return it
+}
+\endverbatim
+
+   versus
+
+\verbatim
+const T operator + (const T & lhs, const T & rhs)
+{
+   return T(lhs) += rhs;      // return value optimization
+}
+\endverbatim
+
+   Here may be a good link for general C++ optimization issues:
+
+      http://www.tantalon.com/pete/cppopt/main.htm
+
+   Another, more esoteric, link:
+   http://blogs.msdn.com/slippman/archive/2004/02/03/66739.aspx
+   This article provides an in-depth discussion of "named" RVO, and how the
+   two most widely used compilers, Visual C++ and GNU C++, did not implement
+   it for a long while.
+
+\section xpc_nice_classes_conventions Coding Conventions
+
+   Lots of lessons packed into this module:
+
+      -# Use the correct header style on all modules, including the
+         project files.  See the top of this module for one example.
+      -# Avoid tab characters, but set the tab stops of your editor
+         to increments of 3 or 4.  Some projects use 8.  We use 3. Set up
+         your editor or IDE right now!
+      -# Use white space wisely and to good effect.  Surround operators
+         with a space when possible.
+      -# Use the carriage return often to increase readability and keep the
+         lines no more than 80 characters.  (You be glad you did when your
+         company hands you a laptop or a PDA with a too-small screen!)
+      -# Comments.
+         -# Use short side comments when possible, and line them up
+            at the same tab stop.
+         -# We have two ways to comment lines of code.  Pick whichever
+            works best for the kind of code your writing.
+            -# // Put the comment right above code.  Good with one-liners.
+               category = NICE_CLASS;
+            -# // Embed the comment as a paragraph before a number of lines
+               // of code.  This style is good when you want to explain a
+               // number of lines of code using a single, long comment.
+               // Extra blank comment lines can be added if desired.
+\verbatim
+   category = NICE_CLASS;
+   for (int ci = 0; ci < category; ci++)
+   {
+         much_code();      // a routine thing to do!
+   }
+\endverbatim
+         -# Comment on and explain all parameters and return values.
+            Don't allow the reader to make incorrect guesses as to
+            what the parameters means.
+      -# Put the return type of functions on a line by itself.  This
+         habit makes it easier to find declarations with a real
+         programmer's editor (one that can search for the beginning of
+         a line), and also makes long declarations easier to read.
+      -# Naming conventions.  This area seems to garner the most
+         controversy, so the following items are just suggestions.
+         -# Try to use lower case for local variables.
+         -# Avoid use of warts unless it is deeply ingrained in your
+            psyche.  Some common warts:
+            -  sz     string terminated by an ASCII zero
+            -  lpsz   long pointer to string terminated by an ASCII zero
+            -  b      boolean variable
+            -  i      integer variable -- holy FORTRAN!
+            -  m_     a member variable of a Microsoft class
+            -  _      Appended or prepended to certain members
+         -# Use mixed case for members of a class, or whereever it
+            will distinguish variables with good effect.
+      -# Adopt a consistent and clean function indentation style.  Here
+         are two.  The first one makes it easy to comment on the
+         parameters, and is perhaps easier to read.
+\verbatim
+   static int
+   integers_to_ascii_array
+   (
+      int firstone,
+      int secondone,
+         ...
+   )
+   {
+      ... define the function ...
+   }
+\endverbatim
+            All statement blocks should be indented in this manner, too.
+\verbatim
+   static int integers_to_ascii_array (
+      int firstone,
+      int secondone, ... )
+   {
+      ... define the function ...
+   }
+\endverbatim
+
+\section xpc_nice_classes_error_handling Error Handling
+
+   There are two main camps on the topic of error handling.  The first
+   camp believes in using and checking return values.  The second camp
+   believe in using exception handling.  Return values require great
+   diligence in the codernaught, so that all values get checked.
+   Exception handling requires great diligence in making constructors
+   exception-safe (no leaks), and exceptions can generate some unwanted
+   overhead.
+
+      Should you have a single error-handling convention?  I don't
+   know.  You should probably use both methods, depending on the module
+   involved, but use except only for the more arduous errors.
+
+\todo
+   Other topics of discussion are possible, and listed here:
+     -#   References versus pointers:
+     -#   Makefiles versus IDEs:
+     -#   Programmer's editors:
+     -#   The Standard Template Library:
+     -#   Library construction and module distribution:
+   Last   The class functions declaration and sketched elsewhere.
+
+\section xpc_nice_classes_pseudo_class A Nice Pseudo-Class
+
+   This sample class should give you an idea of a nice class.
+
+\section xpc_nice_classes_pseudo_class_decl  Declarations
+
+\verbatim
+#if !defined NiceClassCode_h
+#define NiceClassCode_h
+
+#include "U_class.h"                // U, a user-written or library class
+
+typedef int B;                      // B is a built-in type (e.g. integer)
+typedef int T;                      // T is any type; includes U or B
+
+/*********************************************************************
+// Class member versions of declarations
+//
+// Note the "friend" function.  Friend functions are a good way to
+// extend the interface of a class without adding to the complexity of
+// the class.  Also, overloaded operator functions need to be friends.
+//
+// The rest of this class declaration shows the best function
+// signatures for various member functions.  The functions themselves
+// are fleshed out and described below.
+//
+/*********************************************************************
+
+class X : public U                  // note the base class, U
+{
+   friend const X operator + (const X & x1, const X & x2);   // binary operator
+
+public:
+
+   X ();                            // default constructor
+   X (T t = 0);                     // default constructor (default parameter)
+   X (const X & x);                 // copy constructor
+   operator C ();                   // conversion operator (inherited) named C
+   operator C () const;             // conversion operator (safer)
+   X & operator = (const X & x);    // principal assignment operator
+   virtual ~X ();                   // destructor (virtual for base classes)
+
+   bool operator < (const X & x) const;    // less-than operator
+   bool operator > (const X & x) const;    // greater-than operator
+   bool operator == (const X & x) const;   // equality operator
+   bool operator != (const X & x) const;   // inequality operator
+   bool operator <= (const X & x) const;   // less-than-or-equal-to operator
+   bool operator >= (const X & x) const;   // greater-than-or-equal-to operator
+
+   int operator ! ();                  // unary operator
+   X & operator += (const X & x);      // assignment version of operator
+   const X operator + (const X & x);   // member version of binary operator
+   X & operator ++ ();                 // prefix increment operator
+   const X operator ++ (int);          // postfix increment operator
+   X & operator [] (T index) const;    // read subscript (must be non-static)
+   X & operator [] (T index);          // write subscript (must be non-static)
+   X operator () () const;             // parentheses operator
+   void operator () ();                // parentheses operator
+   Y * operator -> () const;           // indirection (dereference) operator
+   Y & operator * () const;            // indirection operator
+
+private:
+
+   B built_in_type_member;
+   T another_type_member;
+
+};
+
+/*********************************************************************
+// Global versions of declarations
+//
+// Any of the following functions that need to be implemented in
+// terms of private members of class X must be declared friends of
+// class X, as shown above for
+//
+//       const X operator + (const X & x1, const X & x2);
+//
+// Also note that there is a member version of operator +() declared
+// above.   See the definition's comments way below for the reasoning.
+//
+/*********************************************************************
+
+bool operator < (const X & x1, const X & x2) const;   // less-than operator
+bool operator > (const X & x1, const X & x2) const;   // greater-than operator
+bool operator == (const X & x1, const X & x2);        // equality operator
+bool operator != (const X & x1, const X & x2);        // inequality operator
+bool operator <= (const X & x1, const X & x2) const;  // less-than-or-equal operator
+bool operator >= (const X & x1, const X & x2) const;  // greater-than-or-equal operator
+
+int operator ! (X & x);                               // unary operator
+
+const X operator + (const X & x1, const X & x2);      // binary operator
+const X operator + (const X & x1, const T t);         // overloading on Tr
+const X operator + (const T t, const X & x);          // commutativity
+\endverbatim
+
+\section xpc_nice_classes_pseudo_class_defs  Definitions
+
+   This section briefly discusses the implementation of class members.
+
+\subsection xpc_nice_classes_func_default_ctor Default constructor
+
+The default constructor creates and initializes all of the resources a class
+will need (though with default values, which have the option of disabling
+the class).  It can often be made more robust with a reusable "create()" or
+"allocate()" function as discussed in \ref xpc_nice_classes_semantics.
+
+   -# Be sure to include the member initializations in the order
+      of their declaration in the class.  The compiler will call them
+      in that same order, and you won't get confused in the debugger.
+   -# Be very sure to make any constructed objects exception-safe
+      (e.g. by using the auto_ptr template class).  See "More
+      Effective C++" for details.  This safety requires great care
+      and a lot of work.
+   -# Prefer initialization in the initializer list to assignment
+      in the body of the constructor; it's more efficient and
+      often more clear.
+   -# Avoid writing code that calls the default constructor and
+      follows the call with a bunch of member initializations using
+      public accessor functions.
+      -# Exposing the members publicly is dangerous.
+      -# The code is less clear and definitely less efficient.
+         The caller is forced to maintain copies of member values
+         to use for the initialization.  [Microsoft's MFC violates
+         this advice a lot; Borland's OWL does a better job.]
+   -# Remember that some container classes require that a default
+      constructor be supplied.  If the compiler's version won't do the
+      right thing, then you must provide this function.
+
+   Here is a skeleton of a default constructor.
+
+\verbatim
+inline
+X::X ()
+ :
+   U(...),        // base class construction
+   member(...)    // member initializations
+{
+   // Other code; Microsoft and other software often assigns to members
+   // here, unfortunately.  This is redundant and less readable.
+   //
+   // Don't forget about the issue of <i>exception safety</i>.
+   // Googoo for...  I mean Google for it.
+   //
+   // If a create() or allocated() function written for reuse exists, it may
+   // be possible to call it here.
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_principal_ctor Principal constructor
+
+The term <i> principal constructor </i> is simply our term for the main
+constructor of a class.  This function provides one or more non-default
+parameters, and is the constructor most likely to be called.
+
+This term is analogous to <b> principal assignment operator </b>, and was
+coined merely to distinguish the main constructor from the other ones.
+
+\subsection xpc_nice_classes_func_conversion_ctor Conversion via default constructor using default parameter
+
+\verbatim
+inline
+X::X (T t = 0)
+ :
+   U( ... ),      // base class construction
+                  // member initializations
+{
+   // other code
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_copy_ctor Copy constructor guidelines
+
+      -#  Consider implementing a reference-counting scheme.
+      -#  The copy constructor is a regular and nice function.
+      -#  Another valid form is X::X(const X & x, T t = 0)
+
+   Note that this does not cover the issue of copying the base class
+   portion properly.  Not sure what to do, but see the principal
+   assignment operator for an idea, using the = operator.  Also see
+   Stroustrop's discussion of clone() or copy() functions.
+
+   It might be that the base classes appear first in the member
+   initialization list, as in:
+
+\verbatim
+      U(x)
+\endverbatim
+
+   which should initialize the U part of the new X with the U part of the
+   x parameter.
+
+   Note that we have some ways of detecting an error in a constructor
+   call:
+
+      -#  Checking for a null pointer or other badly-initialized member.
+      -#  Setting an "is-error" member, providing a public function to check
+          it, and actually calling it after construction.
+      -#  Catching a thrown exception.
+
+\verbatim
+inline
+X::X (const X & x)
+ :
+   U( ... ),      // base class construction
+   each_member(x.each_member),
+   .  .  .
+{
+   // Let xm be a pointer allocated in the constructor.  Then the following
+   // stylized code could be used [many ways of copying can be employed]:
+
+   xm = new (nothrow) Y;      // allocate space for the object
+   if (xm != 0)               // make sure the allocation worked first
+      *xm = *x.xm;            // copy the object
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_copy_construct2 Copy constructor (another version)
+
+      -# Found this alternate method in Borland's OwlSock code.  Ye gods!
+      -# Note the use of operator =().
+      -# This implementation mixes up the semantics of the copy
+         constructor and the principal assignment operator.  The
+         copy semantics are something like
+         -# Create the object and its members.
+         -# Allocate any memory, if applicable.
+         -# Copy from the members of the source class, and, if applicable
+            from the memory allocated in the source class.
+      -# The assignment semantics are different, because the destination
+         already exists:
+         -# Make sure the source and destination are not the same.  If the
+            same, skip to step e.
+         -# Delete any allocated memory, if applicable.
+         -# Re-allocate any new memory, if applicable.
+         -# Copy from the members of the source class, and, if applicable
+            from the memory allocated in the source class.
+         -# Return "*this".
+      -# Do not write functions like those below.
+
+\verbatim
+inline
+X::X (const X & x)
+{
+   operator =(x);            // bad semantics, and should cast to (void)
+}
+
+inline
+X::X (const T & t)
+{
+   operator =(t);            // bad semantics, and should cast to (void)
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_princ_assign_op Principal assignment operator
+
+   The principal assignment operator (operator =) is a great example of a
+   function that checks its parameters, deallocates existing data, creates a
+   new area for it, copies data, and then returns a reference to itself.  It
+   uses the functions mention in \ref xpc_nice_classes_semantics -- copy(),
+   clone(), allocate()/deallocate() or create()/destroy().  Thus, it
+   provides many opportunities for re-use and robustness.
+
+      -# Must be a member function, to avoid absurdities.
+      -# Must return a reference to X, to permit the chaining of
+         assignments.  [Scott Ladd's old book erroneously declared
+         this operator as "void".]
+      -# Check to be sure that assignment to self is not done.
+         Might need to implement an identity scheme, especially when
+         multiple inheritance is involved, since there's no guarantee
+         that the address applies to the part of the object desired.
+         Here are the easy, but sometimes insufficient, alternatives:
+\verbatim
+            if (this != &x)            check pointer values [a fast method]
+            if (*this != x)            check object value
+\endverbatim
+      -# Not an inherited function.  Derived class's must provide
+         there own version.  The version provided by the compiler assigns
+         only the members of the derived class.
+      -# Delete any existing resources in the object, if necessary.
+      -# Note how the base class's operator can be called to increase
+         the consistency of the code, but only if the operator has been
+         explicitly declared.
+         Otherwise, a cast to a reference can be used.  Both alternatives
+         are shown below.
+      -# Allocate any necessary resources and copy the values from the
+         source.
+         A copy() function can contain code common to both the copy
+         constructor and the principla assignment operator.  See
+         Stroustrop for advice.
+      -# Assign the derived-class members.
+      -# Return *this, always.
+
+\verbatim
+inline X &
+X::operator = (const X & x)
+{
+   if (this != &x)               //  make sure not assigning to self
+   {
+      // Let xm be a pointer allocated in the constructor.  Then the
+      // following stylized code could be used:
+
+      if (xm != 0)               // current object already have one?
+         delete xm;              // yes, delete it (might need [] in some cases)
+
+#if base class U explicitly declares an assignment operator
+         U::operator =(x);       // copy the U portion
+#else
+         ((U &) *this) = x;      // copy the U portion
+#endif
+
+      each_member = x.each_member;  // copy the members
+
+      xm = new Y;                // allocate space for the new object
+      *xm = *x.xm;               // copy the object
+   }
+   return *this;                 // take note of this!
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_dtor Destructor
+
+      -# Be sure to make the destructors of base classes virtual.  In this
+         way, the base class destructor will be called when the derived
+         class's destructor finishes.
+      -# Even if a virtual destructor is pure, a definition must be
+         coded, since a base class's virtual destructor will be called
+         when the derived class's destructor finishes.
+      -# Do not define a destructor unless one is necessary.  Otherwise
+         code is wasted, and the reader might be confused as to why
+         a do-nothing destructor is defined.
+      -# "More Effective C++" discusses a method of controlling the
+         propagation of exceptions, as hinted at in the code below.
+
+\verbatim
+inline
+X::~X ()
+{
+   try
+   {
+      // code that might cause exceptions
+   }
+   catch (...)         // catch any exception
+   {
+      // do nothing; we just want to stop the exception from propagating
+      // further
+   }
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_conversion_op Conversion operator (an inheritable function)
+
+      -# The conversion operator is useful with smart pointers.
+      -# Converts from a class to a basic type (e.g. a built-in type
+         or a structure).
+      -# By convention, this kind of function has no explicit return type.
+         The return type is implicitly the name of the operator.
+      -# Warning:  The compiler can call the conversion implicitly.
+         Meyers recommends eschewing this operator.  Instead,
+         replace the built-in type T with a function name that has
+         less syntactic magic (e.g. "AsDouble" versus "double").
+         The keyword "explicit" can be used to avoid unintended
+         implicit conversions in compilers that are up to the latest
+         C++ specifications.
+      -# This function is inherited by derived classes.
+      -# Note the safer "const" version.
+      -# It might be better to reinterpret_cast<T *>(this) below,
+
+\verbatim
+inline
+X::operator T ()
+{
+   return *((T *) this);
+}
+
+inline
+X::operator T () const               // the safer version
+{
+   return *((T *) this);
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_equality_op Equality operator
+
+      -# This is a regular and nice function.
+      -# Use this operator to implement the operator !=().
+
+\verbatim
+inline bool
+X::operator == (const X & x) const
+{
+   bool result = false;
+
+   // implement the desired definition of equality.  For example...
+
+   if (member == x.member)
+      result = true;
+
+   return result;
+}
+\endverbatim
+
+\todo
+   We ought to describe the non-member version of the equality  operator.
+
+\subsection xpc_nice_classes_func_inequality_op Inequality operator
+
+      -# This is a regular and nice function.
+      -# Note how we use operator ==() to implement this operator.
+         This improves the correctability/maintainability of the code.
+
+\verbatim
+inline bool
+X::operator != (const X & x) const
+{
+   // implemented in terms of operator ==
+
+   return (*this == x) ? false : true ;
+}
+\endverbatim
+
+\todo
+   We ought to describe the non-member version of the inequality  operator.
+
+\subsection xpc_nice_classes_func_lessthan_op Less-than operator
+
+   For containers, this is an important operator, because it not
+   only defines the less-than operation, but containers defined the
+   equality, inequality, greater-than, greater-than-or-equal, and
+   less-than-or-equal functions in terms of less-than.
+
+   To make our comparison operators consistent with each other,
+   following the discussion of Stroustrop, 3rd edition,
+   section 17.1.4.1, we can define equivalence (equiv) in terms of our
+   less-than comparison operator (cmp):
+
+         equiv(x, y) = not [ cmp(x, y) or cmp(y, x) ]
+
+   It is easy to invert these to get the definition of operator !=()
+   We don't have to worry, we just have to define operator <.
+
+   Note here that we follow the advice of Scott Meyers, and write the
+   comparison operators as member functions.
+
+\verbatim
+inline bool
+X::operator < (const X & x) const
+{
+   return key < x.key;           // more complex for complex classes
+}
+\endverbatim
+
+   If there are two members, <i>a</i> and <i>b</i>, where <i>a</i> takes
+   predence in the less-than calculation, then do the checks in this order:
+
+\verbatim
+inline bool
+X::operator < (const X & x) const
+{
+   if (a < x.a)
+      return true;
+   else if (a == x.a)
+      return b < x.b;
+   else
+      return false;
+}
+\endverbatim
+
+   Given the less-than operator, we can write the equivalence operator in
+   terms of it.  Normally, the STL container classes do this for you, but
+   here is a good definition:
+
+\verbatim
+inline bool
+X::operator == (const X & x) const
+{
+   return ! (x < *this || *this < x);
+}
+\endverbatim
+
+   The inequality operator is trivially implemented in terms of operator <:
+
+\verbatim
+inline bool
+X::operator != (const X & x) const
+{
+   return ! (x < *this || *this < x);
+}
+\endverbatim
+
+   The greater-than operator is even more trivially implemented in terms of
+   operator <:
+
+\verbatim
+inline bool
+X::operator > (const X & x) const
+{
+   return x < *this;
+}
+\endverbatim
+
+   The less-than-or-equal operator is trivially implemented in terms of
+   operator <:
+
+\verbatim
+inline bool
+X::operator <= (const X & x) const
+{
+   return ! (x < *this);
+}
+\endverbatim
+
+   The greater-than-or-equal operator is trivially implemented in terms of
+   operator <:
+
+\verbatim
+inline bool
+X::operator >= (const X & x) const
+{
+   return ! (*this < x);
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_unary_op Unary operator
+
+\verbatim
+inline int
+X::operator ! ()
+{
+   // LATER, I'm getting tired
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_assignment_op Assignment version of binary operator
+
+      -# Also applies to -=, /=, *=, etc.
+      -# When writing the other operators based on this operator [that
+         is, operator +() and operator ++(), prefix and postfix
+         versions], implement them in terms of this operator, as shown
+         later, to improve the consistency of the code.
+      -# When using the operators, note that the assignment version
+         of a binary operator is more efficient than the binary
+         operator (the "stand-alone" version of the operator).
+
+\verbatim
+inline X &
+X::operator += (const X & x)
+{
+   X result;
+
+   // implement the desired addition operation
+
+   return result;
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_prefix_inc_op Prefix increment operator
+
+      -# Applies to operator --() also.
+      -# Note that this implementation uses operator +=() for
+         consistency.
+      -# Use the prefix version to implement the postfix version
+         (shown below).
+      -# The prefix operator is more efficient than the postfix operator.
+
+\verbatim
+inline X &
+X::operator ++ ()
+{
+   // One way to increment (if overloaded on a built-in integral type):
+
+   *this += 1;                        // (other forms possible)
+
+   return *this;
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_postfix_inc_op Postfix increment operator
+
+      -# Applies to operator --() also.
+      -# Note how we use the prefix version to implement this version to
+         promote consistency and maintainability.
+      -# The prefix operator is more efficient than this operator.
+      -# Note the "const" in the return value.  This prevents the
+         programmer from trying something like x++++, which is illegal
+         for integers, and would increment x only once anyway.
+      -# The preceding precept illustrates that adage "when in doubt,
+         do as the ints do."
+
+\verbatim
+inline const X
+X::operator ++ (int)
+{
+   X oldvalue = *this;               // save it for the return
+   ++(*this);                        // use prefix increment
+   return oldvalue;
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_subscript_op Subscript operator
+
+      -# Must be a non-static member function.
+      -# Note the two versions, the const one being for reads.  The
+         2nd edition of Scott Meyer's book makes the return value of
+         the read version a const.
+      -# Designing a good subscript operator is a deep subject.  Refer
+         to Meyers' "More Effective C++".
+      -# Rather than making your own array class, consider using the
+         STL vector class instead.
+
+\verbatim
+inline const X &
+X::operator [] (T index) const
+{
+   // access code here
+}
+
+inline X &
+X::operator [] (T index)
+{
+   // access code here
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_parenthesis_op Parenthesis operator
+
+   The parentheses operator is also called the "function call" operator.  It
+   must be a member function.
+
+      -# Useful for making function objects.
+      -# Useful for obtaining substrings from a string class.
+      -# Useful as a subscripting operator for multi-dimensional arrays.
+      -# Again, a deep topic; see Meyers and see Stroustrop.
+
+\verbatim
+inline X
+X::operator (T & t) () const
+{
+   // The t parameter is the same type T as X::t_member.  This particular
+   // parentheses operator would be called as X(t), and would cause the
+   // parametr to be modified. An example:
+
+   t += t_member;
+
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_indir_field_op Indirection (field dereference) operator
+
+      -# Useful in dereferencing a smart pointer to get access to one
+         of its member functions.
+
+\verbatim
+inline Y *
+X::operator -> () const
+{
+   // code needed here
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_indir_obj_op Indirection (object dereference) operator
+
+      -# Useful in dereferencing a smart pointer.
+
+\verbatim
+inline Y &
+X::operator * () const
+{
+   // code needed here
+}
+\endverbatim
+
+\section xpc_nice_classes_global_funcs Global versions
+
+   Some of the member functions above can also be written as
+   global functions.  Sometimes this way of writing the function has
+   advantages, such as (surprise!) improved encapsulation.
+
+   Many of the same comments and format as for their class-member brethren
+   apply, and are not repeated here.
+
+\subsection xpc_nice_classes_func_global_eq_op Equality operator
+
+\verbatim
+inline bool
+operator == (const X & x1, const X & x2)
+{
+   bool result;
+
+   // Implement the desired definition of equality or write in terms of
+   // operator <.
+
+   return result;
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_global_neq_op Inequality operator
+
+\verbatim
+inline bool
+operator != (const X & x1, const X & x2)
+{
+   return !(x1 == x2);
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_global_unary_op Unary operator
+
+\verbatim
+inline int
+operator ! (X & x)
+{
+   // your code needed here
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_global_binary_op Binary operator (member version and global versions)
+
+      -# The global version is preferable to the member version because
+         conversions can generally be made that support commutativity.
+      -# Note the implementation in terms of the class version of
+         operator +=().  For example, assume that there exists a conversion
+         from an integer to a class X.  Then, given the declaration
+
+\verbatim
+   X x(1);              // create an X instance
+\endverbatim
+
+         only one of the following is legal if operator +() is a member of
+         X:
+
+\verbatim
+   X result = x + 2;    // fine, calls x.operator+(2)
+   X result = 2 + x;    // fails, there is no 2.operator+(const X &)
+\endverbatim
+
+      -# Stroustrop prefers to implement operator +=() as a member of
+         the class X, then to implement operator +() as a global function,
+         as shown in the second version.
+      -# Note the usage of the copy constructor in the return-value-
+         optimizable version.
+      -# By not creating any named automatic (temporary) variables,
+         we give the compiler a chance for return-value optimization.
+         This could save constructor calls.
+      -# The const return value avoids code such as x + + y.
+      -# This function can be made efficient by keeping it defined
+         as an inline function.
+      -# Also applies to -, /, and *, etc.
+      -# Never perform this kind of overloading for operator &&(),
+         operator ||(), or operator ,() [the infamous comma operator].
+         For && and ||, short-circuit evaluation is not used in the
+         overloaded versions, and this could cause confusion.   For
+         the comma operator, the behavior of "evaluate left expression
+         first, then right expression, and return the right expression"
+         cannot be mimicked in an overload.
+      -# const X operator + (B b, B b) is illegal, because it would
+         change the built-in operator.  [Recall that we defined B as
+         a built-in type].
+      -# Meyers uses "lhs" and "rhs" (left- and right-hand side variable)
+         in place of "a" and "x", respectively).
+
+\verbatim
+inline const X
+X::operator + (const X & x)               // first version
+{
+   return operator +=(x);                 // calls this->operator+()
+}
+
+inline const X
+operator + (const X & a, const X & x)     // second version, preferred
+{
+   X result = a;
+   return a += x;                         // calls a.operator+()
+}
+
+inline const X
+operator + (const X & a, const X & x)     // return-value-optimizable version
+{
+   return X(a) += x;
+}
+\endverbatim
+
+\subsection xpc_nice_classes_func_overloading Overloading on T and Commutativity
+
+\verbatim
+inline const X
+operator + (const X & x1, const T t)
+{
+   // code needed here
+}
+
+inline const X
+operator + (const T t, const X & x)
+{
+   // code needed here
+}
+
+#endif      NiceClassCode_h
+\endverbatim
+
+-----------------------------------------------------------------------------*/
+
+/*****************************************************************************
+ * xpc_nice_classes.dox
+ *---------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *---------------------------------------------------------------------------*/

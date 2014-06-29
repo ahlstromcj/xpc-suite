@@ -1,0 +1,30 @@
+#*****************************************************************************
+# STATUS
+#-----------------------------------------------------------------------------
+##
+# \file        STATUS
+# \library     xpc_suite
+# \author      Chris Ahlstrom
+# \date        2012-12-07
+# \updates     2013-07-19
+# \version     $Revision$
+# \license     $XPC_SUITE_GPL_LICENSE$
+#
+#-----------------------------------------------------------------------------
+
+This document briefly states the status of the various project
+subdirectories.  Even stuff marked as "complete" is subject to minor twears
+and additional interfaces to support the other project directories.
+
+   doc            Always ongoing; documentation is never complete enough.
+   xpc            Essentially complete.
+   xpc++          Essentially complete.
+   xpccut         Essentially complete.
+   xpccut++       Essentially complete.
+   xpchello       Essentially complete.
+
+#****************************************************************************
+# STATUS
+#----------------------------------------------------------------------------
+# vim: ts=3 sw=3 ft=make
+#----------------------------------------------------------------------------

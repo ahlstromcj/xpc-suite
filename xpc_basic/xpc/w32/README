@@ -1,0 +1,61 @@
+xpc_suite/xpc/w32/README -- Chris Ahlstrom 05/04/2008-09/24/2011
+
+==============================
+3rd-PARTY LIBRARY INSTALLATION
+==============================
+
+This project implements its functions using the POSIX threads (pthreads)
+API.  Therefore, it requires the developer to install the pthreads-w32
+project.  The easiest way is to download and run this executable:
+
+   ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-8-0-release.exe
+
+(That is the latest version, dated 12/22/2006.)
+
+Run the executable and extract it to its final destination (extraction is
+installation for this product):
+
+   1. Create that new folder C:\Program Files\pthreads before running
+      the executable.
+   2. Extract it to C:\Program Files\pthreads, using the "Browse" button 
+      followed by the "Extract" button.  Then click the "Done" button.
+   3. Verify the existence of C:\Program Files\pthread and its subdirectories
+      "Pre-built.2", "pthreads.2", and "QueueUserAPCEx".
+
+Create a system or user variable for this directory, tacking on a little
+more, so that the "include" and "libs" directories are next:
+
+   PTHREADS_W32 = C:\Program Files\pthreads\Pre-built.2
+
+The project files for Win32 then include these entries:
+
+   $(PTHREADS_W32)/include
+   $(PTHREADS_W32)/lib
+   pthreadVCE2.lib
+
+IMPORTANT:
+
+   After you have defined this environment variable, you should stop
+   all instances of Windows Explorer, Visual Studio, and the DOS console.
+   Otherwise, they and their child processes will not see the new
+   environment variable!
+
+   If you keep having problems building libxpc.lib, then make sure that
+   PTHREADS_W32 is properly defined, and reboot.
+
+Note that there is also a Win32 driver provided by pthreads-w32.  This
+driver provides pre-emptive APC by forcing threads into an alertable state
+when the APC is queued, thus allowing true async cancellation of threads
+(including blocked threads).  See that project's README file for more
+information.
+
+==============================
+Visual Studio Warnings
+==============================
+
+These warnings are disabled due to problems in the VS 7.0 Windows header files:
+
+   C4127    Use of constant in while()
+   C4201    Nonstandard extension used: nameless struct/union
+
+

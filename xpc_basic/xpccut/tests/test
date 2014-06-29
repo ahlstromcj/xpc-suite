@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+#*****************************************************************************
+# test (xpccut/tests)
+#-----------------------------------------------------------------------------
+##
+# \file       	test
+# \library    	xpc_suite\xpccut
+# \author     	Chris Ahlstrom
+# \date       	04/02/2008-05/31/2009
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+#     Runs some combinations of options that can have erroneous side-effects
+#     that break the unit tests.
+#
+# \todo
+#     -  We should work test coverage into this script as well.
+#
+#-----------------------------------------------------------------------------
+
+./test_script
+
+#*****************************************************************************
+# test (xpccut/tests)
+#------------------------------------------------------------------------------
+# Local Variables:
+# End:
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 ft=sh
+#----------------------------------------------------------------------------

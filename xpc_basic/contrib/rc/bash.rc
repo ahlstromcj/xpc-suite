@@ -1,0 +1,221 @@
+#*****************************************************************************
+# xpc_suite/contrib/rc/bash.rc
+#-----------------------------------------------------------------------------
+#
+# \file       	bash.rc
+# \author      Chris Ahlstrom
+# \date        02/26/2008-05/21/2008
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+# This is an enhanced .bashrc file which provides the following features:
+#
+#     1. Handy aliases
+#     2. A flag for a console running under 'screen':  "$$$" instead of "$".
+#     3. A cyan-colored prompt when running over SSH, and a green prompt
+#        otherwise.
+#     4. Development environment variables for a local project.
+#     5. A shell function for running emacs 22 and up with the GUD (debugger).
+#
+# This file is sourced by all *interactive* bash shells on startup.  This
+# file *should generate no output* or it will break the scp and rcp commands.
+#
+#-----------------------------------------------------------------------------
+
+if [ -f /etc/profile ] ; then
+   . /etc/profile
+fi
+
+# export TERM=xterm
+
+#*****************************************************************************
+# Colors for ls, etc.  Also see the dircolors call below.
+#-----------------------------------------------------------------------------
+
+alias ls="ls --color=auto"
+alias ll="ls --color -l"
+alias lc="ls --color | less -r"
+alias m="mutt -F ~/.config/mutt/rc"
+alias f="fetchmail -f ~/.config/fetchmail/rc"
+
+#*****************************************************************************
+# emacs control
+#
+#     Also see the gemdb script.  It is yet another way to do it.
+#
+#-----------------------------------------------------------------------------
+
+alias gdbtool="emacs --eval \'\(gdb \"gdb --annotate=3 '\!*'\"\)\'"
+
+gem ()
+{
+   emacs --eval "(gdb \"gdb --annotate=3 $*\")";
+}
+
+#*****************************************************************************
+# set_prompt()
+#-----------------------------------------------------------------------------
+#
+# This function sets prompts, and these comments document some other ideas
+# for prompts.
+#
+# Green @ sign
+#
+# PS1='\u\[\033[00;32m\]@\[\033[00m\]\h:\w \$ '
+#
+# Bright green prompt with blue working directory and dollar sign
+#
+# PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+#
+# Uncolored prompt
+#
+# PS1='\u@\h:\w\$ '
+#
+# Green prompt with white working directory and dollar sign
+#
+# PS1='\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]\h\[\033[00;37m\] \w
+# \$\[\033[00m\] '
+#
+# Green prompt with normal-color working directory and dollar sign
+#
+# PS1='\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]\h\[\033[00m\] \w \$ '
+#
+# PROMPT_COMMAND='echo -ne "\033]0;${USER}: ${PWD}\007"'
+#
+# alias d="ddd -background rgb:60/80/80"
+#
+# Change the window title of X terminals and the prompt.  If we're in a
+# 'screen' console, use a triple dollar-sign in the prompt, to make this
+# situation more obvious.  If we're running in an SSH session, change the
+# color of the prompt to cyan (color code 36) as well.  This can help
+# prevent using the wrong terminal at the wrong time!
+#
+# Remember, don't confuse the Esc character (\033) with the color strings
+# (00;32m)!
+#
+# If I remember correctly, this was the default setting in Debian Linux:
+#
+#     PS1='\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]\h\[\033[00m\]:\w \$ '
+#
+# This one makes the cursor go nuts on long lines:
+#
+#     PS1='\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]\h\[\033[00m\]:\[\033[00;34m\W\[\033[00;00m \$ '
+#
+#-----------------------------------------------------------------------------
+
+set_prompt ()
+{
+
+case $TERM in
+
+	xterm*|rxvt|Eterm|eterm)
+
+      if [ "$SSH_CLIENT" == "" ] ; then
+#        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+         PS1='\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]\h\[\033[00m\]:\W \$ '
+         PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+      else
+         PS1='\[\033[00;36m\]\u\[\033[00m\]@\[\033[00;36m\]\h\[\033[00m\]:\W \$ '
+         PROMPT_COMMAND=""
+      fi
+		;;
+
+	screen | screen.linux)
+
+      if [ "$SSH_CLIENT" == "" ] ; then
+         PS1='\[\033[00;32m\]\u\[\033[00m\]@\[\033[00;32m\]\h\[\033[00m\]:\W \$\$\$ '
+         PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+      else
+         PS1='\[\033[00;36m\]\u\[\033[00m\]@\[\033[00;36m\]\h\[\033[00m\]:\W \$\$\$ '
+         PROMPT_COMMAND=""
+      fi
+		;;
+
+   dumb)
+
+      export TERM=rxvt
+      PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+      ;;
+esac
+}
+
+#*****************************************************************************
+# The main section 
+#-----------------------------------------------------------------------------
+
+set_prompt
+unset set_prompt
+eval `dircolors -b /etc/DIR_COLORS`
+
+# uncomment the following to activate bash-completion:
+
+[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+
+#*****************************************************************************
+# Environment variables
+#-----------------------------------------------------------------------------
+
+# export PATH=$PATH:/usr/local/samba/bin:/usr/local/j2re1.4.2/bin:~/bin
+
+export MAIL=~/.config/maildir
+export NNTPSERVER=news.mtpls1.sc.home.com
+export PATH=$PATH:~/bin
+
+# Try this on all systems before making it official.  If not official, then
+# comment it out.
+
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig
+
+# Default /home/ versus /work/settings
+
+# Home:
+
+export PRINTER=lp0
+
+#     Qt 3 development settings.  See the following link for some info:
+#
+#        http://kflog.org/pipermail/kflog-user/2006-September/000090.html
+
+export QTDIR=/usr/share/qt3
+export QMAKESPEC=linux-g++
+
+# Work:
+
+export PRINTER=lp1
+
+#     Qt 3 development settings.  See the following link for some info:
+
+export QTDIR=/opt/local/qt
+export QMAKESPEC=linux-g++
+
+export PATH=$QTDIR/bin:$PATH
+export MANPATH=$QTDIR/doc/man:$MANPATH
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+
+# fetch-login 2> /dev/null
+
+# Java environment for SteelRay software
+
+export INSTALL4J_JAVA_HOME=/opt/jre1.5.0_09
+
+# LANG=en_US.UTF-8 causes ncurses and other character problems in terminals.
+
+export LANG=en_US
+
+# xfce4 exports:
+
+export BROWSER="/usr/bin/firefox"
+export TERMCMD="/usr/bin/aterm"
+
+# Some GNU autotools projects cannot find software installed to /usr/local
+# unless you set this variable.
+
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig
+
+#*****************************************************************************
+# Local Variables:
+# End:
+# vim: ts=3 ft=sh
+#-----------------------------------------------------------------------------
+# xpc_suite/contrib/rc/bash.rc
+#-----------------------------------------------------------------------------

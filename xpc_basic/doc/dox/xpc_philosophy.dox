@@ -1,0 +1,409 @@
+/******************************************************************************
+ * xpccut/doc/dox/xpc_philosophy.dox
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides the "philosophy" of the XPC library suite.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file       xpc_philosophy.dox
+
+   This file describes a little bit about our coding style and philosophy.
+
+\page       xpc_suite_philosophy_subproject Philosophy, XPC Library Suite
+\library    xpc_suite and its libraries, applications, and documents
+\author     Chris Ahlstrom
+\version    $Revision$ (1.1.0)
+\date       2009-07-31 to 2012-09-25
+\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+
+\section xpc_suite_philosophy_text Philosophy of the XPC Library Suite
+
+This document is a start at explaining my own philosophy about code
+development.
+
+This document is incomplete.  At first, we just want to explain some coding
+principles in the <b>C</b> and <b>C++</b> code that some may find odd,
+incorrect, or substandard in what we do.
+
+Finally, note how much this document parallels the "license" document,
+\ref xpc_suite_license_subproject.  What a coincidence!
+
+\section xpc_suite_philosophy_application XPC Application Philosophy
+
+For the moment, see \ref xpc_suite_philosophy_library instead.
+All of the applications in this suite are console applications that provide
+a large number of command-line arguments.
+
+\section xpc_suite_philosophy_library XPC Library Philosophy
+
+My overriding philosophy about libraries is that they should:
+
+   -  Be as simple as possible.
+   -  Be as flexible and unrestricting as possible.
+   -  Be as airtight, logical, and robust as possible.
+   -  Be able to provide useful diagnostic output when necessary.
+   -  Not duplicate functionality that is better provided by existing
+      libraries, while ...
+   -  ... Conforming to my own quixotic ways of doing things.
+
+A good idea is to contrast my (or your) coding philosophy with the GNU
+coding philosophy.  From my vantage, the GNU coding philosophy:
+
+   -  Supports freedom and access.
+   -  Avoids needless restrictions in implementation, and takes great pains
+      to avoid hard-wiring.
+   -  Has its own quirks in coding style and implementations that some
+      (including myself) may not relish.
+
+The present document is a work in progress.  We don't want to bore anyone,
+but we do have a few oddities to explain in the next sections, just so you
+don't think we are stupid.
+
+\subsection xpc_suite_philosophy_bash XPC's Usage of the Shell
+
+There are a few things "wrong" with our shell-scripting.
+
+First, we use <i>bash</i>.  While this is nice for <b>Linux</b> users, it is
+not so nice for other environments, which may not have <i>bash</i>
+installed, and use a shell that does not support all the <i>bash</i> syntax
+that we use.
+
+Second, we do our <b>Boolean</b> flags in a stilted manner.  We define a
+flag as being off by setting it to "no".  We test a flag by testing it
+against "yes" or "no".
+
+\verbatim
+   MYFLAG="no"
+   if [ $1 == "--myflag" ] ; then
+      MYFLAG="yes"
+   fi
+   if [ $MYFLAG == "yes" ] ; then
+      echo "MYFLAG is on"
+   else
+      echo "MYFLAG is off"
+   fi
+\endverbatim
+
+We also could have written line 2 through 4 as
+
+\verbatim
+   [ $1 == "--myflag" ] && MYFLAG="yes"
+\endverbatim
+
+As a result, our scripts may be a bit longer, slower, less portable, and
+more difficult to read than they should be.
+
+For now, we prefer to optimize our <b>C/C++</b> code.
+
+\subsection xpc_suite_philosophy_make XPC Library Make System
+
+Although the <b>GNU</b> <i>automake</i> system takes care of cleaning and
+packing all of the project files, we still let the <tt>bootstrap</tt> script
+take care of the cleaning -- it deletes some files that the "make clean"
+process misses.  And we currently do the packing manually, by cleaning the
+project, and then running <i>tar</i>.
+
+One reason we do this is that we're not fully proficient in adding files to
+the correct lines of <tt>Makefile.am</tt>, as in the following examples:
+
+\verbatim
+   MAINTAINERCLEANFILES = Makefile.in dox-warnings.log
+   EXTRA_DIST = doxygen.cfg xpc_licensing.doxx . . .
+\endverbatim
+
+This is not a good thing to do, and our <tt>bootstrap</tt> script has been a
+crutch that prevents us from learning to walk the full <b>GNU</b>
+<i>automake</i> walk.
+
+We'll throw away that crutch someday.
+
+\subsection xpc_suite_philosophy_options XPC Library Command-line Options
+
+All of my libraries provide their own command-line options.
+Each application that uses a number of these libraries will call the help
+facilities of each of the libraries it uses, so that very comprehensive help
+for the application can be provided with little effort.
+
+The parsing of the command-line options is very primitive.  Here are its
+undesirable features:
+
+   -  An explicit <tt>while</tt> loop for parsing the options.
+   -  Explicit handling of short versus long forms of command-line options.
+
+Contrast this to GNU's getopt(3) [run <tt>man 3 getopt</tt> to learn
+more.]
+
+We tried to use <tt>getopt()</tt>, and we found it to be not much more brief
+and no easier to understand (when reading the code) than our style.  Or so
+we rationalized as we went on to do it the brute-force way.
+
+It would be cool to extend <tt>getopt()</tt> to support help text, and then
+we might consider using it.  If we are being silly, let me know.
+
+For now, my hard-coded loops are easy to read and easy to maintain (until I
+accrue more than a dozen or two options in each library).
+
+<b>XPC</b> command-line processing has room for improvement, but it suffices
+for now.
+
+\subsection xpc_suite_philosophy_printf XPC Library Standard Output
+
+When reading some of the <b>XPC</b> <b>C++</b> code, one will notice how
+often we use <tt>fprintf()</tt> instead of <tt>std::cout</tt>, <tt>cerr</tt>,
+and <tt>operator >></tt>.
+
+Why?  Surely we should stick with <tt>iostream</tt> in <b>C++</b> code!
+
+Well, yes.  But trying to do formatted output with <tt>iostream</tt> can be
+very difficult to read and difficult to get right in appearance.
+
+Consider the following sample from <tt>unit_test.c</tt>:
+
+\verbatim
+   fprintf
+   (
+      stdout,
+      "%d %s (%d %s). %d %s.\n"
+      "  %s: %d (%s %d, %s %d, %s %d)\n"
+      ,
+      unit_test_count(tests), _("tests completed"),
+      unit_test_subtest_count(tests), _("sub-tests encountered"),
+      tests->m_Total_Errors, _("failed"),
+      _("First failed unit-test number"),
+      tests->m_First_Failed_Test+1,
+      _("Group"), tests->m_First_Failed_Group,
+      _("Case"), tests->m_First_Failed_Case,
+      _("Sub-test"), tests->m_First_Failed_Subtest
+   );
+\endverbatim
+
+It is very easy to see this is a single line of output going to
+<tt>stdout</tt>.  It might be even easier to read, if more expansive, by
+putting each argument value on a separate line with some extra indenting.
+
+\verbatim
+   fprintf
+   (
+      stdout,
+      "%d %s (%d %s). %d %s.\n"
+      "  %s: %d (%s %d, %s %d, %s %d)\n"
+      ,
+      unit_test_count(tests),
+         _("tests completed"),
+      unit_test_subtest_count(tests),
+         _("sub-tests encountered"),
+      tests->m_Total_Errors,
+         _("failed"),
+         _("First failed unit-test number"),
+      tests->m_First_Failed_Test+1,
+         _("Group"),
+      tests->m_First_Failed_Group,
+         _("Case"),
+      tests->m_First_Failed_Case,
+         _("Sub-test"),
+      tests->m_First_Failed_Subtest
+   );
+\endverbatim
+
+Compare it to a <b>C++</b> <tt>iostream</tt> implementation:
+
+\verbatim
+   std::cout
+      << unit_test_count(tests) <<  _("tests completed")
+      << "(" << unit_test_subtest_count(tests) << _("sub-tests encountered")
+      << "). " << tests->m_Total_Errors << _("failed") << std::endl
+      << "  " << _("First failed unit-test number") << ": "
+      << tests->m_First_Failed_Test+1
+      << "(" << _("Group") << tests->m_First_Failed_Group
+      << ", " << _("Case") << tests->m_First_Failed_Case
+      << ", " << _("Sub-test") << tests->m_First_Failed_Subtest
+      << ")" << std::endl
+      ;
+\endverbatim
+
+Which is easier to understand?  And note that the <b>C++</b> example would
+be even more convoluted to read if one had to add <tt>setw</tt> macros to
+control the widths of the fields.
+
+"But what about type safety?", you may cry.  Well, does it really
+matter in this short output sample?  If it did, the <b>GNU</b> <i>gcc</i>
+covers that issue, because it explicitly warns about any arguments that do
+not match the corresponding <tt>printf()</tt> format specification.
+
+One disadvantage of using <tt>printf()</tt> in <b>C++</b> code is that one
+must use <tt>std::string::c_str()</tt> to output the string.
+Again, though, <i>gcc</i> will warn you if you forget to do this.
+
+Now, if you have a lot of output, or output that is impossible to format for
+the screen, then it makes sense to use <tt>iostream</tt>, because you really
+do need the type safety as a back stop, and there's no pretty way to output,
+say, 256 columns of data.
+
+Here's an ever more extreme example, showing how to make the format show the
+output layout better, at the expense of extra lines of code:
+
+\verbatim
+   fprintf
+   (
+      stdout,
+      "\n"
+      "%d %s.\n"
+      "%s.\n"
+      ,
+      unit_test_subtest_count(tests), _("sub-tests encountered"),
+      _("Tests summarized, not performed")
+   );
+\endverbatim
+
+The format is written with one real line per newline.
+The data arguments are layed out to exactly match the format exactly.
+
+If you are a vertical speed reader, you might like this layout.
+Or are you of the following school?
+
+\verbatim
+   fprintf(stdout, "\n" "%d %s.\n" "%s.\n" , unit_test_subtest_count(tests), _("sub-tests encountered"), _("Tests summarized, not performed"));
+\endverbatim
+
+Here is a case that is common in our code, where the vertical-school method
+really stands out:
+
+\verbatim
+   fprintf
+   (
+      stdout,
+      "- unit_test_status_t:\n"
+      "-    m_Test_Options:           %p\n"
+      "-    m_Group_Name:             %s\n"
+      "-    m_Case_Description:       %s\n"
+      "-    m_Subtest_Name:           %s\n"
+      "-    m_Test_Group:             %d\n"
+      "-    m_Test_Case:              %d\n"
+      "-    m_Subtest:                %d\n"
+      "-    m_Test_Result:            %s\n"
+      "-    m_Subtest_Error_Count:    %d\n"
+      "-    m_Failed_Subtest:         %d\n"
+      "-    m_Test_Disposition:       %d\n"
+      "-    m_Start_Time_us.tv_sec:   %d\n"
+      "-    m_Start_Time_us.tv_usec:  %d\n"
+      "-    m_End_Time_us.tv_sec:     %d\n"
+      "-    m_End_Time_us.tv_usec:    %d\n"
+      "-    m_Test_Duration_ms:       %g\n"
+      ,
+      (void *) status->m_Test_Options,
+      status->m_Group_Name,
+      status->m_Case_Description,
+      status->m_Subtest_Name,
+      status->m_Test_Group,
+      status->m_Test_Case,
+      status->m_Subtest,
+      status->m_Test_Result ? _("true") : _("false"),
+      status->m_Subtest_Error_Count,
+      status->m_Failed_Subtest,
+      status->m_Test_Disposition,
+      (int) status->m_Start_Time_us.tv_sec,
+      (int) status->m_Start_Time_us.tv_usec,
+      (int) status->m_End_Time_us.tv_sec,
+      (int) status->m_End_Time_us.tv_usec,
+      status->m_Test_Duration_ms
+   );
+\endverbatim
+
+That's about as readable as it can get!
+
+Here's another example, where we are separating the format information from
+the output data 
+
+\verbatim
+   if (cut_not_nullptr(message))
+      fprintf(stderr, "? %s\n", message);
+   else
+      fprintf(stderr, "? null message pointer in xpccut_errprint()";
+\endverbatim
+
+It is easy to understand the parallel between the two messages.  However,
+this sample, actual code, is still wrong.  We left out the newline in the
+second <tt>fprintf()</tt> statement!  Also, we forgot to internationalize the
+second message.
+
+Let's fix it, and also treat the two messages more uniformly, and save an
+<tt>fprintf()</tt> call, too:
+
+\verbatim
+   if (cut_is_nullptr(message))
+      message = _("null message pointer in xpccut_errprint()");
+
+   fprintf(stderr, "? %s\n", message);    // one uniform format
+\endverbatim
+
+Note that only the message, and not the format, is wrapped in the <b>GNU</b>
+internationalization macro, <tt>_()</tt>.
+
+If the two messages aren't of the same format, it still pays to separate the
+format and the output:
+
+\verbatim
+   if (cut_not_nullptr_2(message, extra))
+      fprintf(stderr, "? %s: %s\n", extra, message);
+   else
+      fprintf(stderr, "? %s\n", _("null pointer(s), xpccut_errprint_ex()"));
+\endverbatim
+
+These code samples illustrate the following principles:
+
+   -  Make the output format in the code resemble the output format in the
+      output as much as possible.
+   -  Separate output strings from the format strings.
+      -  This makes the formatting easier to follow.
+      -  It allows for more and better usage of the internationalization
+         macro.  (The <b>GNU</b> documentation for <tt>gettext()</tt>
+         explains well how to prepare one's code for internationalization.)
+   -  Make sure the spacing of output is consistent from module to module,
+      to allow the output of all the help text (for example) to have a
+      seamless look no matter how many help functions are concatenated.
+   -  Always use the output descriptor, even if writing to <tt>stdout</tt>.
+      -  Makes the destination more obvious.
+      -  Makes the output calls more uniform.
+      -  Makes it easier to retrofit output to a log file in the future.
+      The tiny bit of inefficiency should not matter in most cases.
+
+However, these items are merely principles.  Feel free to deviate from them
+whenever it is more convenient to do so.  We do!
+
+By the way, when obtaining samples for this section, we found that we had
+coded these samples with two mistakes:
+
+   -# We had left off the newline character (<tt>\\n</tt>) from a lot of the
+      constant message strings.
+   -# We had output these message strings as is, with "?" embedded in them.
+
+By being so compulsive about the code, we were able to find some mistakes and
+improve the adherence of the code to principle, and use them for
+demonstration above.  The more time you can devote to combing through your
+code, the better your code will be.
+
+\section xpc_suite_philosophy_documentation XPC Documentation Philosophy
+
+I have nothing to say on this topic, yet, except that I think documentation
+should be completely free, while being protected from malicious
+modification.
+
+\section xpc_suite_philosophy_affero XPC Affero Philosophy
+
+I have nothing to say on this topic, yet.
+
+\section xpc_suite_philosophy_summary XPC Philosophy Summary
+
+As one spends years and decades programming, one's style and philosophy tends
+to change much as time goes on.  Sometimes one can go for years with the
+same style, then decide to throw it all away for something better.  Guess
+who is guilty of that.
+
+ *//*-------------------------------------------------------------------------*/
+
+/******************************************************************************
+ * xpccut/doc/dox/xpc_philosophy.dox
+ *----------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *//*-------------------------------------------------------------------------*/

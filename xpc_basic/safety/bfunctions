@@ -1,0 +1,150 @@
+#!/bin/bash
+#
+#******************************************************************************
+# bfunctions (XPC)
+#------------------------------------------------------------------------------
+##
+# \file       	bfunctions
+# \library    	XPC
+# \author     	Chris Ahlstrom
+# \date       	2011-12-27
+# \update     	2012-03-14
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+#     The above is modified by the following to remove even the mild GPL
+#     restrictions:
+#
+#     Use this script in any manner whatsoever.  You don't even need to give
+#     me any credit.  However, keep in mind the value of the GPL in keeping
+#     software and its descendant modifications available to the community
+#     for all time.
+#
+#     This module provides some bootstrap- and build-related functions the
+#     top-level scripts can use.
+#
+# \usage
+#     To get the variables properly into the environment, place one of the
+#     following command in the script:
+#
+#           source bfunctions
+#           source scripts/bfunctions
+#
+#------------------------------------------------------------------------------
+
+export XPC_SCRIPT_EDIT_DATE="2012-03-14"
+export XPC_LIBRARY_API_VERSION="1.1"
+export XPC_LIBRARY_VERSION="$XPC_LIBRARY_API_VERSION.0"
+
+#******************************************************************************
+# Provide a sane environment, just in case it is needed.
+#------------------------------------------------------------------------------
+
+LANG=C
+export LANG
+CYGWIN=binmode
+export CYGWIN
+
+#******************************************************************************
+# Default option values
+#------------------------------------------------------------------------------
+
+export DOLOG="no"
+
+#******************************************************************************
+# Known exit codes
+#------------------------------------------------------------------------------
+
+EXIT_ERROR_GENERIC=1
+EXIT_ERROR_NO_SUCH_OPTION=2
+EXIT_ERROR_LOG=3
+EXIT_ERROR_NO_SUCH_COMMAND=4
+EXIT_ERROR_NO_SRC_DIR=5
+EXIT_ERROR_AUTOCONF_VERSION=6
+EXIT_ERROR_AUTOCONF_VERSION_2=7
+EXIT_ERROR_AUTOCONF_VERSION_3=8
+EXIT_ERROR_GETTEXT=9
+EXIT_ERROR_WGET=10
+EXIT_ERROR_BOOTSTRAP_NOT_RUN=11
+EXIT_ERROR_NO_BFUNCTIONS=255
+
+#******************************************************************************
+# die $EXITCODE $PROJECT $ERRORMESSAGE ...
+#------------------------------------------------------------------------------
+#
+#  Emits the $PROJECT name provided, the $ERRORMESSAGE, and any other
+#  parameters provided.  Then it exits with the value of $EXITCODE.
+#
+#  For the bash shell, the exit codes range from 0 to 255.  If a larger
+#  value is provided, bash changes it modulo 256.  In other words, the exit
+#  code is a single unsigned byte.
+#
+#------------------------------------------------------------------------------
+
+function die()
+{
+   EXITCODE=$1
+   CURPROJECT=$2
+   MESSAGE="? [$CURPROJECT] $3"
+   MESSAGE+=$'\n'
+   shift 3
+   while [ "$1" != "" ] ; do
+
+      MESSAGE+="  "
+      MESSAGE+="$1"
+      MESSAGE+=$'\n'
+      shift
+   done
+
+   if [ $DOLOG == "yes" ] && [ $LOGFILENAME != "" ] ; then
+
+      echo "$MESSAGE" >> $LOGFILENAME
+
+   fi
+
+   echo "$MESSAGE"
+   echo "Run this script with the --help option for more information."
+   echo ""
+   exit $EXITCODE
+}
+
+#******************************************************************************
+# log $PROJECT $MESSAGE ...
+#------------------------------------------------------------------------------
+
+function log()
+{
+   CURPROJECT=$1
+   MESSAGE="[$CURPROJECT] $2"
+   MESSAGE+=$'\n'
+   shift 2
+   while [ "$1" != "" ] ; do
+      MESSAGE+="  "
+      MESSAGE+="$1"
+      MESSAGE+=$'\n'
+      shift
+   done
+
+   if [ $DOLOG == "yes" ] && [ $LOGFILENAME != "" ] ; then
+      echo "$MESSAGE" >> $LOGFILENAME
+   else
+      DOLOG="no"
+   fi
+
+   echo "$MESSAGE"
+}
+
+if [ ! -d src ] ; then
+   die 2 "startup" \
+      "COULD NOT FIND THE 'src' DIRECTORY.  Please run this script" \
+      "from the root of the XPC directory hierarchy (xpc_suite-x.y)."
+fi
+
+#******************************************************************************
+# bfunctions (XPC)
+#------------------------------------------------------------------------------
+# Local Variables:
+# End:
+#------------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#------------------------------------------------------------------------------

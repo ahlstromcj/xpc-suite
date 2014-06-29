@@ -1,0 +1,91 @@
+# ******************************************************************************
+# xpc_suite-1.1/contrib/README
+#------------------------------------------------------------------------------
+##
+# \file        README
+# \author      Chris Ahlstrom
+# \date        2008-02-26
+# \update      2013-07-19
+#
+#     Provides additional files, some merely of interest, others provide
+#     fixes to erroneous autoconf tests.
+#
+#------------------------------------------------------------------------------
+
+"README" for the XPC 'contrib' directory
+
+The contrib directory contains scripts and other items from other sources,
+or odds and ends that could be useful to someone.  Some of the items in this
+directory are copied by scripts to XPC projects to set them up fully.
+
+The contrib directory also contains configuration files that may be of
+interest to other users using vim, bash, emacs, mrxvt, splint, taskjuggler,
+and more.
+
+Many of these files need to be renamed when installed.   For example,
+"input.rc" is copied to "/etc/inputrc", and "mrxvt.rc" is copied to
+"~/.mrxvtrc".
+
+   DIR_COLORS              Our DIR_COLORS file for added colors and file types.
+   bash.rc                 A simple sample .bashrc file.
+   c.vim                   Additional vim C syntax highlighting.
+   ChangeLog               A sample ChangeLog file for when xpc uses one.
+   cgbd.rc                 A sample configuration file for cgdb.
+   configure-os-arch.ac    A sample cross-compilation configure.ac file.  A
+                           very complex example handling many operating systems.
+   cpp.vim                 Additional vim C++ syntax highlighting.
+   emacs.rc                .emacs configuration file (for debugging in v. 22)
+   evolution.txt           Developer humor.
+   example_po.txt          Sample internationalization file.
+   fluxbox-keys.rc         ~/.fluxbox/keys mappings you fluxboxers might like.
+   gemdb                   A script to run emacs v. 22 in GUD mode; requires 
+                           that emacs.rc be incorporated into ~/.emacs
+   gpl-code-insert.txt     GPL license formatted for inclusion in code.
+   indent.pro              An 'indent' profile to enforce conventions (TODO).
+   input.rc                Our version of inputrc, with tabs, no beeps.
+   mkinstalldirs*          A couple of versions of a mkdir replacement.
+   mrxvt.rc                Our configuration file for the "multi-rxvt" terminal.
+   print_bw.vim            Sets colors for printing.
+   splint.rc               Configuration for the splint C code analyzer.
+   syncolor.vim            Changes the colors for syntax coloring.
+   tjp.vim                 Syntax coloring for TaskJuggler project files.
+   vim-regexps.txt         Some tricky regular expressions.
+   vim.rc                  Our ~/.vimrc file.
+   ogg.m4                  One way to do a lib-detection macro.
+   ost_socket.m4           Sample socket-library detection mechanism.
+   ost_win32.m4            Sample Windows detection mechanism.
+   xpc.m4                  The XPC way to do a lib-detection macro.
+   zlib.m4                 Another way to do a lib-detection macro.
+
+   Note that xpc.m4 is the only m4 file from the contrib directory that
+   gets installed.
+
+mkinstalldirs-1.1
+mkinstalldirs-1.9
+mkinstalldirs-1.10
+
+   We kept getting an error for "make install" for the po directory.  We
+   were surprised to find that, although the automake command creates a
+   number of files that it needs, mkinstalldirs is not one of them.  So a
+   couple of versions (one fairly old, one fairly new) are provided.  The
+   bootstrap script copies mkinstalldirs-1.9 to autoconf/mkinstalldirs, and
+   this lets the po makefile do its work.  Obviously, this might not be the
+   best way to obtain mkinstalldirs.  Let us know if you find something
+   better.  For more information, do "info automake" and search for
+   "mkinstalldirs".
+
+xpc.m4
+
+   Copy this macro to the "macros" or "m4" directory of your project.  Or
+   append it to your aclocal.m4 file.  The "make install" command copies it
+   to /usr/local/share/aclocal/ by default.
+
+*xorg.conf
+
+   We supply some sample xorg.conf files in the 'xorg' directory.  Why not?
+
+#*****************************************************************************
+# README (xpc_suite-1.1) File-type sh provides a dash of color in vim.
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

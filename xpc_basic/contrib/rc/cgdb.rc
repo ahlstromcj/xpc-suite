@@ -1,0 +1,31 @@
+#*****************************************************************************
+# cgdb.rc
+#-----------------------------------------------------------------------------
+##
+# \file       	cgdb.rc
+# \library    	xpc_suite
+# \author     	Chris Ahlstrom
+# \date       	06/25/2008-06/25/2008
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+# \usage
+#     This file is a personal settings file for a text-based front-end to
+#     the gdb debugger.  It is the configuration for the cgdb debugger front
+#     end.
+#
+#     To use it, simply copy it to your home directory in this manner:
+#
+#        cp cgdb.rc ~/.cgdb/cgdbrc
+#
+#-----------------------------------------------------------------------------
+
+:set arrowstyle=long
+:set autosourcereload
+:set tabstop=3
+
+#*****************************************************************************
+# cgdb.rc
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+xpc_suite/contrib/vim-tips.txt -- Chris Ahlstrom 07/14/2008-05/18/2008
+
+1. Reading a Unicode wide-character file created under Windows XP.
+
+   In gvim, use the following command to edit the file:
+
+      :e ++enc=ucs-2le
+
+Maybe I should call this file "vim-tip.txt"!

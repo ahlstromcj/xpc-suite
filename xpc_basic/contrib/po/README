@@ -1,0 +1,68 @@
+# ******************************************************************************
+# xpc_suite-1.1/contrib/README
+#------------------------------------------------------------------------------
+##
+# \file        README
+# \author      Chris Ahlstrom
+# \date        2008-05-11
+# \update      2012-01-02
+#
+#------------------------------------------------------------------------------
+
+This directory contains files that can be copied to po via the
+"./bootstrap-po --boot" command.  These files are used so that we can
+reconstruct the project completely from scratch, over and over.
+
+   bottom-POTFILES.in
+
+      The banner for the bottom of the po files.  It specifies file
+      information for vim (and fill-ins for emacs).
+
+   config.guess
+
+      System-name guessing script from GNU.
+
+   config.sub
+
+      Configuration validation subroutine script frum GNU.
+
+   es.po
+
+      Rudimentary Spanish translations made by an Internet translation
+      engine.
+
+   LINGUAS
+
+      List of supported languages.
+
+   Makevars
+
+      Make information for this project.
+
+   mkinstalldirs-1.10
+
+      Script from GNU to make the installation directories.
+
+   po-Makefile.am
+
+      The Makefile.am for the po directory.  It is copied during the
+      "./bootstrap-po --boot" operation.
+
+   top-POTFILES.in
+
+      The banner for the top of the po files.
+
+   xpc_gettext.m4
+
+      Defines the AC_XPC_GETTEXT m4 macro that checks for the presence of an
+      installed gettext package.
+
+   xpchello.pot
+
+      The empty (i.e. bereft of translations) POT file.
+
+#*****************************************************************************
+# README (xpc-suite-1.1/contrib)
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

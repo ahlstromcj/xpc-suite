@@ -1,0 +1,45 @@
+#*****************************************************************************
+# .gdbinit
+#-----------------------------------------------------------------------------
+##
+# \file       	.gdbinit
+# \library    	xpc_suite
+# \author     	Chris Ahlstrom
+# \date       	02/26/2008-03/02/2008
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+#  Provides the startup configuration for gdb.
+#
+# \usage
+#
+#  Copy it to your home directory, making sure it is named '.gdbinit',  and
+#  then modify it for your needs and preferences.
+#
+#-----------------------------------------------------------------------------
+
+# Show structures in much more readable layout.
+
+set print pretty on
+
+# Print the source-file and line number of a symbol.  This is useful to
+# track down pointers,  by printing the pointer with the command
+#
+#        (gdb) p/a  pointer-name
+
+set print symbol-filename on
+
+# Pretty-print arrays
+#
+# set print array on
+# set print elements 20 (the default is 200!)
+
+# Stop printing character arrays when a null is encountered
+#
+# set print null-stop
+
+# Show the derived type of the pointer, rather than the declared type
+#
+# set print object on
+
+

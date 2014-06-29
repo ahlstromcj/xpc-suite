@@ -1,0 +1,201 @@
+"******************************************************************************
+"  vim.rc
+"------------------------------------------------------------------------------
+"
+"  Maintainer:    Chris Ahlstrom <ahlstromcj@gmail.com>
+"  Last Change:   2006-09-04 to 2012-05-08
+"  Project:       XPC library project
+"  License:       None.  Use it in any manner whatsover, and don't blame me.
+"  Usage:
+"
+"     This file is a personal settings file for the console version of the vim
+"     text editor.
+"
+"     To use it, simply copy it to your home directory in this manner:
+"
+"        cp vim.rc ~/.vimrc
+"
+"------------------------------------------------------------------------------
+
+"------------------------------------------------------------------------------
+" Multi-byte support (allows viewing Windows Unicode files)
+"------------------------------------------------------------------------------
+"
+" Comment this section out if it causes problems on your system.
+"
+" Well, it does; it makes new files created in urxvt have those damned null
+" bytes, which show up as "^@" anyway!
+"
+" :set encoding=ucs-2le
+"
+"------------------------------------------------------------------------------
+
+:if has("multi_byte")
+:set encoding=utf-8
+:else
+   echoerr "This vim not compiled for multi_byte"
+:endif
+
+:set nocompatible
+
+:set autoindent
+:set smartindent
+:set cindent
+:set nohlsearch
+:set expandtab
+:set noic
+:set foldmethod=manual
+
+" Allows comment-characters to be auto-inserted.
+
+:set formatoptions=tcroql
+:set nofoldenable
+
+" :set columns=82
+
+:set ts=3
+:set wm=6
+:set sw=3
+:set vb t_vb=
+:set modeline
+
+" :filetype detect
+
+" Syntax options.  Also see the F12 mapping.
+
+:syntax on
+
+" :syntax sync fromstart
+" :syntax sync minlines=32766
+
+:set background=dark
+:set mps+=<:>
+
+" Let's move this to syncolor.vim; we found that the toggle would come back to
+" the default colors, making the comments bold (and thus too bright) again.
+"
+" :hi Comment cterm=NONE term=NONE ctermfg=6
+" :hi Special cterm=NONE term=NONE ctermfg=1
+
+" Special C-code options
+" The 'makeef' file is used with the ":make" command in vim.  Cool.
+
+:let c_gnu=1
+:set makeef=err.t
+:set autowrite
+
+" Inhibit loading of the pi_paren plugin.  (':NoMatchParen' is another way
+" to not highlight matching parentheses).
+"------------------------------------------------------------------------------
+
+:let loaded_matchparen=1
+
+" Comment out if you think it hurts performance
+
+:let c_minlines=500
+
+" Comment out if you think it hurts your eyes
+
+:let c_space_errors=1
+
+" Function-key mappings
+"
+" F1:    Used to bring up help, but we kept hitting it accidentally, and
+"        so have disabled it.
+" F2:    Provides a quick way to get out of each comparison in a
+"        subversion or git diff run.
+" F3:    Run make on the current project directory.
+" F4:    Go to the next error or warning found by make.
+"        Alternative:  invoke recode to convert Unicode characters to
+"        ASCII.
+" F5:    Set the "nopaste" option.  Use this option to go back to the normal
+"        style of pasting, wherein autoindentation is enabled.
+" F6:    Set the "paste" option.  Use this option when you want to paste
+"        text copied from another application.  This option turns off the
+"        autoindenting feature.  When pasting, autoindent can result in some
+"        very awful ultra indented and autowrapped text.
+" F7:    Save the current file.
+" F9:    Go to previous file in list (like :N).  Since autowrite is turned on,
+"        any changes to the file are automatically saved.
+" F10:   go to next file in list (like :n).  The autowrite option ensures the
+"        file is saved automatically.
+" F11:   Toggle-key for light versus dark backgrounds.  Makes it easy to
+"        change the overall text colors.
+" F12:   Rebuild the syntax highlight, very useful in editing large
+"        Doxygen documents.
+
+:map <F1>  <Esc>
+:imap <F1> <Esc>
+:map <F2>  :qa<CR>
+:map <F3>  :make<CR>
+:map <F4>  :cnext<CR>
+" :map <F4>  :.,$!recode utf8<CR>
+:map <F5>  :set nopaste<CR>
+:map <F6>  :set paste<CR>
+:map <F7>  :w<CR>
+:map <F9>  :N<CR>
+:map <F10> :n<CR>
+:map <F11> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
+:map <F12> :syntax sync fromstart<CR>
+
+" Mappings for commenting blocks of code, from
+" http://snippets.dzone.com/posts/show/194
+"
+" Highlight a block of text and hit ,# and it is commented out in perl.
+"
+" , #perl # comments
+"
+" map ,# :s/^/#/<CR>
+"
+" ,/ C/C++/C#/Java // comments
+"
+" map ,/ :s/^/\/\//<CR>
+"
+" ,< HTML comment
+"
+" map ,< :s/^\(.*\)$/<!-- \1 -->/<CR><Esc>:nohlsearch<CR>
+"
+" c++ java style comments
+"
+" map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR><Esc>:nohlsearch<CR>
+
+" This auto command will silently remove any DOS Ctrl-M's in a file buffer
+" that gets read in.
+"
+" Be careful with this command, as it may well alter the file if you save the
+" file.  It can really make a diff difficult to read.
+"
+" Be careful editing this .vimrc file, because it will strip the ^M out.
+" Make sure the line always looks like this before you save your new .vimrc:
+"
+"  :autocmd BufRead * silent! %s/^M//g
+
+:function CRstrip()
+:if &readonly
+:%s///g
+:endif
+:endfunction
+
+:autocmd BufRead * silent! call CRstrip()
+
+" Tag files for system and project-specific C/C++ directories.
+"
+" Generated by 
+"
+"  ctags -R -f ~/.vim/systags /usr/include /usr/local/include
+
+:set tags+=~/.vim/systags
+
+" Generated by 
+"
+"   ctags -R -f ~/.vim/xxxxtags ~/path_to_projects/xxxx/
+"
+" The absolute path names are important!
+"
+" :set tags+=~/.vim/xxxxtags
+
+"------------------------------------------------------------------------------
+" vim.rc
+"------------------------------------------------------------------------------
+" vim: ts=3 sw=3 et ft=vim
+"------------------------------------------------------------------------------

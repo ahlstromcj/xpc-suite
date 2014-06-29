@@ -1,0 +1,387 @@
+!******************************************************************************
+! File   : $HOME/.fluxbox/keys (fluxbox-keys-vi, fluxbox-keys-vi-rc)
+! About  : fluxbox key bindings with a vi flavor
+! Author : Chris Ahlstrom <ahlstromcj@gmail.com>,
+!          mathias gumz <akira at fluxbox dot org>
+! Date   : 05/15/2009-05/31/2009
+!------------------------------------------------------------------------------
+!
+!  o  Syntax of the fluxbox-keys-file:
+!
+!        <mod> [<mod> <mod>] key [key key] :command <commanoptions>
+!
+!     Use 'xmodmap -pm' to see what mods are available. 
+!     No "modifier" is 'None'.
+!
+!  o  You can find a valid syntaxfile for vim here:
+!
+!        http://www.vim.org/scripts/script.php?script_id=882
+!        http://darkshed.net/files/vim/syntax/fluxkeys.vim
+!
+!  o  Key combos:  (Mod1=Alt, Mod4=Windows key, Menu=Menu key)
+!
+!------------------------------------------------------------------------------
+
+!------------------------------------------------------------------------------
+! mouse actions added by fluxbox-update_configs
+!------------------------------------------------------------------------------
+
+! A left-click on the desktop removes the Fluxbox menu from sight.
+
+OnDesktop Mouse1           :HideMenus
+
+! A middle-click on the desktop brings up the Workspaces menu.
+
+OnDesktop Mouse2           :WorkspaceMenu
+
+! A right-click on the desktop brings up the Root menu to gain access to
+! the installed applications and configuration commands.
+
+OnDesktop Mouse3           :RootMenu
+
+! Additional clicks for those with a fancy mouse.
+
+OnDesktop Mouse4           :NextWorkspace
+OnDesktop Mouse5           :PrevWorkspace
+
+! A left-click-hold on the window caption allows moving the window.
+! Built into Fluxbox.
+!
+! OnTitlebar Mouse1        :MacroCmd {Raise} {Focus} {StartMoving}
+
+! A double-left-click shades the current window.
+
+OnTitlebar Double Mouse1   :Shade
+
+! A middle-click on the window caption allows one to drag the current window
+! into another window, adding a tab to the latter window.
+
+OnTitlebar Mouse2          :StartTabbing
+
+! A right-click on the window caption brings up the window menu.
+
+OnTitlebar Mouse3          :WindowMenu
+
+! Alt-left-click-drag on any part of the window allows moving it.
+
+OnWindow Mod1 Mouse1       :MacroCmd {Raise} {Focus} {StartMoving}
+
+! Alt-right-click-drag on any part of the window allows resizing it.
+!
+! There are other options available besides BottomRight, but I like that one
+! right now.
+
+OnWindow Mod1 Mouse3       :MacroCmd {Raise} {Focus} {StartResizing BottomRight}
+
+! Use extra buttons on the toolbar for navigating the workspaces.
+
+OnToolbar Mouse4           :NextWorkspace
+OnToolbar Mouse5           :PrevWorkspace
+
+!------------------------------------------------------------------------------
+! More menus
+!------------------------------------------------------------------------------
+
+! Pressing the "Menu" key on a Billy-Box keyboard brings up the normal
+! Fluxbox root menu.
+
+None Menu                  :RootMenu
+
+! Ctrl-Menu brings up the workspace menu.
+
+Control Menu               :WorkspaceMenu
+
+! Windows-Menu brings up the window menu for the current window.
+
+Mod4 Menu                  :WindowMenu
+
+! Ctrl-Windows-Alt-Menu restarts Fluxbox.
+
+Control Mod1 Mod4 Menu     :Restart
+
+! What does Reconfigure even do?
+!
+! Shift Menu Delete        :Reconfigure
+
+!------------------------------------------------------------------------------
+! Workspace movement
+!------------------------------------------------------------------------------
+
+Control Mod1 Right         :NextWorkspace 
+Control Mod1 Left          :PrevWorkspace 
+
+Mod1 Mod4 l                :NextWorkspace 
+Mod1 Mod4 h                :PrevWorkspace 
+
+Control Mod4 Right         :TakeToNextWorkspace 1
+Control Mod4 Left          :TakeToPrevWorkspace 1
+Control Mod4 Up            :TakeToNextWorkspace 1
+Control Mod4 Down          :TakeToPrevWorkspace 1
+
+Control Mod1 KP_End        :Workspace 1
+Control Mod1 KP_Down       :Workspace 2
+Control Mod1 KP_Next       :Workspace 3
+Control Mod1 KP_Left       :Workspace 4
+Control Mod1 KP_Begin      :Workspace 5
+Control Mod1 KP_Right      :Workspace 6
+Control Mod1 KP_Home       :Workspace 7
+Control Mod1 KP_Up         :Workspace 8
+
+!------------------------------------------------------------------------------
+! Window movement
+!------------------------------------------------------------------------------
+
+! Moves window to the given Xinerama screen
+
+Mod4 1                     :SetHead 1
+Mod4 2                     :SetHead 2
+
+!------------------------------------------------------------------------------
+! Window focus
+!------------------------------------------------------------------------------
+
+! Alt-tab cycles windows, just like in Windows.  We add n and N to act like
+! vi's ":n" and ":N" commands.
+
+Mod1 Tab                   :NextWindow {groups}
+Mod4 n                     :NextWindow {groups}
+
+Shift Mod1 Tab             :PrevWindow {groups}
+Shift Mod4 n               :PrevWindow {groups}
+
+Mod4 x                     :Close
+Mod4 z                     :Close
+Shift Mod4 z               :Close
+
+!------------------------------------------------------------------------------
+! Miscellaneous window actions
+!------------------------------------------------------------------------------
+
+! Shift-Windows-S to cycle between showing the desktop and restoring the
+! application windows.
+
+Shift Mod4 s               :Showdesktop
+
+! This one causes and error in the fluxbox startup log.  Not sure why.
+!
+! Mod4 c                     :CycleDecor
+
+! Cycle through the presence/absence of the window decorations for the
+! current window.
+
+Mod4 d                     :ToggleDecor
+
+! "Fold" the current window.
+
+Mod4 f                     :Shade
+
+! Make the current window stick to whatever desktop you move to.
+
+Mod4 s                     :Stick
+
+! Iconify the current window; the focus will move to the next uniconified
+! window.
+
+Mod4 i                     :Iconify
+
+! Undo the iconfication ("Showdesktop" also does this).
+
+Shift Mod4 i               :Deiconify LastWorkspace
+Control Shift Mod4 i       :Deiconify Last OriginQuiet
+Control Shift Mod1 Mod4 i  :Deiconify All OriginQuiet
+
+! Maximum the window in both dimensions.  "Fullscreen" maximizes and removes
+! the window decoration.
+
+Mod4 m                     :MaximizeWindow
+Control Mod4 m             :Fullscreen
+
+! Maximize the window vertically.
+
+Mod4 v                     :MaximizeVertical
+
+! Maximize the window horizontally.
+
+Mod4 ;                     :MaximizeHorizontal
+
+Mod1 Up                    :RaiseLayer
+Mod4 Mod1 j                :RaiseLayer
+Mod1 Down                  :LowerLayer
+Mod4 Mod1 k                :LowerLayer
+
+!------------------------------------------------------------------------------
+! Window movement
+!------------------------------------------------------------------------------
+
+Mod4 Right                 :Move  10   0
+Mod4 l                     :Move  10   0
+Mod4 Left                  :Move -10   0
+Mod4 h                     :Move -10   0
+Mod4 Up                    :Move   0 -10
+Mod4 k                     :Move   0 -10
+Mod4 Down                  :Move   0  10
+Mod4 j                     :Move   0  10
+
+Control Mod4 Right         :Move  50   0
+Control Mod4 l             :Move  50   0
+Control Mod4 Left          :Move -50   0
+Control Mod4 h             :Move -50   0
+Control Mod4 Up            :Move   0 -50
+Control Mod4 k             :Move   0 -50
+Control Mod4 Down          :Move   0  50
+Control Mod4 j             :Move   0  50
+
+Mod4 KP_Home               :Move -10 -10
+Mod4 KP_Up                 :Move   0 -10
+Mod4 KP_Prior              :Move  10 -10
+Mod4 KP_Left               :Move -10   0
+Mod4 KP_Right              :Move  10   0
+Mod4 KP_End                :Move -10  10
+Mod4 KP_Down               :Move   0  10
+Mod4 KP_Next               :Move   10 10
+
+Control Mod4 KP_Home       :Move -50 -50
+Control Mod4 KP_Up         :Move   0 -50
+Control Mod4 KP_Prior      :Move  50 -50
+Control Mod4 KP_Left       :Move -50   0
+Control Mod4 KP_Right      :Move  50   0
+Control Mod4 KP_End        :Move -50 -50
+Control Mod4 KP_Down       :Move   0  50
+Control Mod4 KP_Next       :Move   50 50
+
+Shift Mod4 Left            :MoveTo 0 * Left
+Shift Mod4 h               :MoveTo 0 * Left
+Shift Mod4 Right           :MoveTo 0 * Right
+Shift Mod4 l               :MoveTo 0 * Right
+Shift Mod4 Up              :MoveTo * 0 Upper
+Shift Mod4 k               :MoveTo * 0 Upper
+Shift Mod4 Down            :MoveTo * 0 Lower
+Shift Mod4 j               :MoveTo * 0 Lower
+
+Shift Mod4 KP_Home         :MoveTo 0 0 UpperLeft
+Shift Mod4 KP_Up           :MoveTo * 0 Upper
+Shift Mod4 KP_Prior        :MoveTo 0 0 UpperRight
+Shift Mod4 KP_Left         :MoveTo 0 * Left
+Shift Mod4 KP_Begin        :MoveTo 0 * Right
+Shift Mod4 KP_Right        :MoveTo 0 * Right
+Shift Mod4 KP_End          :MoveTo 0 0 LowerLeft
+Shift Mod4 KP_Down         :MoveTo * 0 Lower
+Shift Mod4 KP_Next         :MoveTo 0 0 LowerRight
+
+! 1 - cycle groups
+! 2 - skip stuck
+! 4 - skip shaded
+! 8 - cycle linear
+! 0 - cycle default
+
+!------------------------------------------------------------------------------
+! Focus movement
+!------------------------------------------------------------------------------
+
+Shift Mod1 Up              :FocusUp
+Shift Mod1 Mod4 k          :FocusUp
+Shift Mod1 Down            :FocusDown
+Shift Mod1 Mod4 j          :FocusDown
+Shift Mod1 Left            :FocusLeft
+Shift Mod1 Mod4 h          :FocusLeft
+Shift Mod1 Right           :FocusRight
+Shift Mod1 Mod4 l          :FocusRight
+
+!------------------------------------------------------------------------------
+! Window resizing
+!------------------------------------------------------------------------------
+
+Mod1 Mod4 Left             :Resize -1    0
+Mod1 Mod4 h                :Resize -1    0
+Mod1 Mod4 Right            :Resize  1    0
+Mod1 Mod4 l                :Resize  1    0
+Mod1 Mod4 Up               :Resize  0   -1
+Mod1 Mod4 k                :Resize  0   -1
+Mod1 Mod4 Down             :Resize  0    1
+Mod1 Mod4 j                :Resize  0    1
+
+Mod1 Mod4 KP_Home          :Resize -1   -1
+Mod1 Mod4 KP_Up            :Resize  0   -1
+Mod1 Mod4 KP_Prior         :Resize  1   -1
+Mod1 Mod4 KP_Left          :Resize -1    0
+Mod1 Mod4 KP_Right         :Resize  1    0
+Mod1 Mod4 KP_End           :Resize -1    1
+Mod1 Mod4 KP_Down          :Resize  0    1
+Mod1 Mod4 KP_Next          :Resize  1    1
+
+!------------------------------------------------------------------------------
+! Execute commands
+!------------------------------------------------------------------------------
+
+! Not sure why these don't work
+!
+! Control Mod4 z    :ExecCommand mpc prev > /dev/null
+! Control Mod4 x    :ExecCommand mpc play > /dev/null
+! Control Mod4 c    :ExecCommand mpc pause > /dev/null
+! Control Mod4 v    :ExecCommand mpc stop > /dev/null
+! Control Mod4 b    :ExecCommand mpc next > /dev/null
+
+! Control Mod4 z    :ExecCommand xmms --rew > /dev/null
+! Control Mod4 x    :ExecCommand xmms --play > /dev/null
+! Control Mod4 c    :ExecCommand xmms --pause > /dev/null
+! Control Mod4 v    :ExecCommand xmms --stop > /dev/null
+! Control Mod4 b    :ExecCommand xmms --fwd > /dev/null
+! Control Mod4 m    :ExecCommand amixer -- sset Master toggle > /dev/null
+
+Control Mod4 n    :ExecCommand amixer -- sset Master toggle > /dev/null
+
+! attention: the next command is just to show that syntax-hl in vim works
+!
+! Control Mod1 Mod4 x :MacroCmd {Exec xterm} {Move 10} {Exec bla} {Move 10 10}
+
+! What a fancy mouse.  Wish I had one!
+!
+! Here's a handy command to use the side mouse buttons for lowering and
+! raising the sound card volume: (rexima is a command line mixer similar to
+! alsamixer)
+! 
+! None Mouse8              :ExecCommand rexima pcm -5
+! None Mouse9              :ExecCommand rexima pcm +3
+
+!------------------------------------------------------------------------------
+! Unused commands
+!------------------------------------------------------------------------------
+
+! This one tiles the windows on the current head, it looks like
+
+! Shift Mod4 q             :ArrangeWindows
+
+! Shift Mod4 q             :Bindkey ....
+! Shift Mod4 q             :CommandDialog
+! Shift Mod4 q             :DetachClient
+! Shift Mod4 q             :Export
+! Shift Mod4 q             :Execute
+! Shift Mod4 q             :Exit
+! Shift Mod4 q             :KillWindow
+! Shift Mod4 q             :LeftWorkspace
+! Shift Mod4 q             :MinimizeWindow
+! Shift Mod4 q             :MoveTabLeft
+! Shift Mod4 q             :MoveTabRight
+! Shift Mod4 q             :Reconfig, Reconfigure
+! Shift Mod4 q             :ReloadStyle
+! Shift Mod4 q             :SaveRc
+! Shift Mod4 q             :Setenv
+! Shift Mod4 q             :SetStyle
+! Shift Mod4 q             :SetWorkspacename
+! Shift Mod4 q             :SetWorkspacenameDialog
+! Shift Mod4 q             :SetResourcevalue
+! Shift Mod4 q             :SetResourcevalueDialog
+! Shift Mod4 q             :ShadeWindow
+! Shift Mod4 q             :StickWindow
+! Shift Mod4 q             :Tab
+! Shift Mod4 q             :ArrangeWindows
+
+!------------------------------------------------------------------------------
+! Execute commands
+!------------------------------------------------------------------------------
+
+!------------------------------------------------------------------------------
+! fluxbox-keys-vi
+!------------------------------------------------------------------------------
+! vim: ts=3 sw=3 et ft=fluxkeys
+!------------------------------------------------------------------------------

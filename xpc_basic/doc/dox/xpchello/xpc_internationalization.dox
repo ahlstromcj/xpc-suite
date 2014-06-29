@@ -1,0 +1,340 @@
+/******************************************************************************
+ * xpchello/doc/dox/xpc_internationalization.dox
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides no code.  It provides only a Doxygen "Doxygen
+ *    information" page.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file       xpc_internationalization.dox
+
+This document provides a discussion of the <b>XPC</b> <i>Hello</i> project
+and how it is set up to support the internationalization of an
+automake-based application.
+
+\library    xpc
+\page       xpc_internationalization XPC Hello Internationalization How-To
+\author     Chris Ahlstrom
+\version    $Revision$ (1.1.0)
+\date       2008-04-11
+\updates    2012-01-15
+\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+
+\section xpc_intl_introduction Introduction to 'gettext' Internationalization
+
+The <b>GNU</b> <i>gettext</i> system provides a good way to internationalize
+an application.  However, it is a complex system, and it is difficult to
+parse tutorial documentation on using it in an automake-based project.
+
+The <i>Hello</i> application provides a minimalist demonstration of
+internationalizing an application.  It is even simpler than the <b>GNU</b>
+</i>Hello World</i>"project:
+
+   http://www.gnu.org/software/hello/
+
+That project is a good example of a self-documenting <b>GNU</b> project, but it
+includes a lot of stuff we don't care about (yet):  usage of <i>Gnulib</i>;
+the <tt>getopt_long()</tt> function; <i>help2man</i>; <i>Texinfo</i>; and
+<b>GNU</b> coding standards.  Also, it doesn't really explain everything
+needed to \e create such a project.
+
+Therefore, we've worked out the procedure in our own <i>Hello</i> project,
+and documented it.  In addition, the <tt>bootstrap-po</tt> script, using the
+<tt>--intl-boot</tt> option, can reconstruct the necessary files from
+scratch.
+
+\section xpc_intl_process The 'gettext' Process
+
+The following is a modified version of the diagram found at
+
+   http://www.gnu.org/software/gettext/manual/gettext.html#configure_002eac
+
+\verbatim
+Marked C Sources ---> gettextize ---> po/POTFILES.in --->  po: make --->
+                                                          (xgettext)
+
+---> po/PROGRAM.pot ---> msginit ---> msgmerge ---> LL.po --->
+
+                               make
+---> msgfmt ---> LL.gmo ---> install ---> /prefix/share/LL/PROGRAM.mo ---
+                                |                                        |
+                                |                                        |
+                                |                                        v
+                                 -------> /prefix/bin/PROGRAM ---> Hello world!
+\endverbatim
+
+where <i> LL </i> represents the language code (e.g. "es_ES"), and
+<i> PROGRAM </i> represents the name of the program.
+
+The following usage steps walk the reader through this diagram.  It assumes
+that the basic project files (e.g. configure.ac, Makefile.am, etc.) have
+already been created so that the project builds properly without
+internationaliztion.
+
+\usage
+
+   -# <b>Marked C Sources</b>.
+      You must manually mark the translatable message strings in all
+      applicable <tt>C</tt> modules by enclosing them in the <tt>_()</tt>
+      macro.  This macro is
+      defined to call <tt>gettext()</tt> to do the actual translation.
+      Marking the sources is ongoing, as new message strings are added to
+      the application.  Creating good translatable strings is an art, and
+      GNU documents good ways to do it.
+   -# <b>gettextize --force</b>.
+      Run the <i>gettextize</i> program.  It adds a
+      <tt>Makefile.in.in</tt> and some helper files to the <tt>po</tt> directory,
+      and some <i>autoconf</i> macros to the <tt>m4</tt> directory.  It
+      adds a few other files, and modifies some others, making backups.
+      Note that we leave off the <tt>--intl</tt> option.  This would cause
+      an <tt>intl/</tt> directory to be created and filled with gettext
+      sources that can be built into the application, so that the end-user
+      doesn't have to have gettext installed on his/her system.
+   -# <b>po/POTFILES.in</b>.
+      Add the list of the translatable <b>C</b> and <b>C++</b>
+      modules to the <tt>po/POTFILES.in</tt> file.
+      The <tt>build_POTFILES</tt> function in the <tt>bootstrap-po</tt>
+      script does this when the <tt>--boot</tt> option is specified.
+   -# <b>po: make <i>(xgettext)</i></b>.
+      Calling <i>make package.pot</i> (where <tt>package</tt> is the value
+      of the project's <tt>PACKAGE</tt> macro) in the the <tt>po</tt>
+      directory will call <i>xgettext</i>.  This application collects all
+      of the marked strings in the sources specified in
+      <tt>POTFILES.in</tt>, and generates a template translation file.
+   -# <b>po/PROGRAM.pot</b>.
+      This is the template translation file.   The <i>make</i> in the
+      <tt>po</tt> directory causes an error, since none of the languages
+      specified in <tt>LINGUAS</tt> have been handled yet.
+      Therefore, the <tt>bootstrap-po</tt> script punts by using
+      <tt>xpc.pot</tt> from the <tt>contrib/po</tt> directory to
+      create the initial <tt>es.po</tt> file.
+   -# Other files that need editing are not shown in the diagram:
+      -  <tt>LINGUAS</tt>.  Add the set of supported languages in one line,
+         such as "es de fr".  The extra message catalogs "en\@quot" and
+         "en\@boldquot" should also be added.  If these are added, then
+         the following files are needed (gettextize will add them):
+         -  <tt>Rules-quot</tt>
+         -  <tt>quot.sed</tt>
+         -  <tt>boldquot.sed</tt>
+         -  <tt>en\@quot.header</tt>
+         -  <tt>en\@boldquot.header</tt>
+         -  <tt>insert-header.sin</tt>
+      -  <tt>Makevars</tt>.  This file needs to be modified only if your
+         package has multiple <tt>po</tt> directories.  The XPC suite
+         does not.
+      -  <tt>config.guess</tt> and <tt>config.sub</tt>.  These files are
+         needed only if <tt>intl/</tt> support is used, and they go into the
+         top-level XPC directory.  But the XPC suite does not use that
+         support.
+      -  <tt>mkinstalldirs</tt>.  Apparently not needed anymore, but we will
+         keep it around.
+   -# <b>msginit --input=../contrib/po/xpc.pot --output-file=es.po</b>.
+      The user (or <tt>bootstrap-po</tt> script) calls this program to convert
+      the <tt>xpc.pot</tt> file into a translation file for a
+      given language.
+   -# <b>msgmerge</b>.
+      This program is called as the program is maintained.
+      It merges new messages into the existing language file(s).
+   -# <b>LL.po</b>.
+      This is the translation file for language <i>LL</i>.
+      The initial make will fail, since none of the languages specifief in
+      <tt>LINGUAS</tt> have been handled yet.  Therefore, the
+      <tt>bootstrap</tt> script punts by copying <tt>es.po</tt> from the
+      <tt>contrib</tt> directory.
+   -# <b>msgfmt</b>.
+      Once the <tt>LL.po</tt> file does exist, the <i>make</i> in
+      <tt>po</tt> will generate a <tt>gmo</tt> file.
+   -# <b>LL.gmo</b>.
+      This is a compiled language file that can later be installed as a
+      <i>mo</i> file when the program is officially installed.
+   -# <b>make install</b>.
+      This command installs not only the program, but the localization files
+      created above.
+   -# <b>/<i>prefix</i>/LL/PROGRAM.mo</b>.
+      The <i>gmo</i> file is copied here, where <i>prefix</i> is usually
+      <tt>/usr/local</tt>.  <i>LL</i> expands to something like
+      <i>es/LC_MESSAGES</i>.  If you look in the directory
+      <tt>/usr/local/share/es/LC_MESSAGES</tt>, you may find <i>mo</i> files
+      from other installed applications.
+   -# <b>/<i>prefix</i>/bin/PROGRAM</b>.  This is where the program itself goes.
+   -# <b>Hello world!</b>.  Running the program will produce this message.
+      If you export <tt>LC_ALL</tt>, etc. to empty strings, and export
+      <tt>LANG="es_ES"</tt>, this message will appear as <b>!Hola, mundo!</b>.
+
+\section xpc_intl_marking Marking Text and Building Translations
+
+The discussion in the previous section is a bit abstract.  Let's make it
+more concrete.
+
+We have a problem, perhaps.   The only way to get a <tt>*.pot</tt>
+built is to manually change to the <tt>po</tt> directory and then
+do (for example):
+
+\verbatim
+   $ make libxpccut.pot
+\endverbatim
+
+We are not sure why it isn't built automatically; either PACKAGE isn't
+defined, or we need to update <tt>po/Makevars</tt>.  So keep this additional
+step in mind; it is included below.
+
+<i>
+   And yet, the above now seems to be wrong, as we've found the
+   <tt>libxpccut.pot</tt> file to be up-to-date!
+</i>
+
+   -# Prep the C source code with invocations of the <tt>_()</tt> and
+      <tt>N_()</tt> macros.  Use the former to mark text you want
+      translated, and the latter to mark text that will be ignored.
+      One can assume that unmarked text is also ignored.
+   -# Create the initial project template file by extracting <tt>_()</tt>
+      invocations from the source code.  The first step is for manual
+      execution, while the second step is quicker.
+      -  xgettext [lists of directories?]
+      -  Change to the po directory, and then do
+ \verbatim  
+         $ make libxpccut.pot
+ \endverbatim  
+         The name 'libxpccut' is the name of the library, and the specific
+         name here is just an example.  The project variable used here is
+         PACKAGE="libxpccut". 
+   -# Generate an up-to-date <tt>xx.po</tt> for language <tt>xx</tt>.
+      The <i>first time</i> you do this, perform this command:
+\verbatim
+         $ cp libxpccut.pot xx.po
+\endverbatim
+      This step creates the initial <tt>po</tt> file in the developer's
+      language.  This file can the be translated in subsequent steps.
+      Again, to be clear, only do this action <i>once</i>.
+   -# The <i>rest of the time</i>, do the following command.  This step
+      merges in changes and comments out obsolete translations.
+\verbatim
+         $ msgmerge -o new.pot es.po libxpccut.pot
+\endverbatim
+      This command follows the format
+      <i>msgmerge existing.po uptodatesourcestrings.pot</i>.
+      It takes the currently-translated strings in the latest version of the
+      translation module, <tt>es.po</tt>, and generates a new file,
+      <tt>new.pot</tt> that contains these translations, plus modifications
+      based on new text strings, or changes of the existing strings within
+      each source-code module.
+   -# Modify <tt>new.pot</tt> (for language <tt>xx</tt>) to create or extend
+      a translation.
+   -# Back up the old file (<tt>es.po</tt>) elsewhere, just in case, then
+      ..................................................
+   -# If it is a new language to the project, add it to the
+      <tt>LINGUAS</tt> file.
+   -# Convert the <tt>po</tt> file to a machine file (<tt>gmo</tt>) using
+      <i>msgfmt</i>.
+\verbatim
+         $ msgfmt [option] xx.po
+\endverbatim
+   -# Rebuild and install the project.
+
+\section xpc_intl_building Building the Internationalized Application
+
+Let's recapitulate the whole process from the very beginning, in terms of
+actual commands:
+
+   -# <tt>$ tar xf xpchello-2009-04-23.tar.bz2</tt> \n
+      Unpack the code.  Preferably, do this in the <tt>xpc_suite</tt>
+      directory, because that's the home for all <b>XPC</b> projects.
+      However, for better testing of the building and the installation 
+      of the other <b>XPC</b> libraries (e.g. <i>libxpccut</i>, then
+      unit-test library), feel free to untar this file somewhere else,
+      such as <tt>~/tmp</tt>.
+   -# <tt>$ cd xpchello</tt> \n
+      Change to the project directory.
+   -# <tt>$ ./bootstrap-po --intl-boot</tt> \n
+      Run the script, telling it to create the <tt>po</tt> files.
+      This needs to be done only once.  However, the Hello project has been
+      set up to allow it to be built and torn down over and over -- the
+      files edited by the user have been preserved in the <tt>contrib</tt>
+      directory.  Note that the user must hit <i>Enter</i> because running
+      <i>gettextize</i> forces a prompt.
+   -# <tt>$ make</tt> \n
+      Generate the documentation in the <tt>doc</tt> directory, the
+      <tt>es.gmo</tt> and other files in the <tt>po</tt> directory, and the
+      object modules and the <tt>xpchello</tt> executable in the <tt>src</tt>
+      directory.
+   -# <tt># make install</tt>. \n
+      Install the documentation, the message catalog(s), and the
+      application.
+      <b> (WARNING: Currently, the application doesn't install properly yet.
+            Consider this goal a low priority.) </b>
+      The message catalog <tt>es.gmo</tt> is copied to
+      <tt>/usr/local/share/locale/es/LC_MESSAGES/xpchello.mo</tt>.
+   -# <tt>$ xpchello</tt> \n
+      Run this newly-installed application, and verify that it outputs
+      <b>Hello, world!</b>.
+   -# <tt>$ export LC_ALL=</tt> \n
+      <tt>$ export LANG=es_ES</tt> \n
+      Disable LC_ALL and change to the Spanish locale.
+   -# <tt>$ xpchello</tt> \n
+      Run the application again, and verify that it now outputs
+      <b>!Hola, mundo!</b>.  If it does not, you make have to perform the
+      next step, and try the current step again.
+   -# <tt># dpkg-reconfigure locales</tt> \n
+      Check-mark the <tt>es_ES.ISO-8859-1</tt> locale, and hit the
+      <tt>Ok</tt> button.  Now the <tt>xpchello</tt> command should work
+      properly.
+   -# <tt>$ ./bootstrap --intl-clean</tt> \n
+      Clean out all generated files.  The project will no longer be
+      buildable.  But you can start over again at step 3!
+
+\todo
+   We still need to explain how to properly create a distribution tarball
+   for an internationalized app.
+
+\note
+When a program looks up locale-dependent values, it does this according
+to the following environment variables, in priority order:
+
+   -# <tt>LANGUAGE</tt>
+   -# <tt>LC_ALL</tt>
+   -# <tt>LC_xxx</tt>, according to selected locale category: <tt>LC_CTYPE</tt>,
+      <tt>LC_NUMERIC</tt>, <tt>LC_TIME</tt>, <tt>LC_COLLATE</tt>,
+      <tt>LC_MONETARY</tt>, <tt>LC_MESSAGES</tt>, ...
+   -# <tt>LANG</tt>
+
+Variables whose value is set, but is empty, are ignored in this lookup.
+
+<tt>LANG</tt> is the normal environment variable for specifying a locale. 
+
+<tt>LC_ALL</tt> is an environment variable that overrides all of these. It is
+typically used in scripts that run particular programs.
+Some systems, unfortunately, set <tt>LC_ALL</tt> in <tt>/etc/profile</tt> or in
+similar initialization files. As a user, you therefore have to
+unset this variable if you want to set <tt>LANG</tt> and optionally some of
+the other <tt>LC_xxx</tt> variables. 
+
+\section xpc_intl_more_info More Information
+
+One internationalization package we want to note, for future reference, is
+the Debian package "iso-codes".
+
+   http://packages.debian.org/testing/misc/iso-codes
+
+\verbatim
+   ISO language, territory, currency codes and their translations
+
+   This package provides the ISO-639 Language code list, the ISO-4217
+   currency list, the ISO-3166 Territory code list, and ISO-3166-2
+   sub-territory lists.
+
+   It also (more importantly) provides their translations in .po form.
+\endverbatim
+
+\section xpc_intl_references References
+
+   -  http://www.gnu.org/software/gettext/manual/gettext.html
+   -  http://inti.sourceforge.net/tutorial/libinti/internationalization.html
+
+ *//*-------------------------------------------------------------------------*/
+
+/******************************************************************************
+ * xpchello/doc/dox/xpc_internationalization.dox
+ *----------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *//*-------------------------------------------------------------------------*/

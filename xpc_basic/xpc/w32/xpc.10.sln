@@ -1,0 +1,41 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "syncher_thread_ut", "syncher_thread_ut.10.vcxproj", "{05F339A2-AFC3-4E7E-B0F1-EA1034182A83}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C888060A-E583-4C2A-81AE-5E86505CDBB6} = {C888060A-E583-4C2A-81AE-5E86505CDBB6}
+		{863D5C38-0B86-42CD-88AE-9E75EF4B34FA} = {863D5C38-0B86-42CD-88AE-9E75EF4B34FA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libxpc", "libxpc.10.vcxproj", "{863D5C38-0B86-42CD-88AE-9E75EF4B34FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libxpccut", "..\..\xpccut-1.0\w32\libxpccut.10.vcxproj", "{C888060A-E583-4C2A-81AE-5E86505CDBB6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcutpp", "..\..\xpccut++-1.0\w32\libcutpp.10.vcxproj", "{C63E3B93-4AC8-4B4C-A36A-885B16F1BEA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05F339A2-AFC3-4E7E-B0F1-EA1034182A83}.Debug|Win32.ActiveCfg = Debug|Win32
+		{05F339A2-AFC3-4E7E-B0F1-EA1034182A83}.Debug|Win32.Build.0 = Debug|Win32
+		{05F339A2-AFC3-4E7E-B0F1-EA1034182A83}.Release|Win32.ActiveCfg = Release|Win32
+		{05F339A2-AFC3-4E7E-B0F1-EA1034182A83}.Release|Win32.Build.0 = Release|Win32
+		{863D5C38-0B86-42CD-88AE-9E75EF4B34FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{863D5C38-0B86-42CD-88AE-9E75EF4B34FA}.Debug|Win32.Build.0 = Debug|Win32
+		{863D5C38-0B86-42CD-88AE-9E75EF4B34FA}.Release|Win32.ActiveCfg = Release|Win32
+		{863D5C38-0B86-42CD-88AE-9E75EF4B34FA}.Release|Win32.Build.0 = Release|Win32
+		{C888060A-E583-4C2A-81AE-5E86505CDBB6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C888060A-E583-4C2A-81AE-5E86505CDBB6}.Debug|Win32.Build.0 = Debug|Win32
+		{C888060A-E583-4C2A-81AE-5E86505CDBB6}.Release|Win32.ActiveCfg = Release|Win32
+		{C888060A-E583-4C2A-81AE-5E86505CDBB6}.Release|Win32.Build.0 = Release|Win32
+		{C63E3B93-4AC8-4B4C-A36A-885B16F1BEA3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C63E3B93-4AC8-4B4C-A36A-885B16F1BEA3}.Debug|Win32.Build.0 = Debug|Win32
+		{C63E3B93-4AC8-4B4C-A36A-885B16F1BEA3}.Release|Win32.ActiveCfg = Release|Win32
+		{C63E3B93-4AC8-4B4C-A36A-885B16F1BEA3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

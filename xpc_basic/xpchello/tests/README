@@ -1,0 +1,24 @@
+#******************************************************************************
+# xpc_suite-1.1/xpchello/tests/README
+#------------------------------------------------------------------------------
+##
+# \file        README
+# \author      Chris Ahlstrom
+# \date        2008-04-08
+# \update      2012-01-02
+#
+#------------------------------------------------------------------------------
+
+This directory contains the C source-code files for the XPC 'hello'
+test application.
+
+This test application mainly serves as an example of how to link
+to the installed XPCCUT library.
+
+It does not really do much testing per se.
+
+#*****************************************************************************
+# README (xpchello/tests)
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

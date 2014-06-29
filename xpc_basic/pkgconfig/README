@@ -1,0 +1,22 @@
+#******************************************************************************
+# xpc_suite-1.1/pkgconfig/README
+#------------------------------------------------------------------------------
+##
+# \file        README
+# \author      Chris Ahlstrom
+# \date        2008-03-04
+# \update      2013-07-23
+#
+#------------------------------------------------------------------------------
+
+This directory contains the pkgconfig file templates needed by any project
+that wants to use (i.e. link to) libxpccut and the other XPC Basic libraries.
+
+For more information about pkgconfig, see the documentation section and its
+coverage of GNU Automake.
+
+#*****************************************************************************
+# README (xpccut/pkgconfig)
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

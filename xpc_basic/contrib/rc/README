@@ -1,0 +1,27 @@
+#*****************************************************************************
+# xpc_suite-1.1/contrib/rc/README
+#------------------------------------------------------------------------------
+##
+# \file        README
+# \author      Chris Ahlstrom
+# \date        2008-08-07
+# \update      2012-01-02
+#
+#-----------------------------------------------------------------------------
+
+"README" for the XPC contrib/rc directory
+
+This directory contains configuration files for various applications.
+
+Some can be used as is.
+
+Some have to be renamed to the form .xxxxxrc
+
+The mctheme-ini.rc file for Midnight Commander should copy copied and
+renamed to ~/.mc/ini.
+
+#*****************************************************************************
+# README (xpc_suite-1.1/contrib/rc/) ft=sh provides a dash of color in vim.
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

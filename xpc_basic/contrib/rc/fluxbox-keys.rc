@@ -1,0 +1,250 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! File   : $HOME/.fluxbox/keys
+! About  : fluxbox key bindings
+! Author : Chris Ahlstrom, mathias gumz <akira at fluxbox dot org>
+! Date   : 06/06/2008-08/20/2008
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+!  o  Syntax of the fluxbox-keys-file:
+!
+!        <mod> [<mod> <mod>] key [key key] :command <commanoptions>
+!
+!     Use 'xmodmap -pm' to see what mods are available. 
+!     No "modifier" is 'None'.
+!
+!  o  You can find a valid syntaxfile for vim here:
+!
+!        http://www.vim.org/scripts/script.php?script_id=882
+!        http://darkshed.net/files/vim/syntax/fluxkeys.vim
+!
+!  o  Key combos:  (Mod1=Alt, Mod4=Windows key, Menu=Menu key)
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! mouse actions added by fluxbox-update_configs
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+OnTitlebar Double Mouse1 :Shade
+OnTitlebar Mouse3 :WindowMenu
+OnTitlebar Mouse2 :Lower
+
+OnWindow Mod1 Mouse1 :StartMoving
+OnWindow Mod1 Mouse3 :StartResizing BottomRight
+
+OnDesktop Mouse1 :hideMenus
+OnDesktop Mouse2 :workspaceMenu
+OnDesktop Mouse3 :rootMenu
+OnDesktop Mouse4 :nextWorkspace
+OnDesktop Mouse5 :prevWorkspace
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  menus
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+None Menu                  :RootMenu
+Control Menu               :WorkspaceMenu
+Control Mod1 Mod4 Menu     :Restart
+
+! Shift Menu Delete          :Reconfigure
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  window - handling
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Moves focus to a different window
+! (Doesn't seem to work, let's use them for movement.)
+!
+! Mod4 Right                 :MoveRight
+! Mod4 Left                  :MoveLeft
+! Mod4 Up                    :MoveUp
+! Mod4 Down                  :MoveDown
+
+Mod4 Menu                  :WindowMenu
+
+! Moves window to the given Xinerama screen
+
+Control Mod4 1             :SetHead 1
+Control Mod4 2             :SetHead 2
+
+Mod1 Tab                   :NextWindow 1
+Shift Mod1 Tab             :PrevWindow 1
+
+Mod4 a                     :ArrangeWindows
+Mod4 c                     :CycleDecor
+Mod4 d                     :ToggleDecor
+Mod4 h                     :Shade
+Mod4 i                     :Iconify
+Mod4 m                     :Maximize
+Mod4 p                     :PrevTab
+Mod4 s                     :Stick
+Mod4 t                     :NextTab
+Mod4 v                     :MaximizeVertical
+Mod4 w                     :MaximizeHorizontal
+
+Control Mod1 Mod4 x        :Close
+Control Mod1 Mod4 s        :Showdesktop
+
+Shift Mod4 q               :Deiconify LastWorkspace
+Control Shift Mod4 q       :Deiconify Last OriginQuiet
+Control Shift Mod1 Mod4 q  :Deiconify All OriginQuiet
+
+Mod1 Up                    :RaiseLayer
+Mod1 Down                  :LowerLayer
+
+! 1 - cycle groups
+! 2 - skip stuck
+! 4 - skip shaded
+! 8 - cycle linear
+! 0 - cycle default
+
+! Shift Mod1 Mod4 Up        :FocusUp
+! Shift Mod1 Mod4 Down      :FocusDown
+! Shift Mod1 Mod4 Left      :FocusLeft
+! Shift Mod1 Mod4 Right     :FocusRight
+
+! Mod1 Return               :MaximizeWindow
+! Control Mod4 f            :Fullscreen
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! resize / movement of window
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Mod4 Right                 :Move  10   0
+Mod4 Left                  :Move -10   0
+Mod4 Up                    :Move   0 -10
+Mod4 Down                  :Move   0  10
+
+Mod4 KP_Home               :Move -10 -10
+Mod4 KP_Up                 :Move   0 -10
+Mod4 KP_Prior              :Move  10 -10
+Mod4 KP_Left               :Move -10   0
+Mod4 KP_Right              :Move  10   0
+Mod4 KP_End                :Move -10  10
+Mod4 KP_Down               :Move   0  10
+Mod4 KP_Next               :Move   10 10
+
+! Already used above to take window to another workspace
+!
+! Control Mod4 Right         :Move  50   0
+! Control Mod4 Left          :Move -50   0
+! Control Mod4 Up            :Move   0 -50
+! Control Mod4 Down          :Move   0  50
+
+Control Mod4 KP_Home       :Move -50 -50
+Control Mod4 KP_Up         :Move   0 -50
+Control Mod4 KP_Prior      :Move  50 -50
+Control Mod4 KP_Left       :Move -50   0
+Control Mod4 KP_Right      :Move  50   0
+Control Mod4 KP_End        :Move -50 -50
+Control Mod4 KP_Down       :Move   0  50
+Control Mod4 KP_Next       :Move   50 50
+
+! Let's find another use for these.
+!
+! Shift Mod1 Left            :Resize -1    0
+! Shift Mod1 Right           :Resize  1    0
+! Shift Mod1 Up              :Resize  0   -1
+! Shift Mod1 Down            :Resize  0    1
+
+Mod1 Mod4 Left             :Resize -1    0
+Mod1 Mod4 Right            :Resize  1    0
+Mod1 Mod4 Up               :Resize  0   -1
+Mod1 Mod4 Down             :Resize  0    1
+
+Mod1 Mod4 KP_Home          :Resize -1   -1
+Mod1 Mod4 KP_Up            :Resize  0   -1
+Mod1 Mod4 KP_Prior         :Resize  1   -1
+Mod1 Mod4 KP_Left          :Resize -1    0
+Mod1 Mod4 KP_Right         :Resize  1    0
+Mod1 Mod4 KP_End           :Resize -1    1
+Mod1 Mod4 KP_Down          :Resize  0    1
+Mod1 Mod4 KP_Next          :Resize  1    1
+
+Shift Mod4 Left            :MoveTo 0 * Left
+Shift Mod4 Right           :MoveTo 0 * Right
+Shift Mod4 Up              :MoveTo * 0 Upper
+Shift Mod4 Down            :MoveTo * 0 Lower
+Shift Mod4 KP_Home         :MoveTo 0 0 UpperLeft
+Shift Mod4 KP_Up           :MoveTo * 0 Upper
+Shift Mod4 KP_Prior        :MoveTo 0 0 UpperRight
+Shift Mod4 KP_Left         :MoveTo 0 * Left
+Shift Mod4 KP_Begin        :MoveTo 0 * Right
+Shift Mod4 KP_Right        :MoveTo 0 * Right
+Shift Mod4 KP_End          :MoveTo 0 0 LowerLeft
+Shift Mod4 KP_Down         :MoveTo * 0 Lower
+Shift Mod4 KP_Next         :MoveTo 0 0 LowerRight
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  workspace - handling
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Control Mod4 Right         :TakeToNextWorkspace 1
+Control Mod4 Left          :TakeToPrevWorkspace 1
+Control Mod4 Up            :TakeToNextWorkspace 1
+Control Mod4 Down          :TakeToPrevWorkspace 1
+
+! Cannot work
+!
+! Mod4 1                     :TakeToWorkSpace 1
+! Mod4 2                     :TakeToWorkSpace 2
+! Mod4 3                     :TakeToWorkSpace 3
+! Mod4 4                     :TakeToWorkSpace 4
+
+! Already used
+!
+! Shift Mod4 Right           :SendToNextWorkspace 1
+! Shift Mod4 Left            :SendToPrevWorkspace 1
+
+Control Mod1 Right         :NextWorkspace 
+Control Mod1 Left          :PrevWorkspace 
+
+Control Mod1 KP_End        :Workspace 1
+Control Mod1 KP_Down       :Workspace 2
+Control Mod1 KP_Next       :Workspace 3
+Control Mod1 KP_Left       :Workspace 4
+Control Mod1 KP_Begin      :Workspace 5
+Control Mod1 KP_Right      :Workspace 6
+Control Mod1 KP_Home       :Workspace 7
+Control Mod1 KP_Up         :Workspace 8
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! execute commands
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Sound stuff, basicly control the volume via amixer (alsa)
+!
+! 
+! Control Shift m             :ExecCommand aumix -w m
+! Control Shift u             :ExecCommand aumix -w 50
+
+! Control Mod4 z    :ExecCommand audacious --rew > /dev/null
+! Control Mod4 x    :ExecCommand audacious --play > /dev/null
+! Control Mod4 c    :ExecCommand audacious --pause > /dev/null
+! Control Mod4 v    :ExecCommand audacious --stop > /dev/null
+! Control Mod4 b    :ExecCommand audacious --fwd > /dev/null
+
+! Control Mod4 z    :ExecCommand xmms --rew > /dev/null
+! Control Mod4 x    :ExecCommand xmms --play > /dev/null
+! Control Mod4 c    :ExecCommand xmms --pause > /dev/null
+! Control Mod4 v    :ExecCommand xmms --stop > /dev/null
+! Control Mod4 b    :ExecCommand xmms --fwd > /dev/null
+
+Control Mod4 z    :ExecCommand xmms2 prev > /dev/null
+Control Mod4 x    :ExecCommand xmms2 play
+Control Mod4 c    :ExecCommand xmms2 pause
+Control Mod4 v    :ExecCommand xmms2 stop
+Control Mod4 b    :ExecCommand xmms2 next > /dev/null
+
+Control Mod4 m    :ExecCommand amixer -- sset Master toggle > /dev/null
+Control Mod4 n    :ExecCommand amixer -- sset Master toggle > /dev/null
+
+! attention: the next command is just to show that syntax-hl in vim works
+!
+! Control Mod1 Mod4 x :MacroCmd {Exec xterm} {Move 10} {Exec bla} {Move 10 10}
+
+! vim:ft=fluxkeys
+
+

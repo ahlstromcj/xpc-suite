@@ -1,0 +1,3132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Chris Ahlstrom
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: xpc 1.1.0\n"
+"Report-Msgid-Bugs-To: ahlstromcj@gmail.com\n"
+"POT-Creation-Date: 2013-07-30 08:54-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xpccut/src/unit_test_status.c:193
+msgid "null options, or group/case names"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:196
+msgid "invalid test group or case number"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:268
+msgid "TEST"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:273
+msgid "Simulated TEST"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:282 xpccut/src/unit_test_status.c:297
+#: xpccut/src/unit_test.c:1327 xpccut/src/unit_test.c:1636
+#: xpccut/src/unit_test.c:1653
+msgid "Group"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:282 xpccut/src/unit_test_status.c:298
+#: xpccut/src/unit_test.c:1328 xpccut/src/unit_test.c:1639
+#: xpccut/src/unit_test.c:1656
+msgid "Case"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:298 xpccut/src/unit_test_status.c:828
+msgid "skipped"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:394
+msgid "FAILURE in sub-test"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:396
+msgid "FAILURE in simulated sub-test"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:473
+msgid "This FAILURE is deliberate"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:567
+msgid "time-difference < 0.0, left unassigned"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:602 xpccut/src/unit_test_status.c:747
+#: xpccut/tests/unit_test_test.c:2050 xpccut++/tests/cut_unit_test.cpp:3138
+#: xpccut++/tests/cut_unit_test.cpp:3141
+msgid "unnamed"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:605
+msgid "none given"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:610
+msgid "Unit test"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:654
+msgid "Test is aborted or is to be skipped"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:753
+msgid "empty tag"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:765 xpccut/src/unit_test_status.c:819
+#: xpccut/src/unit_test_status.c:828 xpccut/src/unit_test.c:1329
+msgid "Sub-test"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:952
+msgid "For this test [(c)ontinue, (s)kip, (q)uit, (a)bort, (h)elp]"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:979 xpccut/src/unit_test_status.c:1114
+msgid "Responding automatically with"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:989
+msgid "Continuing"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:996
+msgid "Skipping"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1003 xpccut/src/unit_test_status.c:1138
+msgid "Quitting"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1010 xpccut/src/unit_test_status.c:1145
+msgid "Aborting"
+msgstr ""
+
+#. TRANSLATORS: line up the 2nd column of the next 4 strings.
+#: xpccut/src/unit_test_status.c:1021
+msgid "Continue:  Go ahead and perform the upcoming test."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1022
+msgid "Skip:      Do not perform the test.  Treat it as passed."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1023
+msgid "Quit:      Do not perform any more tests.  Treat this test as passed."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1024
+msgid "Abort:     Do not perform any more tests.  Treat this test as failed."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1085
+msgid "Disposition [(p)ass, (f)ail, (q)uit, (a)bort, (h)elp]"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1124
+msgid "Passed"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1131
+msgid "Failed"
+msgstr ""
+
+#. TRANSLATORS: line up the 2nd column of the next 4 strings.
+#: xpccut/src/unit_test_status.c:1155
+msgid "Pass:      Indicate that the test has passed."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1156
+msgid "Fail:      Indicate that the test has failed."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1157
+msgid "Quit:      Treat this test as passed, and end the unit-testing."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1158
+msgid "Abort:     Treat this test as failed, and end the unit-testing."
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1309
+msgid "User indicates test succeeded"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1318
+msgid "User quits, but passes this test"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1320
+msgid "User indicates test aborted"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1323
+msgid "User indicates test failed"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:1686
+msgid "sub-test error count < 0"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:2011 xpccut/src/unit_test_status.c:2084
+#: xpccut/src/unit_test_status.c:2130
+msgid "expected"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:2011 xpccut/src/unit_test_status.c:2084
+#: xpccut/src/unit_test_status.c:2131 xpccut++/tests/cut_unit_test.cpp:2284
+msgid "actual"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:2076 xpccut/src/unit_test_status.c:2079
+#: xpccut/src/portable_subset.c:156 xpccut/src/portable_subset.c:637
+#: xpccut/src/portable_subset.c:680 xpccut/src/fuzz.c:815
+#: xpccut/src/fuzz.c:1026 xpc/src/numerics.c:1795 xpc/src/errorlogging.c:4406
+#: xpc/src/parse_ini.c:1165 xpc/tests/syncher_thread_ut.c:292
+#: xpc/tests/syncher_thread_ut.c:640 xpccut++/src/cut.cpp:412
+#: xpccut++/src/cut.cpp:477
+msgid "null pointer"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:2130 xpccut/src/unit_test_status.c:2131
+#: xpccut/src/unit_test_status.c:2277 xpc/src/portable.c:166
+#: xpc/src/parse_ini.c:1176 xpc/src/gettext_support.c:343
+msgid "true"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:2130 xpccut/src/unit_test_status.c:2131
+#: xpccut/src/unit_test_status.c:2277 xpc/src/portable.c:165
+#: xpc/src/parse_ini.c:1178 xpc/src/gettext_support.c:319
+msgid "false"
+msgstr ""
+
+#: xpccut/src/unit_test_status.c:2329
+msgid "Context"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:348
+msgid "null message pointer"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:350
+msgid "empty message"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:358 xpccut++/src/cut_status.cpp:178
+msgid "group"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:359 xpccut++/src/cut_status.cpp:179
+msgid "case"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:468
+msgid "empty"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:648 xpccut/src/unit_test_options.c:673
+#: xpccut/src/unit_test_options.c:718 xpccut/src/unit_test_options.c:738
+msgid "argument required"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1051 xpccut/src/unit_test.c:124
+#: xpccut/src/unit_test.c:188 xpccut/src/unit_test.c:1324
+#: xpccut/src/portable_subset.c:606 xpccut/src/portable_subset.c:631
+#: xpccut/src/portable_subset.c:960 xpccut/src/portable_subset.c:963
+#: xpchello/src/hello-main.c:207 xpchello/src/hello-main.c:210
+#: xpc/src/pthread_attributes.c:429 xpc/src/pthread_attributes.c:468
+#: xpc/src/pthread_attributes.c:509 xpc/src/numerics.c:1391
+#: xpc/src/numerics.c:1394 xpc/src/numerics.c:1662 xpc/src/pthreader.c:258
+#: xpc/src/pthreader.c:305 xpc/src/pthreader.c:364 xpc/src/pthreader.c:410
+#: xpc/src/pthreader.c:446 xpc/src/errorlogging.c:343
+#: xpc/src/errorlogging.c:881 xpc/src/errorlogging.c:1258
+#: xpc/src/errorlogging.c:1261 xpc/src/errorlogging.c:2773
+#: xpc/src/errorlogging.c:3661 xpc/src/errorlogging.c:4022 xpc/src/os.c:95
+#: xpc/src/os.c:153 xpc/src/syncher.c:94 xpc/src/syncher.c:212
+#: xpc/src/syncher.c:345 xpc/src/syncher.c:446 xpc/src/test_settings.c:134
+#: xpc/src/gettext_support.c:258 xpc/src/gettext_support.c:267
+#: xpc/tests/xpc_strings_ut.c:175 xpc/tests/xpc_strings_ut.c:246
+#: xpc/tests/xpc_strings_ut.c:351 xpc/tests/xpc_strings_ut.c:483
+#: xpc/tests/xpc_strings_ut.c:624 xpc/tests/xpc_strings_ut.c:950
+#: xpc/tests/xpc_strings_ut.c:1054 xpc/tests/xpc_strings_ut.c:1173
+#: xpc/tests/xpc_strings_ut.c:1238 xpc/tests/xpc_strings_ut.c:1584
+#: xpc/tests/xpc_strings_ut.c:2024 xpc/tests/xpc_strings_ut.c:2117
+#: xpccut++/src/cut.cpp:424 xpc++/src/errorlog.cpp:389
+#: xpc++/src/errorlog.cpp:587 xpc++/src/errorlog.cpp:837
+#: xpc++/src/errorlog.cpp:840
+msgid "failed"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1089
+msgid "version"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1119
+msgid "Verbose enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1180
+msgid "Show-values enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1236
+msgid "Synchronize enabled (TODO)"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1292
+msgid "Show-step-numbers enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1294
+msgid "Show-step-numbers disabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1364
+msgid "Show-progress enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1368
+msgid "Show-progress disabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1442
+msgid "Stop-on-error enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1615
+msgid "interactive tests disabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1672
+msgid "beeping disabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1736
+msgid "Summary of tests enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1795
+msgid "Case-pausing enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1853 xpccut/src/unit_test_options.c:2048
+msgid "negative value"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1858
+msgid "value > XPCCUT_TESTGROUP_MAX"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1879
+msgid "Running all unit-test groups"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1886
+msgid "Running only group #"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:1937
+msgid "the crazy group number indicates that it was not initialized"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2053
+msgid "value > XPCCUT_TESTCASE_MAX"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2075
+msgid "Running all unit-test cases"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2082
+msgid "Running only case #"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2127
+msgid "the crazy case number indicates that it was not initialized"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2248
+msgid "Bad/missing subtest number"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2260
+msgid "Running only subtest #"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2266
+msgid "No restrictions in sub-tests"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2308
+msgid "the crazy sub-test number indicates that it was not initialized"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2424
+msgid "Bad/missing sleep time (ms)"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2434
+msgid "sleep-time (ms) between tests"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2480
+msgid "the crazy sleep time indicates that it was not initialized"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2513
+msgid "Requiring sub-tests enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2569 xpccut/src/unit_test_options.c:2909
+msgid "Forcing test-failure enabled"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2638
+msgid "Developer is overriding test number"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2646
+msgid "negative tests numbers are illegal"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2731
+msgid "Developer is automating the response-before"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2750
+msgid "illegal response-before character"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2753 xpccut/src/unit_test_options.c:2850
+msgid "negative response-character illegal"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2828
+msgid "Developer is automating the response-after"
+msgstr ""
+
+#: xpccut/src/unit_test_options.c:2847
+msgid "illegal response-after character"
+msgstr ""
+
+#: xpccut/src/unit_test.c:133
+msgid "empty help"
+msgstr ""
+
+#: xpccut/src/unit_test.c:193
+msgid "already allocated"
+msgstr ""
+
+#: xpccut/src/unit_test.c:206
+msgid "failed to reallocate case list"
+msgstr ""
+
+#: xpccut/src/unit_test.c:211
+msgid "null case list when reallocating"
+msgstr ""
+
+#: xpccut/src/unit_test.c:298
+msgid "press Enter to continue testing or Ctrl-C to end testing"
+msgstr ""
+
+#: xpccut/src/unit_test.c:392
+msgid "No Name"
+msgstr ""
+
+#: xpccut/src/unit_test.c:507 xpccut/tests/unit_test_test.c:9769
+#: xpccut++/tests/cut_unit_test.cpp:10813
+msgid "Unit Test"
+msgstr ""
+
+#: xpccut/src/unit_test.c:543 xpccut/src/unit_test.c:546
+#: xpccut/tests/unit_test_test.c:9785 xpccut++/tests/cut_unit_test.cpp:10829
+msgid "No help"
+msgstr ""
+
+#: xpccut/src/unit_test.c:644
+msgid "null test pointer"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1034
+msgid "no unit tests loaded"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1150 xpccut/src/unit_test.c:1615
+msgid "null status pointer"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1158
+msgid "PROGRAMMER -- null run-result pointer"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1170
+msgid "Sleeping"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1170
+msgid "milliseconds"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1200
+msgid "Stop-on-error enabled; failure in TEST"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1221
+msgid "Skipped"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1226
+msgid "User requested an end to testing"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1231
+msgid "Quitting the tests early"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1270 xpccut/src/unit_test.c:1300
+#: xpccut/src/unit_test.c:1323
+msgid "sub-tests encountered"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1271
+msgid "Tests summarized, not performed"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1298
+msgid "unit-tests completed; all succeeded or were skipped"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1322
+msgid "tests completed"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1325
+msgid "First failed unit-test number"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1338
+msgid "Total test duration (ms)"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1408
+msgid "PROGRAMMER--no subtests encountered"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1563
+msgid "ordinal"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1565
+msgid "test-function pointer null"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1642
+msgid "through Subtest"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1644 xpccut/src/unit_test.c:1662
+msgid "PASSED"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1644 xpccut/src/unit_test.c:1662
+msgid "FAILED"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1659
+msgid "Subtests"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1661
+msgid "and below"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1683
+msgid "subtests failed"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1683
+msgid "First failed sub-test"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1695
+msgid "at sub-test"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1722
+msgid "This test was skipped"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1764
+msgid "internal churn"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1769
+msgid "could not set up pre-test"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1809
+msgid "All unit-tests succeeded; the test suite passed"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1819
+msgid "The unit-test suite did not pass"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1820
+msgid "tests failed"
+msgstr ""
+
+#: xpccut/src/unit_test.c:1851
+msgid "Version"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:191 xpccut/src/portable_subset.c:226
+#: xpccut/src/portable_subset.c:259 xpccut/src/portable_subset.c:292
+msgid "null pointer(s)"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:372 xpc/src/errorlogging.c:4349
+msgid "null 'this' pointer"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:377
+msgid "XPC_NO_THISPTR in force"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:571
+msgid "calibration failed"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:941
+msgid "LC_ALL locale setting"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:956 xpchello/src/hello-main.c:203
+msgid "current text domain"
+msgstr ""
+
+#: xpccut/src/portable_subset.c:966 xpchello/src/hello-main.c:213
+msgid "invalid locale"
+msgstr ""
+
+#: xpccut/src/fuzz.c:334
+msgid "could not allocate buffer"
+msgstr ""
+
+#: xpccut/src/fuzz.c:470
+msgid "divisor is zero"
+msgstr ""
+
+#: xpccut/src/fuzz.c:641
+msgid "too many characters excluded from default"
+msgstr ""
+
+#: xpccut/src/fuzz.c:672
+msgid "array too long"
+msgstr ""
+
+#: xpccut/src/fuzz.c:678
+msgid "array is empty"
+msgstr ""
+
+#: xpccut/src/fuzz.c:812
+msgid "bad sizes"
+msgstr ""
+
+#: xpccut/src/fuzz.c:854
+msgid "empty character-set generated"
+msgstr ""
+
+#: xpccut/src/fuzz.c:894
+msgid "empty character-set, cannot make fuzz string"
+msgstr ""
+
+#: xpccut/src/fuzz.c:994 xpccut/src/fuzz.c:999
+msgid "function broken"
+msgstr ""
+
+#: xpccut/src/fuzz.c:1015 xpc/src/test_settings.c:72
+#: xpc/src/test_settings.c:240 xpc/src/test_settings.c:572
+msgid "allocation failed"
+msgstr ""
+
+#: xpccut/src/fuzz.c:1021 xpc++/src/binstring.cpp:298
+#: xpc++/src/binstring.cpp:353
+msgid "empty string"
+msgstr ""
+
+#: xpccut/src/fuzz.c:1115
+msgid "null pointer or empty string"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:171
+msgid "This FAILURE is deliberate."
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:214 xpccut/tests/unit_test_test.c:12470
+#: xpchello/tests/xpchello_test.c:56 xpc/tests/syncher_thread_ut.c:77
+#: xpc/tests/syncher_thread_ut.c:131 xpc/tests/syncher_thread_ut.c:415
+#: xpc/tests/syncher_thread_ut.c:719 xpc/tests/parse_ini_ut.c:101
+#: xpc/tests/errorlogging_ut.c:107 xpccut++/tests/cut_unit_test.cpp:13473
+msgid "Smoke Test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:225 xpccut/tests/unit_test_test.c:12826
+#: xpccut/tests/unit_test_test.c:13168 xpchello/tests/xpchello_test.c:67
+#: xpc/tests/syncher_thread_ut.c:96 xpc/tests/syncher_thread_ut.c:142
+#: xpccut++/tests/cut_unit_test.cpp:915 xpccut++/tests/cut_unit_test.cpp:957
+#: xpccut++/tests/cut_unit_test.cpp:13783 xpc++/tests/experiments.cpp:190
+#: xpc++/tests/xpcpp_unit_test.cpp:103 xpc++/tests/xpcpp_unit_test.cpp:150
+#: xpc++/tests/xpcpp_unit_test.cpp:197 xpc++/tests/xpcpp_unit_test.cpp:244
+#: xpc++/tests/xpcpp_unit_test.cpp:368
+msgid "No values to show in this test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:245 xpccut/tests/unit_test_test.c:12846
+#: xpchello/tests/xpchello_test.c:87 xpccut++/tests/cut_unit_test.cpp:972
+#: xpccut++/tests/cut_unit_test.cpp:13803
+msgid "internal failure"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:468 xpccut++/tests/cut_unit_test.cpp:1138
+msgid "bad default option value"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:723
+#, c-format
+msgid "This test number is simulated"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:727 xpccut/tests/unit_test_test.c:872
+#: xpccut++/tests/cut_unit_test.cpp:1487 xpccut++/tests/cut_unit_test.cpp:1711
+#: xpccut++/tests/cut_unit_test.cpp:1713
+msgid "Group 33"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:727 xpccut/tests/unit_test_test.c:880
+#: xpccut++/tests/cut_unit_test.cpp:1487 xpccut++/tests/cut_unit_test.cpp:1723
+#: xpccut++/tests/cut_unit_test.cpp:1725
+msgid "Case 44"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:745 xpccut++/tests/cut_unit_test.cpp:1506
+msgid "internal failure, could not set up options"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:863 xpccut++/tests/cut_unit_test.cpp:1701
+msgid "internal failure, options address bad"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1432
+msgid "Subtest 5, not set"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1436 xpccut++/tests/cut_unit_test.cpp:2459
+msgid "Subtest 5, duration out of range"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1478 xpccut++/tests/cut_unit_test.cpp:2493
+msgid "Subtest 6, duration out of range"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1515 xpccut++/tests/cut_unit_test.cpp:2527
+msgid "Subtest 7, duration out of range"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1552 xpccut++/tests/cut_unit_test.cpp:2561
+msgid "Subtest 8, duration out of range"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1589
+msgid "Subtest 9, duration out of range"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1618
+msgid "Subtest 9, m_Start_Time_us.tv_sec == 0"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1623
+msgid "Subtest 9, m_Start_Time_us.tv_usec < 0"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:1990 xpccut++/tests/cut_unit_test.cpp:3037
+msgid "Internal Status"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:2095 xpccut++/tests/cut_unit_test.cpp:3209
+msgid "next_subtest() returned true in subtest 5"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:2201 xpccut++/tests/cut_unit_test.cpp:3335
+msgid "This test plays a beep if interactive."
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:2205
+msgid "beep test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:2209
+msgid "Decide if you want to test the beep functionality..."
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:2216 xpccut++/tests/cut_unit_test.cpp:3345
+msgid "Pass this test if you heard the beep"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:4099 xpccut/tests/unit_test_test.c:4189
+#: xpccut/tests/unit_test_test.c:4381 xpccut++/tests/cut_unit_test.cpp:5343
+#: xpccut++/tests/cut_unit_test.cpp:5436 xpccut++/tests/cut_unit_test.cpp:5619
+msgid "internal test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:8995 xpccut/tests/unit_test_test.c:9037
+#: xpccut++/tests/cut_unit_test.cpp:10051
+#: xpccut++/tests/cut_unit_test.cpp:10093
+msgid "The allocated help text is"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:9000 xpccut/tests/unit_test_test.c:9042
+#: xpccut++/tests/cut_unit_test.cpp:10056
+#: xpccut++/tests/cut_unit_test.cpp:10098
+msgid "unit-test help text is empty"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:9003 xpccut/tests/unit_test_test.c:9045
+#: xpccut++/tests/cut_unit_test.cpp:10059
+#: xpccut++/tests/cut_unit_test.cpp:10101
+msgid "unit-test help text not allocated"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:9908 xpccut/tests/unit_test_test.c:9944
+#: xpccut/tests/unit_test_test.c:10052 xpccut/tests/unit_test_test.c:10283
+#: xpccut/tests/unit_test_test.c:10406 xpccut++/tests/cut_unit_test.cpp:10952
+#: xpccut++/tests/cut_unit_test.cpp:10988
+#: xpccut++/tests/cut_unit_test.cpp:11096
+#: xpccut++/tests/cut_unit_test.cpp:11327
+#: xpccut++/tests/cut_unit_test.cpp:11448
+msgid "load failed at count"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:9909 xpccut/tests/unit_test_test.c:9945
+#: xpccut++/tests/cut_unit_test.cpp:10953
+#: xpccut++/tests/cut_unit_test.cpp:10989
+msgid "and allocation"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:10625 xpccut++/tests/cut_unit_test.cpp:11666
+msgid "test failed at count"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:10662 xpccut++/tests/cut_unit_test.cpp:11703
+msgid "time counter"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:11399 xpccut/tests/unit_test_test.c:11524
+#: xpccut/tests/unit_test_test.c:11558 xpccut/tests/unit_test_test.c:11885
+#: xpccut/tests/unit_test_test.c:11929 xpccut++/tests/cut_unit_test.cpp:12428
+#: xpccut++/tests/cut_unit_test.cpp:12554
+#: xpccut++/tests/cut_unit_test.cpp:12588
+#: xpccut++/tests/cut_unit_test.cpp:12912
+#: xpccut++/tests/cut_unit_test.cpp:12956
+msgid "Test 04.18"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:11399 xpccut/tests/unit_test_test.c:11524
+#: xpccut/tests/unit_test_test.c:11558 xpccut/tests/unit_test_test.c:11885
+#: xpccut/tests/unit_test_test.c:11929 xpccut/tests/unit_test_test.c:12098
+#: xpccut/tests/unit_test_test.c:12710 xpccut++/tests/cut_unit_test.cpp:12428
+#: xpccut++/tests/cut_unit_test.cpp:12554
+#: xpccut++/tests/cut_unit_test.cpp:12588
+#: xpccut++/tests/cut_unit_test.cpp:12912
+#: xpccut++/tests/cut_unit_test.cpp:12956
+#: xpccut++/tests/cut_unit_test.cpp:13123
+#: xpccut++/tests/cut_unit_test.cpp:13680
+msgid "Disposal"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:11633 xpccut/tests/unit_test_test.c:11694
+#: xpccut++/tests/cut_unit_test.cpp:12662
+#: xpccut++/tests/cut_unit_test.cpp:12725
+msgid "Unit-test fake run"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:11662 xpccut++/tests/cut_unit_test.cpp:12692
+msgid "Unit-test force-fail run"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12098 xpccut++/tests/cut_unit_test.cpp:13123
+msgid "Test 04.21"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12470 xpccut++/tests/cut_unit_test.cpp:13473
+msgid "xpccut_text_domain()"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12552 xpccut/tests/unit_test_test.c:12710
+#: xpccut/tests/unit_test_test.c:12765 xpccut++/tests/cut_unit_test.cpp:13537
+#: xpccut++/tests/cut_unit_test.cpp:13680
+#: xpccut++/tests/cut_unit_test.cpp:13728
+msgid "XPCCUT Test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12552 xpccut++/tests/cut_unit_test.cpp:13537
+msgid "Prompts"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12558 xpccut++/tests/cut_unit_test.cpp:13543
+msgid "'C' test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12563 xpccut++/tests/cut_unit_test.cpp:13548
+msgid ""
+"This sequence of tests runs through the various responses\n"
+"possible when using the prompting facility of the code-and-\n"
+"unit test library.  For this first prompt, please simply hit\n"
+"'p' or 'c', and then the Enter key."
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12582 xpccut++/tests/cut_unit_test.cpp:13567
+msgid "'S' test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12587 xpccut++/tests/cut_unit_test.cpp:13572
+msgid "Press 's' or 'S' followed by the Enter key"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12640 xpccut/tests/unit_test_test.c:12716
+#: xpccut++/tests/cut_unit_test.cpp:13617
+#: xpccut++/tests/cut_unit_test.cpp:13686
+msgid "'Q' test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12644 xpccut++/tests/cut_unit_test.cpp:13621
+msgid "Press 'q' or 'Q' followed by the Enter key"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12653 xpccut++/tests/cut_unit_test.cpp:13630
+msgid "'A' test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12657 xpccut++/tests/cut_unit_test.cpp:13634
+msgid "Press 'a' or 'A' followed by the Enter key"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12667 xpccut++/tests/cut_unit_test.cpp:13644
+msgid "Hey, why did you disobey me?!"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12721 xpccut++/tests/cut_unit_test.cpp:13691
+msgid "Press 'q' or 'a' to halt with success or failure, at your option"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12765 xpccut++/tests/cut_unit_test.cpp:13728
+msgid "Continuation"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12777 xpccut++/tests/cut_unit_test.cpp:13740
+msgid "You will see this message only if you didn't answer 'q' before"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12780 xpccut++/tests/cut_unit_test.cpp:13743
+msgid "Continuation test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12781 xpccut++/tests/cut_unit_test.cpp:13744
+msgid "Answer as you wish"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12815 xpccut++/tests/cut_unit_test.cpp:13771
+msgid "01.01 Smoke Test Recap"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12916 xpccut++/tests/cut_unit_test.cpp:13873
+msgid "cut_xxx_nullptr() tests"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:12992
+msgid "cut_xxx_thisptr() tests"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13077
+msgid "xpccut_thisptr() tests"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13154
+msgid "01.01 Coverage Test Recap"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13278
+msgid "Basics"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13323
+msgid "bad random value"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13417 xpccut/tests/unit_test_test.c:13524
+msgid "Comparison to GNU random()"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13463
+msgid "random() results don't match"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13481
+msgid "xpccut_rand() gave unexpected result"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:13666
+msgid "Character-set building"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14089
+msgid "Small numeric strings"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14136
+msgid "bad numerical value encountered"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14214
+msgid "Single-character randomness test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14268
+msgid "bad character value encountered"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14276 xpccut/tests/unit_test_test.c:14374
+#: xpccut/tests/unit_test_test.c:14482 xpccut/tests/unit_test_test.c:14542
+msgid "fuzz error"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14339
+msgid "Random-size strings"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14414
+msgid "xpccut_garbled_string()"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14536
+msgid "unexpected character change count"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14624
+msgid "Configured with XPC_NO_THISPTR defined, test will segfault, aborting!!!"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14660 xpccut++/tests/cut_unit_test.cpp:14014
+msgid "will not load any tests"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14665
+msgid "will allow interactive tests to load"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14670 xpc/tests/syncher_thread_ut.c:1012
+#: xpc/tests/errorlogging_ut.c:2838
+msgid "memory leakage enabled"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14675 xpccut/tests/unit_test_test.c:14680
+msgid "dumping of output text enabled"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14885
+msgid "A duration out-of-range failure in sub-test"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14887
+msgid "Re-run the test, or extend the limits if it fails too often"
+msgstr ""
+
+#: xpccut/tests/unit_test_test.c:14894 xpc/tests/syncher_thread_ut.c:1059
+#: xpc/tests/parse_ini_ut.c:572 xpc/tests/errorlogging_ut.c:2911
+#: xpc/tests/cpu_os_ut.c:484 xpc/tests/gettext_ut.c:240
+#: xpc/tests/numerics_ut.c:1340 xpc/tests/portable_ut.c:239
+#: xpc/tests/options_ut.c:441
+msgid "test function load failed"
+msgstr ""
+
+#: xpchello/src/hello-main.c:196
+msgid "LC_MESSAGES locale setting"
+msgstr ""
+
+#: xpchello/src/hello-main.c:329
+msgid "Hello, world!"
+msgstr ""
+
+#: xpchello/tests/xpchello_test.c:219
+msgid "test-function load failed"
+msgstr ""
+
+#: xpc/src/build_versions.c:55 xpc/src/build_versions.c:56
+#: xpc/src/errorlogging.c:1749 xpc/tests/errorlogging_ut.c:1784
+msgid "unknown"
+msgstr ""
+
+#: xpc/src/portable.c:326
+msgid "failed to initialize"
+msgstr ""
+
+#: xpc/src/portable.c:549
+msgid "wrap-around"
+msgstr ""
+
+#: xpc/src/file_functions.c:84
+msgid "bad file-name pointer"
+msgstr ""
+
+#: xpc/src/file_functions.c:99
+msgid "file-name invalid"
+msgstr ""
+
+#: xpc/src/file_functions.c:140
+msgid "bad file-mode pointer"
+msgstr ""
+
+#: xpc/src/file_functions.c:166
+msgid "file-mode invalid"
+msgstr ""
+
+#: xpc/src/file_functions.c:351
+msgid "cannot test X_OK (executable bit) on Windows"
+msgstr ""
+
+#: xpc/src/file_functions.c:530 xpc/src/file_functions.c:580
+msgid "failed on"
+msgstr ""
+
+#: xpc/src/file_functions.c:782
+msgid "xpc_file_close null handle"
+msgstr ""
+
+#: xpc/src/file_functions.c:791
+msgid "File"
+msgstr ""
+
+#: xpc/src/file_functions.c:824 xpc/src/file_functions.c:1107
+msgid "file_delete null handle"
+msgstr ""
+
+#: xpc/src/file_functions.c:1243
+msgid "bad file-origin parameter"
+msgstr ""
+
+#: xpc/src/file_functions.c:1246
+msgid "bad file-handle"
+msgstr ""
+
+#: xpc/src/file_functions.c:1252
+msgid "unknown file"
+msgstr ""
+
+#: xpc/src/file_functions.c:1337
+msgid "filenames are equivalent"
+msgstr ""
+
+#: xpc/src/file_functions.c:1501
+msgid "unspecified file"
+msgstr ""
+
+#: xpc/src/file_functions.c:1506
+msgid "uninitialized file handle for"
+msgstr ""
+
+#: xpc/src/options.c:103
+msgid "command-line option requires dash(es)"
+msgstr ""
+
+#: xpc/src/options.c:111
+msgid "command-line option target requires dash(es)"
+msgstr ""
+
+#: xpc/src/options.c:217
+msgid "command-line string value cannot start with dash(es)"
+msgstr ""
+
+#: xpc/src/environment.c:77
+msgid "xpc_get_environment(varname)"
+msgstr ""
+
+#: xpc/src/environment.c:86
+msgid "zero-sized environment variable name"
+msgstr ""
+
+#: xpc/src/environment.c:89 xpc/src/xstrings.c:722 xpc/src/xstrings.c:1594
+#: xpc/src/xstrings.c:1708
+msgid "zero-sized destination"
+msgstr ""
+
+#: xpc/src/environment.c:120 xpc/src/environment.c:334
+msgid "error"
+msgstr ""
+
+#: xpc/src/environment.c:127 xpc/src/environment.c:148
+#, c-format
+msgid "%s: increase destination size to %d"
+msgstr ""
+
+#: xpc/src/environment.c:266
+msgid "xpc_put_environment(varname)"
+msgstr ""
+
+#: xpc/src/environment.c:268
+msgid "xpc_put_environment(value)"
+msgstr ""
+
+#: xpc/src/environment.c:275
+msgid "empty environment variable name"
+msgstr ""
+
+#: xpc/src/environment.c:291
+msgid "clearing environment variable"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:157
+msgid "pthread_attr_init() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:165
+msgid "pthread_attr_setdetachstate() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:174
+msgid "pthread_attr_setschedpolicy() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:186
+msgid "pthread_attr_setschedparam() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:195
+msgid "pthread_attr_setinheritsched() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:204
+msgid "pthread_attr_setscope() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:213
+msgid "pthread_attr_setstacksize() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:219 xpc/src/pthread_attributes.c:331
+msgid "guard size not supported in pthreads-w32"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:225
+msgid "pthread_attr_setguardsize() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:277
+msgid "pthread_attr_getdetachstate() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:286
+msgid "pthread_attr_getschedpolicy() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:298
+msgid "pthread_attr_getschedparam() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:307
+msgid "pthread_attr_getinheritsched() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:316
+msgid "pthread_attr_getscope() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:325
+msgid "pthread_attr_getstacksize() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:338
+msgid "pthread_attr_getguardsize() failed"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:464
+msgid "stack size is"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:518
+msgid "detach state is"
+msgstr ""
+
+#: xpc/src/pthread_attributes.c:520
+msgid "pthread_getdetachstate() failed"
+msgstr ""
+
+#: xpc/src/numerics.c:653
+msgid "buffer too small"
+msgstr ""
+
+#: xpc/src/numerics.c:1060
+msgid "cannot calculate combination"
+msgstr ""
+
+#: xpc/src/numerics.c:1792
+msgid "division by zero"
+msgstr ""
+
+#: xpc/src/pthreader.c:148
+msgid "bad thread ID"
+msgstr ""
+
+#: xpc/src/pthreader.c:263
+msgid "null thread ID"
+msgstr ""
+
+#: xpc/src/pthreader.c:355
+msgid "thread cancelled"
+msgstr ""
+
+#: xpc/src/pthreader.c:489 xpc/src/pthreader.c:492 xpc/src/pthreader.c:498
+msgid "pthread_setcanceltype() failed"
+msgstr ""
+
+#: xpc/src/errorlogging.c:223 xpc++/src/errorlog.cpp:272
+msgid "error-logging critex destroyed"
+msgstr ""
+
+#: xpc/src/errorlogging.c:329 xpc++/src/errorlog.cpp:375
+msgid "output synchronization enabled"
+msgstr ""
+
+#: xpc/src/errorlogging.c:331 xpc++/src/errorlog.cpp:377
+msgid "output synchronization disabled"
+msgstr ""
+
+#: xpc/src/errorlogging.c:339 xpc++/src/errorlog.cpp:385
+msgid "succeeded"
+msgstr ""
+
+#: xpc/src/errorlogging.c:486 xpc++/src/errorlog.cpp:426
+msgid "console color support not supported"
+msgstr ""
+
+#: xpc/src/errorlogging.c:875 xpc++/src/errorlog.cpp:581
+msgid "log-file truncated"
+msgstr ""
+
+#: xpc/src/errorlogging.c:886 xpc++/src/errorlog.cpp:592
+msgid "invalid filename"
+msgstr ""
+
+#: xpc/src/errorlogging.c:946 xpc++/src/errorlog.cpp:646
+msgid "Cannot use stdin as a log file"
+msgstr ""
+
+#: xpc/src/errorlogging.c:1193 xpc++/src/errorlog.cpp:781
+msgid "this application is configured to disable error-logging"
+msgstr ""
+
+#: xpc/src/errorlogging.c:1416 xpc++/src/errorlog.cpp:937
+msgid "--log requires a filename"
+msgstr ""
+
+#: xpc/src/errorlogging.c:1433 xpc++/src/errorlog.cpp:954
+msgid "--append requires a filename"
+msgstr ""
+
+#: xpc/src/errorlogging.c:1440 xpc++/src/errorlog.cpp:961
+msgid "setting system logging"
+msgstr ""
+
+#: xpc/src/errorlogging.c:1814 xpc++/src/errorlog.cpp:1237
+msgid "error level"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2050 xpc++/src/errorlog.cpp:1267
+msgid "Approximate build time"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2051
+msgid "Compiled with debugging information"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2054
+msgid "Release version"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2058 xpc++/src/errorlog.cpp:1275
+msgid "Compiled with disabled error-logging functions."
+msgstr ""
+
+#: xpc/src/errorlogging.c:2373
+msgid "programmer"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2376 xpc/src/errorlogging.c:2746
+#: xpc/src/errorlogging.c:3630
+msgid "missing error message"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2389 xpc++/src/errorlog.cpp:1461
+msgid "priority"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2471
+msgid "null tag or format"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2537
+msgid "tag or format is null in error message"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2571 xpc++/src/errorlog.cpp:1639
+msgid "failed to allocate in va_msgtag()"
+msgstr ""
+
+#: xpc/src/errorlogging.c:2749
+msgid "missing label"
+msgstr ""
+
+#: xpc/src/errorlogging.c:3225 xpc++/src/errorlog.cpp:2190
+msgid "invalid printf() format"
+msgstr ""
+
+#: xpc/src/errorlogging.c:3730 xpc/src/errorlogging.c:3807
+#: xpc++/src/errorlog.cpp:2656 xpc++/src/errorlog.cpp:2730
+msgid "success"
+msgstr ""
+
+#: xpc/src/errorlogging.c:3737
+msgid "errno is 0, error in user code"
+msgstr ""
+
+#: xpc/src/errorlogging.c:3819 xpc/tests/errorlogging_ut.c:1766
+#: xpc++/src/errorlog.cpp:2741
+msgid "N/A"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4159
+msgid "strerror() returned an empty message!"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4169
+msgid "bad xpc_getlasterror_text_r() parameters"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4235 xpc++/src/errorlog.cpp:3030
+msgid "unbuffered failed"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4238 xpc++/src/errorlog.cpp:3033
+msgid "unbuffered"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4247 xpc++/src/errorlog.cpp:3042
+msgid "block-buffered failed"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4250 xpc++/src/errorlog.cpp:3045
+msgid "block-buffered"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4259 xpc++/src/errorlog.cpp:3054
+msgid "line-buffered failed"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4262 xpc++/src/errorlog.cpp:3057
+msgid "line buffered specified explicitly"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4270 xpc++/src/errorlog.cpp:3065
+msgid "invalid buffering type"
+msgstr ""
+
+#: xpc/src/errorlogging.c:4347 xpc/src/errorlogging.c:4404
+msgid "null function name"
+msgstr ""
+
+#: xpc/src/cpu.c:122
+msgid "compiler configuration does not match"
+msgstr ""
+
+#: xpc/src/cpu.c:191
+msgid "CPU model to be determined"
+msgstr ""
+
+#: xpc/src/xstrings.c:386 xpc/src/xstrings.c:463 xpc/src/xstrings.c:645
+msgid "destination too short"
+msgstr ""
+
+#: xpc/src/xstrings.c:389
+msgid "source is empty"
+msgstr ""
+
+#: xpc/src/xstrings.c:392 xpc/src/xstrings.c:472 xpc/src/xstrings.c:655
+msgid "destination is zero-length"
+msgstr ""
+
+#: xpc/src/xstrings.c:466 xpc/src/xstrings.c:649
+msgid "source empty"
+msgstr ""
+
+#: xpc/src/xstrings.c:469
+msgid "destination already full"
+msgstr ""
+
+#: xpc/src/xstrings.c:755 xpc/src/xstrings.c:765
+msgid "xpc_string_copy truncation"
+msgstr ""
+
+#: xpc/src/xstrings.c:774
+msgid "xpc_string_copy source longer than INT_MAX"
+msgstr ""
+
+#: xpc/src/xstrings.c:991
+msgid "destination to small to concatenate"
+msgstr ""
+
+#: xpc/src/xstrings.c:992
+msgid "bytes of"
+msgstr ""
+
+#: xpc/src/xstrings.c:1088 xpc/src/xstrings.c:1099
+msgid "string"
+msgstr ""
+
+#: xpc/src/xstrings.c:1088
+msgid "truncated in"
+msgstr ""
+
+#: xpc/src/xstrings.c:1099
+msgid "is null in"
+msgstr ""
+
+#: xpc/src/xstrings.c:1109
+msgid "destination size out of range"
+msgstr ""
+
+#: xpc/src/xstrings.c:1113
+msgid "bad string-count parameter"
+msgstr ""
+
+#: xpc/src/xstrings.c:1569
+#, c-format
+msgid "failed string: '%s'"
+msgstr ""
+
+#: xpc/src/xstrings.c:1581
+msgid "truncation error"
+msgstr ""
+
+#: xpc/src/xstrings.c:1581
+msgid "vsnprintf error"
+msgstr ""
+
+#: xpc/src/xstrings.c:1587
+msgid "failed with "
+msgstr ""
+
+#: xpc/src/xstrings.c:1682
+msgid "Possible truncation error"
+msgstr ""
+
+#: xpc/src/xstrings.c:1764
+#, c-format
+msgid "Unsafe '%s' format specifier at position"
+msgstr ""
+
+#: xpc/src/xstrings.c:1765
+msgid "in format string"
+msgstr ""
+
+#: xpc/src/xstrings.c:1777
+msgid "No format specifiers found in format string"
+msgstr ""
+
+#: xpc/src/xstrings.c:1842
+msgid "input string is empty"
+msgstr ""
+
+#: xpc/src/xstrings.c:2388
+msgid "invalid buffer size"
+msgstr ""
+
+#: xpc/src/xstrings.c:2636
+msgid "invalid buffer"
+msgstr ""
+
+#: xpc/src/xstrings.c:2753
+msgid "host name is not numeric"
+msgstr ""
+
+#: xpc/src/os.c:210
+msgid "Data-type sizes"
+msgstr ""
+
+#: xpc/src/parse_ini.c:231
+msgid "couldn't allocate option buffer"
+msgstr ""
+
+#: xpc/src/parse_ini.c:364
+msgid "unmatched quotes found in option value"
+msgstr ""
+
+#: xpc/src/parse_ini.c:704
+msgid "couldn't allocate argv[]"
+msgstr ""
+
+#: xpc/src/parse_ini.c:710
+msgid "no options and values found"
+msgstr ""
+
+#: xpc/src/parse_ini.c:715
+msgid "calloc() failed"
+msgstr ""
+
+#: xpc/src/parse_ini.c:720
+msgid "could not open file for reading"
+msgstr ""
+
+#: xpc/src/parse_ini.c:723
+msgid "bad config file"
+msgstr ""
+
+#: xpc/src/parse_ini.c:726
+msgid "null pointers supplied"
+msgstr ""
+
+#: xpc/src/parse_ini.c:827
+msgid "could not open file for writing"
+msgstr ""
+
+#: xpc/src/parse_ini.c:913
+msgid "write failed"
+msgstr ""
+
+#: xpc/src/parse_ini.c:916 xpc/src/parse_ini.c:953
+msgid "invalid parameters"
+msgstr ""
+
+#: xpc/src/parse_ini.c:1072
+msgid "two values in a row encountered"
+msgstr ""
+
+#: xpc/src/syncher.c:88
+msgid "can't unlock mutex"
+msgstr ""
+
+#: xpc/src/syncher.c:194
+msgid "recursion specified"
+msgstr ""
+
+#: xpc/src/syncher.c:201
+msgid "settin up error-checking mutex failed"
+msgstr ""
+
+#: xpc/src/syncher.c:253
+msgid "deleting an owned syncher-object"
+msgstr ""
+
+#: xpc/src/test_settings.c:68
+msgid "current directory"
+msgstr ""
+
+#: xpc/src/test_settings.c:75
+msgid "empty directory name returned"
+msgstr ""
+
+#: xpc/src/test_settings.c:78
+msgid "could not get"
+msgstr ""
+
+#: xpc/src/test_settings.c:137
+msgid "null pointer or empty path"
+msgstr ""
+
+#: xpc/src/test_settings.c:236
+msgid "relative directory"
+msgstr ""
+
+#: xpc/src/test_settings.c:243
+msgid "sub-directory name not found"
+msgstr ""
+
+#: xpc/src/test_settings.c:246
+msgid "could not get directory"
+msgstr ""
+
+#: xpc/src/test_settings.c:441
+msgid "no test(s) directory exists, ignoring it"
+msgstr ""
+
+#: xpc/src/test_settings.c:471
+msgid "no need to change directories"
+msgstr ""
+
+#: xpc/src/test_settings.c:568
+msgid "file specification"
+msgstr ""
+
+#: xpc/src/gettext_support.c:177
+msgid "messages locale set"
+msgstr ""
+
+#: xpc/src/gettext_support.c:181
+msgid "invalid locale LC_MESSAGES"
+msgstr ""
+
+#: xpc/src/gettext_support.c:197
+msgid "C locale set"
+msgstr ""
+
+#: xpc/src/gettext_support.c:201
+msgid "invalid locale LC_CTYPE"
+msgstr ""
+
+#: xpc/src/gettext_support.c:215
+msgid "portable locale set"
+msgstr ""
+
+#: xpc/src/gettext_support.c:218
+msgid "invalid locale LC_ALL"
+msgstr ""
+
+#: xpc/src/gettext_support.c:250
+msgid "base domain directory is"
+msgstr ""
+
+#: xpc/src/gettext_support.c:254
+msgid "current message domain is"
+msgstr ""
+
+#: xpc/src/gettext_support.c:274
+msgid "prefix directory name is too long"
+msgstr ""
+
+#: xpc/src/gettext_support.c:292
+msgid "not enabled; turn on USE_GETTEXT and rebuild"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:68
+msgid "strncpy() Crash"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:87
+msgid "subtest 1: nullptr in strncpy() destination"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:92
+msgid "subtest 2: nullptr in strncpy() source"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:98
+msgid "subtest 3: nullptr in both strncpy() parameters"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:103
+msgid "did not crash!"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:105
+msgid "failed, and did not crash!"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:110 xpc/tests/xpc_strings_ut.c:180
+#: xpc/tests/xpc_strings_ut.c:251 xpc/tests/xpc_strings_ut.c:356
+#: xpc/tests/xpc_strings_ut.c:488 xpc/tests/xpc_strings_ut.c:629
+#: xpc/tests/xpc_strings_ut.c:955 xpc/tests/xpc_strings_ut.c:1059
+#: xpc/tests/xpc_strings_ut.c:1178 xpc/tests/xpc_strings_ut.c:1243
+#: xpc/tests/xpc_strings_ut.c:1589 xpc/tests/xpc_strings_ut.c:2029
+msgid "test not ready"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:139
+msgid "xpc_string_not_void()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:142
+msgid "subtest 1: xpc_string_not_void(nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:146
+msgid "subtest 2: xpc_string_not_void(\"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:151
+msgid "subtest 3: xpc_string_not_void(\"   \")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:156
+msgid "subtest 4: xpc_string_not_void(\"\\t\\r\\n)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:161
+msgid "subtest 5: xpc_string_not_void(\"a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:166
+msgid "subtest 6: \" xpc_string_not_void(a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:171
+msgid "subtest 7: xpc_string_not_void(\"/\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:210
+msgid "xpc_string_is_void()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:213
+msgid "subtest 1: xpc_string_is_void(nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:217
+msgid "subtest 2: xpc_string_is_void(\"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:222
+msgid "subtest 3: xpc_string_is_void(\"   \")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:227
+msgid "subtest 4: xpc_string_is_void(\"\\t\\r\\n)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:232
+msgid "subtest 5: xpc_string_is_void(\"a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:237
+msgid "subtest 6: xpc_string_is_void(\" a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:242
+msgid "subtest 7: xpc_string_is_void(\"/\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:287
+msgid "xpc_strings_match()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:290
+msgid "subtest 1: xpc_strings_match(nullptr, nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:294
+msgid "subtest 2: xpc_strings_match(\"\", \"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:299
+msgid "subtest 3: xpc_strings_match(\"   \", \"   \")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:306
+msgid "subtest 4: xpc_strings_match(\"\\t\\r\\n\", \"\\t\\r\\n\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:312
+msgid "subtest 5: xpc_strings_match(\"a\", \"a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:317
+msgid "subtest 6: xpc_strings_match(\" a\", \" a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:322
+msgid "subtest 7: xpc_strings_match(\"/\", \"/\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:327
+msgid "subtest 8: xpc_strings_match(nullptr, \"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:332
+msgid "subtest 9: xpc_strings_match(\"\", \"   \")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:337
+msgid "subtest 10: xpc_strings_match(\"   \", nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:342
+msgid "subtest 11: xpc_strings_match(\"\\t\\r\\n\", \"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:347
+msgid "subtest 12: xpc_strings_match(\"abcde\", \"ABCDE\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:391
+msgid "xpc_string_n_copy()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:404
+msgid "subtest 1: xpc_string_n_copy(nullptr, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:408
+msgid "subtest 2: xpc_string_n_copy(destination, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:413
+msgid "subtest 3: xpc_string_n_copy(destination, source, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:418
+msgid "subtest 4: xpc_string_n_copy(destination, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:424
+msgid "subtest 5: xpc_string_n_copy(destination, \"\", 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:432
+msgid "subtest 6: xpc_string_n_copy(destination, \"1234567890\", 9"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:435 xpc/tests/xpc_strings_ut.c:451
+#: xpc/tests/xpc_strings_ut.c:474 xpc/tests/xpc_strings_ut.c:574
+#: xpc/tests/xpc_strings_ut.c:591 xpc/tests/xpc_strings_ut.c:615
+#: xpc/tests/xpc_strings_ut.c:860
+msgid "result"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:440 xpc/tests/xpc_strings_ut.c:456
+msgid "even partial copy was incorrect"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:448
+msgid "subtest 7: xpc_string_n_copy(destination, \"1234567890\", 10"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:471
+msgid "subtest 8: xpc_string_n_copy(destination, \"1234567890\", 11"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:479
+msgid "copy succeeded, but was incorrect"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:528
+msgid "xpc_string_n_cat()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:542
+msgid "subtest 1: xpc_string_n_cat(nullptr, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:546
+msgid "subtest 2: xpc_string_n_cat(destination, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:551
+msgid "subtest 3: xpc_string_n_cat(destination, source, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:556
+msgid "subtest 4: xpc_string_n_cat(destination, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:562
+msgid "subtest 5: xpc_string_n_cat(destination, \"\", 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:571
+msgid "subtest 6: xpc_string_n_cat(destination, \"1234567890\", 9"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:579 xpc/tests/xpc_strings_ut.c:596
+msgid "even partial concatenation was incorrect"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:588
+msgid "subtest 7: xpc_string_n_cat(destination, \"1234567890\", 10"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:612
+msgid "subtest 8: xpc_string_n_cat(destination, \"1234567890\", 11"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:620
+msgid "concatenation succeeded, but was incorrect"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:674
+msgid "xpc_ip_to_string()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:678
+msgid "subtest 1: xpc_ip_to_string(0, nullptr, 0, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:682
+msgid "subtest 2: xpc_ip_to_string(0, dest, 0, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:687
+msgid "subtest 3: xpc_ip_to_string(0, dest, 1, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:692
+msgid "subtest 4: xpc_ip_to_string(0, dest, 6, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:697
+msgid "subtest 5: xpc_ip_to_string(0, dest, 7, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:702
+msgid "subtest 6: xpc_ip_to_string(0, dest, 8, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:709 xpc/tests/xpc_strings_ut.c:733
+#: xpc/tests/xpc_strings_ut.c:747 xpc/tests/xpc_strings_ut.c:775
+#: xpc/tests/xpc_strings_ut.c:795 xpc/tests/xpc_strings_ut.c:823
+#: xpc/tests/xpc_strings_ut.c:843 xpc/tests/xpc_strings_ut.c:864
+#: xpc/tests/xpc_strings_ut.c:884 xpc/tests/xpc_strings_ut.c:904
+#: xpc/tests/xpc_strings_ut.c:924 xpc/tests/xpc_strings_ut.c:944
+msgid "succeeded, but string was incorrect"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:710 xpc/tests/xpc_strings_ut.c:734
+#: xpc/tests/xpc_strings_ut.c:748 xpc/tests/xpc_strings_ut.c:776
+#: xpc/tests/xpc_strings_ut.c:796 xpc/tests/xpc_strings_ut.c:824
+#: xpc/tests/xpc_strings_ut.c:844 xpc/tests/xpc_strings_ut.c:865
+#: xpc/tests/xpc_strings_ut.c:885 xpc/tests/xpc_strings_ut.c:905
+#: xpc/tests/xpc_strings_ut.c:925 xpc/tests/xpc_strings_ut.c:945
+msgid "string was"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:716
+msgid "subtest 7: xpc_ip_to_string(0, dest, 8, true)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:721
+msgid "subtest 8: xpc_ip_to_string(0, dest, 9, true)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:726
+msgid "subtest 9: xpc_ip_to_string(0, dest, 10, true)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:740
+msgid "subtest 10: xpc_ip_to_string(INADDR_ANY, dest, 10, true)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:756
+msgid "subtest 11: xpc_ip_to_string(INADDR_BROADCAST, dest, 15, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:764
+msgid "subtest 12: xpc_ip_to_string(INADDR_BROADCAST, dest, 16, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:784
+msgid "subtest 13: xpc_ip_to_string(INADDR_BROADCAST, dest, 18, true)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:804
+msgid "subtest 14: xpc_ip_to_string(INADDR_LOOPBACK, dest, 9, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:812
+msgid "subtest 15: xpc_ip_to_string(INADDR_LOOPBACK, dest, 10, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:832
+msgid "subtest 16: xpc_ip_to_string(INADDR_LOOPBACK, dest, 12, true)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:852
+msgid "subtest 17: xpc_ip_to_string(htonl(INADDR_LOOPBACK), dest, 10, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:873
+msgid "subtest 18: xpc_ip_to_string(INADDR_UNSPEC_GROUP, dest, 10, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:893
+msgid "subtest 19: xpc_ip_to_string(INADDR_ALLHOSTS_GROUP, dest, 10, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:913
+msgid "subtest 20: xpc_ip_to_string(INADDR_ALLRTRS_GROUP, dest, 10, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:933
+msgid "subtest 21: xpc_ip_to_string(INADDR_MAX_LOCAL_GROUP, dest, 12, false)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:988
+msgid "xpc_string_to_ip()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:991
+msgid "subtest 1: xpc_string_to_ip(nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:995
+msgid "subtest 2: xpc_string_to_ip(\"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1000
+msgid "subtest 3: xpc_string_to_ip(\"0.0.0.0\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1005
+msgid "subtest 4: xpc_string_to_ip(\"0x0.0.0.0\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1010
+msgid "subtest 5: xpc_string_to_ip(\"INADDR_BROADCAST\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1015
+msgid "subtest 6: xpc_string_to_ip(\"0xINADDR_BROADCAST\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1020
+msgid "subtest 7: xpc_string_to_ip(\"INADDR_LOOPBACK\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1025
+msgid "subtest 8: xpc_string_to_ip(\"0xINADDR_LOOPBACK\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1030
+msgid "subtest 9: xpc_string_to_ip(\"INADDR_LOOPBACK\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1035
+msgid "subtest 10: xpc_string_to_ip(\"0xINADDR_LOOPBACK\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1040
+msgid "subtest 11: xpc_string_to_ip(\"68.58.236.1\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1045
+msgid "subtest 12: xpc_string_to_ip(\"0x44.3a.ec.01\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1050
+msgid "subtest 13: xpc_string_to_ip(\"0x0.0.0.0\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1101 xpc/tests/xpc_strings_ut.c:1212
+msgid "xpc_string_tokens_match()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1104
+msgid "subtest 1: xpc_string_tokens_match(nullptr, nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1108
+msgid "subtest 2: xpc_string_tokens_match(\"\", \"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1113
+msgid "subtest 3: xpc_string_tokens_match(\"   \", \"   \")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1120
+msgid "subtest 4: xpc_string_tokens_match(\"\\t\\r\\n\", \"\\t\\r\\n\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1126
+msgid "subtest 5: xpc_string_tokens_match(\"a\", \"a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1131
+msgid "subtest 6: xpc_string_tokens_match(\" a\", \" a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1138
+msgid "subtest 7: xpc_string_tokens_match(\"/\", \"/\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1143
+msgid "subtest 8: xpc_string_tokens_match(nullptr, \"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1148
+msgid "subtest 9: xpc_string_tokens_match(\"\", \"   \")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1153
+msgid "subtest 10: xpc_string_tokens_match(\"   \", nullptr)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1160
+msgid "subtest 11: xpc_string_tokens_match(\"\\t\\r\\n\", \"\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1168
+msgid "subtest 12: xpc_string_tokens_match(\"abcde\", \"ABCDE\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1215
+msgid "subtest 1: xpc_string_tokens_match(\"abc\", \"abc\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1219
+msgid "subtest 2: xpc_string_tokens_match(\"abc\", \"ab\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1224
+msgid "subtest 2: xpc_string_tokens_match(\"abc\", \"a\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1229
+msgid "subtest 2: xpc_string_tokens_match(\"ab\", \"abc\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1234
+msgid "subtest 2: xpc_string_tokens_match(\"a\", \"abc\")"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1284
+msgid "xpc_string_n_cat_r_impl()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1288
+msgid "subtest 1: xpc_string_n_cat_r_impl(nullptr, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1294
+msgid "subtest 2: xpc_string_n_cat_r_impl(&nullptr, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1315
+msgid "subtest 3: xpc_string_n_cat_r_impl(destination, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1327
+msgid "subtest 4: xpc_string_n_cat_r_impl(destination, nullptr, 0"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1339
+msgid "subtest 5: xpc_string_n_cat_r_impl(8 chars, 10 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1362
+msgid "subtest 6: xpc_string_n_cat_r_impl(8 chars, 9 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1382
+msgid "subtest 7: xpc_string_n_cat_r_impl(8 chars, 8 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1402
+msgid "subtest 8: xpc_string_n_cat_r_impl(8 chars, 7 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1422
+msgid "subtest 9: xpc_string_n_cat_r_impl(8 chars, 6 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1448
+msgid "subtest 10a: xpc_string_n_cat_r_impl(repeated)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1466 xpc/tests/xpc_strings_ut.c:1902
+msgid "subtest 10b:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1480 xpc/tests/xpc_strings_ut.c:1915
+msgid "subtest 10c:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1494 xpc/tests/xpc_strings_ut.c:1928
+msgid "subtest 10d:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1508 xpc/tests/xpc_strings_ut.c:1941
+msgid "subtest 10e:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1522 xpc/tests/xpc_strings_ut.c:1954
+msgid "subtest 10f:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1536 xpc/tests/xpc_strings_ut.c:1970
+msgid "subtest 10g:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1552 xpc/tests/xpc_strings_ut.c:1988
+msgid "subtest 10h:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1568 xpc/tests/xpc_strings_ut.c:2006
+msgid "subtest 10i:"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1639
+msgid "xpc_string_n_cat_r()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1642
+msgid "subtest 1: xpc_string_n_cat_r(nullptr, nullptr"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1653
+msgid "subtest 2: xpc_string_init() and xpc_string_validate()"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1744
+msgid "xpc_string_init()/xpc_string_validate() failed"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1763
+msgid "subtest 3: xpc_string_n_cat_r(dest, nullptr"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1772
+msgid "subtest 4: xpc_string_n_cat_r(nullptr, string"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1783
+msgid "subtest 5: xpc_string_n_cat_r(8 chars, 10 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1802
+msgid "subtest 6: xpc_string_n_cat_r(8 chars, 9 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1823
+msgid "subtest 7: xpc_string_n_cat_r(8 chars, 8 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1842
+msgid "subtest 8: xpc_string_n_cat_r(8 chars, 7 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1861
+msgid "subtest 9: xpc_string_n_cat_r(8 chars, 6 chars, 8"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:1886
+msgid "subtest 10a: xpc_string_n_cat_r(repeated)"
+msgstr ""
+
+#: xpc/tests/xpc_strings_ut.c:2117
+msgid "passed"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:77
+msgid "pthread_xxx"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:131
+msgid "pthreader_xxx"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:362
+msgid "The join returned null!  Impossible!"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:372
+msgid "The join succeeded!  Impossible!"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:415
+msgid "pthreader"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:465
+#, c-format
+msgid "Should see output from all 10 threads.\n"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:479
+msgid "thread is cancelled"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:483
+msgid "null pointer after joining"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:719
+msgid "syncher"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:774 xpc/tests/syncher_thread_ut.c:862
+msgid "The first join returned null!  Impossible!"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:779 xpc/tests/syncher_thread_ut.c:867
+msgid "The first thread was cancelled."
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:783 xpc/tests/syncher_thread_ut.c:871
+msgid "The first join succeeded"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:815 xpc/tests/syncher_thread_ut.c:876
+msgid "The second join returned null!  Impossible!"
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:820 xpc/tests/syncher_thread_ut.c:881
+msgid "The second thread was cancelled."
+msgstr ""
+
+#: xpc/tests/syncher_thread_ut.c:824 xpc/tests/syncher_thread_ut.c:885
+msgid "The second join succeeded."
+msgstr ""
+
+#: xpc/tests/parse_ini_ut.c:67
+msgid "Arg"
+msgstr ""
+
+#: xpc/tests/parse_ini_ut.c:101
+msgid "Parse INI"
+msgstr ""
+
+#: xpc/tests/parse_ini_ut.c:435
+msgid "xxxx"
+msgstr ""
+
+#: xpc/tests/parse_ini_ut.c:435 xpc/tests/gettext_ut.c:103
+msgid "xx"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:107 xpc/tests/errorlogging_ut.c:310
+#: xpc/tests/errorlogging_ut.c:367 xpc/tests/errorlogging_ut.c:435
+#: xpc/tests/errorlogging_ut.c:701 xpc/tests/errorlogging_ut.c:750
+#: xpc/tests/errorlogging_ut.c:813 xpc/tests/errorlogging_ut.c:944
+#: xpc/tests/errorlogging_ut.c:1166 xpc/tests/errorlogging_ut.c:1447
+#: xpc/tests/errorlogging_ut.c:1575 xpc/tests/errorlogging_ut.c:1697
+#: xpc/tests/errorlogging_ut.c:1815 xpc/tests/errorlogging_ut.c:1922
+#: xpc/tests/errorlogging_ut.c:2038 xpc/tests/errorlogging_ut.c:2097
+#: xpc/tests/errorlogging_ut.c:2170 xpc/tests/errorlogging_ut.c:2344
+#: xpc/tests/errorlogging_ut.c:2428 xpc/tests/errorlogging_ut.c:2492
+#: xpc/tests/errorlogging_ut.c:2660
+msgid "errorlogging"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:121
+msgid "This is an error-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:122
+msgid "This is a warning-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:123 xpc/tests/errorlogging_ut.c:256
+msgid "This is an information-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:124
+msgid "This is an unconditional message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:125
+msgid "This is a debug-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:126
+msgid "This is another debug-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:143
+msgid "error-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:143 xpc/tests/errorlogging_ut.c:144
+#: xpc/tests/errorlogging_ut.c:145 xpc/tests/errorlogging_ut.c:146
+msgid "TESTING"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:144
+msgid "warning-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:145
+msgid "information-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:146
+msgid "debug-level message"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:163
+msgid "This is an error-level message."
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:194
+msgid "This is an warning-level message."
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:225
+msgid "This is an information-level message."
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:310
+msgid "xpc_synchusage_set()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:367
+msgid "xpc_usecolor_set()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:435
+msgid "Log file"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:556 xpc/tests/errorlogging_ut.c:605
+msgid "log-file == stderr"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:571 xpc/tests/errorlogging_ut.c:620
+msgid "log-file not the expected size"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:574 xpc/tests/errorlogging_ut.c:623
+msgid "log-file not written"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:577 xpc/tests/errorlogging_ut.c:626
+msgid "stat() function failed"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:701
+msgid "xpc_xxxmark()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:714
+msgid "no unit-tests for the following functions"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:750
+msgid "xpc_timestamps()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:813
+msgid "xpc_errlevel()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:894 xpc/tests/errorlogging_ut.c:1073
+msgid "handling for bad error-level failed"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:944
+msgid "xpc_parse_leveltoken()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1166
+msgid "xpc_option_errlevel()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1447
+msgid "xpc_parse_errlevel_nohelp()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1539
+msgid "there's a lot more to test in xpc_parse_errlevel_nohelp()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1575
+msgid "xpc_parse_errlevel()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1667
+msgid "there's a lot more to test in xpc_parse_errlevel()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1697
+msgid "xpc_errlevel_string()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1706
+msgid "errors"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1718
+msgid "warnings"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1730
+msgid "info"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1742
+msgid "verbose"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1754
+msgid "quiet"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1815
+msgid "xpc_showerrlevel()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:1922
+msgid "xpc_showxxx()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2038
+msgid "xpc_showerr_version()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2097
+msgid "xpc_syslogging_set()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2170
+msgid "xpc_getlasterror()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2188
+msgid "  The errno value set by the access() function was"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2191
+msgid "  The system string for this error is"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2195 xpc/tests/errorlogging_ut.c:2268
+#: xpc/tests/errorlogging_ut.c:2308
+msgid "how can this file exist?"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2228
+msgid "The error string for the error is"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2240
+msgid "The strerror() string for the error is"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2255
+msgid "The strerror_r() string for the error is"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2290
+msgid "The xpc_getlasterror_text_r() string is"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2302
+msgid "Truncated to 3, the string is"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2344
+msgid "xpc_buffering_set()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2428
+msgid "xpc_is_thisptr()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2492
+msgid "xpc_not_nullptr()"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2566 xpc/tests/errorlogging_ut.c:2601
+msgid "no string for thread to print"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2660
+msgid "visible synch'ing"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2678
+msgid "output syncronization is turned off"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2700 xpc/tests/errorlogging_ut.c:2743
+msgid "join 1 returned null"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2704 xpc/tests/errorlogging_ut.c:2747
+msgid "thread 1 done"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2709 xpc/tests/errorlogging_ut.c:2752
+msgid "join 2 returned null"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2713 xpc/tests/errorlogging_ut.c:2756
+msgid "thread 2 done"
+msgstr ""
+
+#: xpc/tests/errorlogging_ut.c:2724
+msgid "output syncronization is turned on"
+msgstr ""
+
+#: xpc/tests/cpu_os_ut.c:66 xpc/tests/cpu_os_ut.c:355
+msgid "cpu_os"
+msgstr ""
+
+#: xpc/tests/cpu_os_ut.c:66 xpc/tests/gettext_ut.c:59
+msgid "CPU Smoke Test"
+msgstr ""
+
+#: xpc/tests/cpu_os_ut.c:355
+msgid "OS Smoke Test"
+msgstr ""
+
+#: xpc/tests/gettext_ut.c:59 xpc/tests/gettext_ut.c:103
+msgid "gettext"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:93 xpc/tests/numerics_ut.c:444
+msgid "Smoke tests"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:93
+msgid "Most functions"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:444
+msgid "Simple float functions"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:855 xpc/tests/numerics_ut.c:985
+msgid "Numerics"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:855
+msgid "next_power_of_2()"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:985
+msgid "Rounding functions"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:1060
+msgid "Calculations"
+msgstr ""
+
+#: xpc/tests/numerics_ut.c:1060
+msgid "cumulative average"
+msgstr ""
+
+#: xpc/tests/portable_ut.c:58 xpc/tests/portable_ut.c:97
+msgid "portable"
+msgstr ""
+
+#: xpc/tests/portable_ut.c:58
+msgid "Portable Smoke Test"
+msgstr ""
+
+#: xpc/tests/options_ut.c:58 xpc/tests/options_ut.c:199
+msgid "options"
+msgstr ""
+
+#: xpc/tests/options_ut.c:58
+msgid "Options Smoke Test"
+msgstr ""
+
+#: xpc/tests/options_ut.c:172
+msgid "Only one argument, nothing to parse"
+msgstr ""
+
+#: xpc/tests/options_ut.c:174
+msgid "One or more arguments are required"
+msgstr ""
+
+#: xpc/tests/options_ut.c:199
+msgid "xpc_parse_flag()"
+msgstr ""
+
+#: xpccut++/src/cut.cpp:352
+msgid "faking command-line arguments"
+msgstr ""
+
+#: xpccut++/src/cut.cpp:409
+msgid "cannot mix C and C++ unit-tests"
+msgstr ""
+
+#: xpccut++/src/cut.cpp:427 xpccut++/src/cut.cpp:474 xpccut++/src/cut.cpp:537
+msgid "the unit-test object is invalid"
+msgstr ""
+
+#: xpccut++/src/cut.cpp:709 xpccut++/tests/cut_unit_test.cpp:212
+msgid "! This FAILURE is deliberate."
+msgstr ""
+
+#: xpccut++/src/cut_status.cpp:178
+msgid "unit-test skipped"
+msgstr ""
+
+#: xpccut++/src/cut_status.cpp:184
+msgid "invalid test group or test case"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:905 xpc++/tests/xpcpp_unit_test.cpp:93
+msgid "Basic Smoke Test"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:947
+msgid "Advanced Smoke Test"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:967
+msgid "We made it past the first sub-test"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:1205 xpccut++/tests/cut_unit_test.cpp:1515
+#: xpccut++/tests/cut_unit_test.cpp:1930 xpccut++/tests/cut_unit_test.cpp:2048
+#: xpccut++/tests/cut_unit_test.cpp:2190 xpccut++/tests/cut_unit_test.cpp:2331
+#: xpccut++/tests/cut_unit_test.cpp:2357 xpccut++/tests/cut_unit_test.cpp:2365
+#: xpccut++/tests/cut_unit_test.cpp:2639 xpccut++/tests/cut_unit_test.cpp:2703
+#: xpccut++/tests/cut_unit_test.cpp:2870 xpccut++/tests/cut_unit_test.cpp:3047
+#: xpccut++/tests/cut_unit_test.cpp:3402 xpccut++/tests/cut_unit_test.cpp:3481
+#: xpccut++/tests/cut_unit_test.cpp:3616 xpccut++/tests/cut_unit_test.cpp:3686
+#: xpccut++/tests/cut_unit_test.cpp:3756 xpccut++/tests/cut_unit_test.cpp:3826
+#: xpccut++/tests/cut_unit_test.cpp:3896 xpccut++/tests/cut_unit_test.cpp:3966
+#: xpccut++/tests/cut_unit_test.cpp:4037 xpccut++/tests/cut_unit_test.cpp:4137
+#: xpccut++/tests/cut_unit_test.cpp:4247 xpccut++/tests/cut_unit_test.cpp:4316
+#: xpccut++/tests/cut_unit_test.cpp:4471 xpccut++/tests/cut_unit_test.cpp:4626
+#: xpccut++/tests/cut_unit_test.cpp:4781 xpccut++/tests/cut_unit_test.cpp:4936
+#: xpccut++/tests/cut_unit_test.cpp:5091 xpccut++/tests/cut_unit_test.cpp:5252
+#: xpccut++/tests/cut_unit_test.cpp:5351 xpccut++/tests/cut_unit_test.cpp:5359
+#: xpccut++/tests/cut_unit_test.cpp:5460 xpccut++/tests/cut_unit_test.cpp:5469
+#: xpccut++/tests/cut_unit_test.cpp:5478 xpccut++/tests/cut_unit_test.cpp:5487
+#: xpccut++/tests/cut_unit_test.cpp:5635 xpccut++/tests/cut_unit_test.cpp:5644
+#: xpccut++/tests/cut_unit_test.cpp:5653 xpccut++/tests/cut_unit_test.cpp:5748
+#: xpccut++/tests/cut_unit_test.cpp:6070 xpccut++/tests/cut_unit_test.cpp:6355
+#: xpccut++/tests/cut_unit_test.cpp:7228 xpccut++/tests/cut_unit_test.cpp:7240
+#: xpccut++/tests/cut_unit_test.cpp:7324 xpccut++/tests/cut_unit_test.cpp:7336
+#: xpccut++/tests/cut_unit_test.cpp:7424 xpccut++/tests/cut_unit_test.cpp:7435
+#: xpccut++/tests/cut_unit_test.cpp:7520 xpccut++/tests/cut_unit_test.cpp:7535
+#: xpccut++/tests/cut_unit_test.cpp:7634 xpccut++/tests/cut_unit_test.cpp:7649
+#: xpccut++/tests/cut_unit_test.cpp:7785 xpccut++/tests/cut_unit_test.cpp:7800
+#: xpccut++/tests/cut_unit_test.cpp:7884 xpccut++/tests/cut_unit_test.cpp:7899
+#: xpccut++/tests/cut_unit_test.cpp:8010 xpccut++/tests/cut_unit_test.cpp:8025
+#: xpccut++/tests/cut_unit_test.cpp:8109 xpccut++/tests/cut_unit_test.cpp:8124
+#: xpccut++/tests/cut_unit_test.cpp:8208 xpccut++/tests/cut_unit_test.cpp:8223
+#: xpccut++/tests/cut_unit_test.cpp:8328 xpccut++/tests/cut_unit_test.cpp:8343
+#: xpccut++/tests/cut_unit_test.cpp:8427 xpccut++/tests/cut_unit_test.cpp:8439
+#: xpccut++/tests/cut_unit_test.cpp:8596 xpccut++/tests/cut_unit_test.cpp:8608
+#: xpccut++/tests/cut_unit_test.cpp:8768 xpccut++/tests/cut_unit_test.cpp:8780
+#: xpccut++/tests/cut_unit_test.cpp:8902 xpccut++/tests/cut_unit_test.cpp:8917
+#: xpccut++/tests/cut_unit_test.cpp:9039 xpccut++/tests/cut_unit_test.cpp:9051
+#: xpccut++/tests/cut_unit_test.cpp:9158 xpccut++/tests/cut_unit_test.cpp:9170
+#: xpccut++/tests/cut_unit_test.cpp:9277 xpccut++/tests/cut_unit_test.cpp:9292
+#: xpccut++/tests/cut_unit_test.cpp:9400 xpccut++/tests/cut_unit_test.cpp:9415
+#: xpccut++/tests/cut_unit_test.cpp:9499 xpccut++/tests/cut_unit_test.cpp:9514
+#: xpccut++/tests/cut_unit_test.cpp:9598 xpccut++/tests/cut_unit_test.cpp:9652
+#: xpccut++/tests/cut_unit_test.cpp:9824
+#: xpccut++/tests/cut_unit_test.cpp:10009
+#: xpccut++/tests/cut_unit_test.cpp:10215
+#: xpccut++/tests/cut_unit_test.cpp:10505
+#: xpccut++/tests/cut_unit_test.cpp:10784
+#: xpccut++/tests/cut_unit_test.cpp:10882
+#: xpccut++/tests/cut_unit_test.cpp:11054
+#: xpccut++/tests/cut_unit_test.cpp:11155
+#: xpccut++/tests/cut_unit_test.cpp:11285
+#: xpccut++/tests/cut_unit_test.cpp:11394
+#: xpccut++/tests/cut_unit_test.cpp:11522
+#: xpccut++/tests/cut_unit_test.cpp:11762
+#: xpccut++/tests/cut_unit_test.cpp:11851
+#: xpccut++/tests/cut_unit_test.cpp:11940
+#: xpccut++/tests/cut_unit_test.cpp:12029
+#: xpccut++/tests/cut_unit_test.cpp:12118
+#: xpccut++/tests/cut_unit_test.cpp:12207
+#: xpccut++/tests/cut_unit_test.cpp:12301
+#: xpccut++/tests/cut_unit_test.cpp:12441
+#: xpccut++/tests/cut_unit_test.cpp:12794
+#: xpccut++/tests/cut_unit_test.cpp:13032
+#: xpccut++/tests/cut_unit_test.cpp:13044
+#: xpccut++/tests/cut_unit_test.cpp:13131
+#: xpccut++/tests/cut_unit_test.cpp:13140
+#: xpccut++/tests/cut_unit_test.cpp:13149
+#: xpccut++/tests/cut_unit_test.cpp:13212
+#: xpccut++/tests/cut_unit_test.cpp:13269
+#: xpccut++/tests/cut_unit_test.cpp:13394
+#: xpccut++/tests/cut_unit_test.cpp:13404
+msgid "A null 'this' is not possible in C++ code"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:1213
+msgid "A good 'this' is always a given in C++ code"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:1544 xpccut++/tests/cut_unit_test.cpp:1611
+#: xpccut++/tests/cut_unit_test.cpp:1646 xpccut++/tests/cut_unit_test.cpp:3154
+msgid "std::logic_error caught: "
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:1550
+msgid "A null reference parameter is impossible in C++"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:1618 xpccut++/tests/cut_unit_test.cpp:1653
+msgid "exception probably due to null pointer"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:2283
+msgid "Duration"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:2283
+msgid "nominal"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:2417
+msgid "Subtest 4, m_Test_Duration_ms not set"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:2420
+msgid "Subtest 4, duration out of range"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:2583
+msgid "Subtest 10, m_Start_Time_us.tv_sec == 0"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:2589
+msgid "Subtest 10, m_Start_Time_us.tv_usec < 0"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:3157
+msgid "forcing a sub-test increment"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:3188 xpccut++/tests/cut_unit_test.cpp:3203
+#: xpccut++/tests/cut_unit_test.cpp:3206
+msgid "summarize"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:3333
+msgid "Post-constructor in cut_unit_test_02_10"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:3341
+msgid "Testing the beep functionality..."
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:3353
+msgid "Post-response in cut_unit_test_02_10"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:5369 xpccut++/tests/cut_unit_test.cpp:5383
+msgid "integer test"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:5451
+msgid "Null 'this' not possible in C++, check equality"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:6646
+msgid "did not detect a null 'argv' value"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:6651
+msgid "did not detect a zero 'argc' value"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:8415
+msgid "xpc::cut_optionsest_group...()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:8584
+msgid "xpc::cut_optionsest_case...()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:8890
+msgid "xpc::cut_optionsest_sleep_time...()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:9997
+#: xpccut++/tests/cut_unit_test.cpp:10156
+#: xpccut++/tests/cut_unit_test.cpp:10436
+#: xpccut++/tests/cut_unit_test.cpp:10741
+#: xpccut++/tests/cut_unit_test.cpp:10870
+#: xpccut++/tests/cut_unit_test.cpp:11042
+#: xpccut++/tests/cut_unit_test.cpp:11144
+#: xpccut++/tests/cut_unit_test.cpp:11272
+#: xpccut++/tests/cut_unit_test.cpp:11382
+#: xpccut++/tests/cut_unit_test.cpp:11497
+#: xpccut++/tests/cut_unit_test.cpp:11750
+#: xpccut++/tests/cut_unit_test.cpp:11839
+#: xpccut++/tests/cut_unit_test.cpp:11928
+#: xpccut++/tests/cut_unit_test.cpp:12017
+#: xpccut++/tests/cut_unit_test.cpp:12106
+#: xpccut++/tests/cut_unit_test.cpp:12195
+#: xpccut++/tests/cut_unit_test.cpp:12283
+#: xpccut++/tests/cut_unit_test.cpp:12396
+#: xpccut++/tests/cut_unit_test.cpp:12775
+#: xpccut++/tests/cut_unit_test.cpp:13013
+#: xpccut++/tests/cut_unit_test.cpp:13100
+#: xpccut++/tests/cut_unit_test.cpp:13191
+#: xpccut++/tests/cut_unit_test.cpp:13372
+msgid "unit_test_t"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:9997
+msgid "unit_test_init()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:10156
+msgid "unit_test_initialize() part 1"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:10436
+msgid "unit_test_initialize() part 2"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:10741
+msgid "unit_test_initialize() part 3"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:10870
+msgid "unit_test_load()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11042
+msgid "unit_test_cpp_load_count()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11144
+msgid "unit_test_dispose()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11272
+msgid "unit_test_count()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11382
+msgid "unit_test_number()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11497
+msgid "unit_test_next_test()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11750
+msgid "unit_test_subtest_count()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11839
+msgid "unit_test_failures()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:11928
+msgid "unit_test_first_failed_test()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:12017
+msgid "unit_test_first_failed_group()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:12106
+msgid "unit_test_first_failed_case()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:12195
+msgid "unit_test_first_failed_subtest()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:12283
+msgid "unit_test_run_init()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:12396
+msgid "unit_test_dispose_of_test()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:12662
+#: xpccut++/tests/cut_unit_test.cpp:12692
+#: xpccut++/tests/cut_unit_test.cpp:12725
+#: xpccut++/tests/cut_unit_test.cpp:12775
+msgid "unit_test_run()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13013
+msgid "unit_test_run_a_test_before()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13100
+msgid "unit_test_run_a_test_after()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13191
+msgid "unit_test_run_a_test()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13372
+msgid "unit_test_check_subtests()"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13604
+msgid "'F' test"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13608
+msgid "Press 'f' or 'F' followed by the Enter key"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:13771
+#: xpccut++/tests/cut_unit_test.cpp:13873
+msgid "XPCCUT"
+msgstr ""
+
+#: xpccut++/tests/cut_unit_test.cpp:14179 xpc++/tests/experiments.cpp:279
+#: xpc++/tests/xpcpp_unit_test.cpp:791
+msgid "load of test functions failed"
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:1268
+msgid "Compiled with debugging information."
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:1271
+msgid "Release version, C++"
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:2660
+msgid "errno is 0, why is strerrnoprintex() being called?"
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:2908
+msgid "invalid error code"
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:2912
+msgid "insufficient storage for the system error message"
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:2919
+msgid "unexpected code from XSI-compliant strerror_r()"
+msgstr ""
+
+#: xpc++/src/errorlog.cpp:2939 xpc++/src/errorlog.cpp:2963
+msgid "strerror() returned a null system error message"
+msgstr ""
+
+#: xpc++/tests/experiments.cpp:180
+msgid "Basic Problem Test"
+msgstr ""
+
+#: xpc++/tests/xpcpp_unit_test.cpp:139 xpc++/tests/xpcpp_unit_test.cpp:186
+#: xpc++/tests/xpcpp_unit_test.cpp:233 xpc++/tests/xpcpp_unit_test.cpp:356
+#: xpc++/tests/xpcpp_unit_test.cpp:523
+msgid "Default constructor"
+msgstr ""
+
+#: xpc++/tests/xpcpp_unit_test.cpp:296
+msgid "duration()"
+msgstr ""
+
+#: xpc++/tests/xpcpp_unit_test.cpp:439
+msgid "Macro construction"
+msgstr ""
+
+#: xpc++/tests/xpcpp_unit_test.cpp:587
+msgid "String constructor"
+msgstr ""

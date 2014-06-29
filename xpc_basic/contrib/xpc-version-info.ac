@@ -1,0 +1,82 @@
+dnl ***************************************************************************
+dnl xpc-version-info
+dnl ---------------------------------------------------------------------------
+dnl
+dnl \file       	xpc-version-info
+dnl \library    	xpccut subproject
+dnl \author     	Chris Ahlstrom
+dnl \date       	2008-08-23
+dnl \updates    	2012-09-25
+dnl \version    	$Revision$
+dnl \license    	$XPC_SUITE_GPL_LICENSE$
+dnl
+dnl   This script is an "include" file for each xpc_suite project's
+dnl   configure.ac file.
+dnl
+dnl   We want to unify our version information for simplicity.
+dnl
+dnl ---------------------------------------------------------------------------
+
+dnl 1.a. Set up version information for the XPC project.  These numbers
+dnl      should be cut-n-paste in all projects -- can we do an "include"
+dnl      file for all of the configure.ac files?
+
+XPC_MAJOR_VERSION="1"
+XPC_MINOR_VERSION="1"
+XPC_PATCH_LEVEL="0"
+
+AC_SUBST([XPC_MAJOR_VERSION])
+AC_SUBST([XPC_MINOR_VERSION])
+AC_SUBST([XPC_PATCH_LEVEL])
+
+XPC_INTERFACE_VERSION="$XPC_MAJOR_VERSION.$XPC_MINOR_VERSION"
+XPC_BINARY_VERSION="$XPC_INTERFACE_VERSION.$XPC_PATCH_LEVEL"
+VERSION="$XPC_MAJOR_VERSION.$XPC_MINOR_VERSION.$XPC_PATCH_LEVEL"
+
+AC_SUBST([XPC_INTERFACE_VERSION])
+AC_SUBST([XPC_BINARY_VERSION])
+AC_SUBST([XPC_PATCH_LEVEL])
+
+XPC_API_MAJOR="1"
+XPC_API_MINOR="1"
+XPC_API_PATCH="0"
+
+AC_SUBST([XPC_API_MAJOR])
+AC_SUBST([XPC_API_MINOR])
+AC_SUBST([XPC_API_PATCH])
+
+XPC_API_VERSION="$XPC_API_MAJOR.$XPC_API_MINOR"
+API_VERSION="$XPC_API_MAJOR.$XPC_API_MINOR.$XPC_API_PATCH"
+
+AC_SUBST([XPC_API_VERSION])
+AC_SUBST([API_VERSION])
+
+dnl 1.b. Report the version information.
+
+AC_MSG_CHECKING(major version)
+AC_MSG_RESULT($XPC_MAJOR_VERSION)
+AC_MSG_CHECKING(minor version)
+AC_MSG_RESULT($XPC_MINOR_VERSION)
+AC_MSG_CHECKING(patchlevel)
+AC_MSG_RESULT($XPC_PATCH_LEVEL)
+
+dnl 1.c. Set up the suite name and current-project name.
+dnl
+dnl In addition, we have to set up a "suite" name; since PACKAGE is defined
+dnl to be the name of the current project, we can't use that value in
+dnl the package-configuration files.
+dnl
+dnl (Actually, we're going to keep XPCCUT separate from XPC.)
+
+XPC_SUITE_NAME="xpc"
+
+AC_SUBST([XPC_SUITE_NAME])
+
+dnl ***************************************************************************
+dnl xpc-version-info
+dnl ---------------------------------------------------------------------------
+dnl Local Variables:
+dnl End:
+dnl ---------------------------------------------------------------------------
+dnl vim: ts=3 sw=3 et ft=config
+dnl ---------------------------------------------------------------------------

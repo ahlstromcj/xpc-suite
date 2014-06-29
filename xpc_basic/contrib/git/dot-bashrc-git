@@ -1,0 +1,49 @@
+# Carefully insert this code into your .bashrc file to enable showing git
+# information in your bash prompt.
+#
+# First see if the git SCM system is installed.
+
+git --version 2> /dev/null > /dev/null
+
+if [ $? != 0 ] ; then
+
+   # Set PS1 without git information
+
+else
+
+   # Bold cyan if over SSH, bold green otherwise
+
+   if [ "$SSH_CLIENT" == "" ] ; then
+      user_and_host="\[\033[01;32m\]\u@\h\[\033[00m\] "
+   else
+      user_and_host="\[\033[01;36m\]\u@\h\[\033[00m\] "
+   fi
+
+   # Bold blue for directory name
+
+   cur_location="\[\033[01;34m\]\w\[\033[00m\]"
+
+   # Bold red for git branch name (if present)
+
+   git_branch_color="\[\033[01;31m\]"
+
+   # Get the git branch name
+
+   git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\\\\\1\ /`'
+
+   no_color="\[\033[0m\]"
+
+   if [ "$TERM" == "screen" ] ; then
+      export PS1="$user_and_host$cur_location\n$git_branch_color$git_branch$no_color% "
+   else
+      export PS1="$user_and_host$cur_location\n$git_branch_color$git_branch$no_color$ "
+   fi
+
+fi
+
+# Enable git completion using the script found (on Gentoo) in 
+# # /usr/share/bash-completion/git.
+
+source ~/.git-completion
+
+# vim: ts=3 ft=sh

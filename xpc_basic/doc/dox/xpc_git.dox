@@ -1,0 +1,378 @@
+/******************************************************************************
+ * xpc_git.dox
+ *-----------------------------------------------------------------------------
+ *
+ * \library    xpc_suite
+ * \author     Chris Ahlstrom
+ * \version    1.1
+ * \date       2013-12-01 to 2014-05-30
+ * \license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+ *
+ *------------------------------------------------------------------------*//**
+
+\file    xpc_git.dox
+
+This document provides condensed procedures for using Git
+in various parts of the version-control workflow.
+
+\page    git_page Using Git
+
+\section git_intro Introduction to Using Git
+
+This document is a concise description of various processes
+using the <i>Git</i>
+distributed version control system (DVCS).
+
+\section git_setup Setup of Git
+
+Like other version-control systems, Git has configuration items and
+work-flows that need to be tailored to your needs.
+
+\subsection git_setup_install Installation of Git
+
+Obviously, the easiest way to set up Git on Linux is to use your distro's
+package-management system.
+
+Failing that, or if you want the very latest and greatest, you can get the
+source code and build it yourself:
+
+   http://git-scm.com/downloads
+
+On Windows, that same URL will get you an installer executable.  After that,
+you're on your own for monitoring and retrieving updates.
+Another option is to use the <i>msysGit</i> project: http://msysgit.github.io/
+Actually, that gets you the very same executable!
+
+\subsection git_setup_config Git Configuration Files
+
+There are three levels of configuration for Git.  Each succeeding level
+overrides the previous level.
+
+   -  <code>/etc/gitconfig</code>.
+      The system-wide configuration.
+      Using <code>git --system config</code> affects this file.
+      On MSYS for Windows, the <code>msys/etc/gitconfig</code> file is used.
+   -  <code>~/.gitconfig</code> (Linux) or
+      <code>$HOME/.gitconfig</code> (Windows, where HOME is
+      <code>C:/Users/$USER</code>.
+      The user's pan project configuration.
+      Using <code>git --global config</code> affects this file.
+   -  <code>myproject/.git/config</code>.
+      The project's own configuration.
+
+\subsection git_setup_client Setup of Git Client
+
+For our purposes, the command-line Git client is quite sufficient.  Start
+with the <code>gitk</code> package if you are interested in a GUI.
+
+The <code>git config --global ...</code> command will
+set up your preferences for ignoring certain files, for coloring,
+email, editors, diff programs, and more. Specific instances of this
+command are shown below.
+
+   -# <i>Setting up Git features</i>.
+      This process includes setting up preferred handling for:
+      -# Whitespace.
+      -# Line-endings.
+      -# Differencing code.
+      -# Merging code.
+      -# Programmer's editor.
+      -# Aliases for Git commands.
+      -# Colors.
+      -# Template of commit message.
+      -# And much more.
+   -# <i>Setting up 'git-ignore'</i>.
+      This process provides a list of files, file extensions, and directory
+      that you do not want Git to track.
+
+\subsection git_features Setting Up Git Features
+
+There are additional configuration options.  Rather than discuss them, we
+will just list the commands and show the <code>~/.gitconfig</code> file that
+results.
+
+\verbatim
+   $ git config --global user.name "Chris Ahlstrom"
+   $ git config --global user.email ahlstrom@bogus.com
+   $ git config --global core.excludesfile ~/.gitignore
+   $ git config --global core.editor vim
+   $ git config --global commit.template $HOME/.gitmessage.txt
+   $ git config --global color.ui true
+   $ git config --global core.autocrlf input
+   $ git config --global diff.tool gvimdiff
+   $ git config --global merge.tool gvimdiff
+   $ git config --global alias.d difftool
+\endverbatim
+
+<code>commit.template</code>:
+
+\verbatim
+   subject line
+
+   what happened
+
+   [ticket: X]
+\endverbatim
+
+Another option is <code>core.autocrlf</code>
+(what about <code>core.eol</code>?).
+If set to 'true', then it
+will convert LF into CR-LF line-endings.  Useful for those unfortunate
+Windows-only teams.  For Linux teams, or for mixed-OS
+teams, see the "input" setting above.  That setting will leave you with
+CR-LF endings in Windows checkouts but LF endings on Mac and Linux systems
+and in the repository.
+
+There are many more helpful configuration items, such as those that deal
+with OS-specific line-endings or the disposition of white space.
+Other "config" options to check out:
+<code>core.pager</code>;
+<code>core.whitespace</code>;
+<code>user.signingkey</code>;
+<code>color.*</code>;
+and, on the server side,
+<code>receive.fsckObject</code>,
+<code>receive.denyNonFastForwards</code>, and
+<code>receive.denyDeletes</code>.
+
+After this, your <code>.gitconfig</code> should look like this:
+
+\verbatim
+   [user]
+      name = Chris Ahlstrom
+      email = ahlstrom@bogus.com
+   [core]
+      excludesfile = /home/ahlstrom/.gitignore
+\endverbatim
+
+And this is the file that results:
+
+\verbatim
+[user]
+	name = Chris Ahlstrom
+	email = ahlstrom@bogus.com
+[core]
+	excludesfile = /home/ahlstrom/.gitignore
+	editor = vim
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[color]
+	ui = true
+\endverbatim
+
+You can check your current settings with this command:
+
+\verbatim
+   $ git config --list
+\endverbatim
+
+\subsection git_ignore Setting Up the Git-Ignore File
+
+Building code generates a lot of by-products that we don't want
+to end up in the repository.  This can happen if the <code>git add</code>
+command is used on a directory (as opposed to a file).
+
+First, look at the sample git-ignore file
+<code>contrib/git/dot-gitignore</code>.
+Verify that the file extensions all
+all to be ignored (not checked into source-code control), and that the list
+includes all such files you can conjur up in your imagination.
+Next, copy this file to the <code>.gitignore</code> file in your home directory.
+
+Finally, run
+
+\verbatim
+   $  git config --global core.excludesfile ~/.gitignore
+\endverbatim
+
+\subsection git_bash_features Setting Up Git Bash Features
+
+It is very useful to have your command-line prompt change colors and show
+the Git branch that is active, whenever the current directory is being
+managed by Git.
+
+Note these two files in the <code>contrib/git</code> directory in this
+project:
+
+   -  <code>dot-bashrc-git</code>, to be carefully inserted into your
+      <code>~/.bashrc</code> file.
+   -  <code>dot-git-completion</code>, to be copied to
+      <code>~/.git-completion</code>, which is sourced in that .bashrc
+      fragment.
+
+What these script fragments do is set up your bash prompt so that it will
+show the Git branch that is represented by the current directory, in your
+command-line prompt, if the directory is part of a Git project.
+
+\section git_setup Setting Up a Git Repository
+
+There are three "locations" where a Git repository can be created:
+
+   -  Your personal computer
+   -  Your local network
+   -  A remote network (on the Internet, hosted by a hosting site)
+
+\section git_clone Setting Up a Git Repository on Your Personal Computer
+
+A restrictred, but still useful use-case is to set up a Git repository on
+the same computer you use for writing and building code.
+
+Assuming you have a nascent project directory in existence, and want to
+start tracking it in Git, you perform the following steps (under your normal
+login):
+
+   -# <code>cd</code> to the project's root directory.  Make sure there are
+      no files that you don't want to track, or that they are covered by
+      your system or user git-ignore file.
+   -# Run the command <code>git init</code>.
+      The result will be a hidden <code>.git</code> directory.
+   -# Now run <code>git add *</code> to add all of the files, including
+      those in subdirectories, to the current Git project.
+   -# Run <code>git status</code> to verify that you have added only the
+      files that you want to track.
+   -# Run a command like <code>git commit -m "Initial project
+      revision."</code>
+
+\section git_clone Cloning a Git Repository on Local Network
+
+If your personal machine is on a home/local network, you can clone your new
+Git repository on another home machine.  The following command assumes you
+use SSH even at home to get access to other home computers.
+
+\verbatim
+   $ git clone ssh://homeserver/pub/git/mls/xpc_suite-1.1.git
+\endverbatim
+
+This repository will be referred to as a remote called "origin".
+This remote assumes that "homeserver" has the IP address it had when the
+clone was made.   However, outside of your home network, you may have to
+access "homeserver" from a different IP address.  For example, at home,
+"homeserver might be accessed as '192.168.111.18', the IP address of
+'homeserver' in <code>/etc/hosts</code>, while outside your home
+network, it might be something like '77.77.77.77', accessed from the same
+client machine remotely as 'remoteserver'.
+
+In this case, you need to add a remote name to supplement 'origin'. 
+For example:
+
+\verbatim
+   $ git remote add remoteaccess ssh://remoteserver/pub/git/mls/xpc_suite-1.1.git
+\endverbatim
+
+So, while working on your home network, you push changes to the repository
+using:
+
+\verbatim
+   $ git push
+\endverbatim
+
+or
+
+\verbatim
+   $ git push origin currentbranch
+\endverbatim
+
+while away from home, you push changes to the repository using:
+
+\verbatim
+   $ git push remoteaccess currentbranch
+\endverbatim
+
+\subsection git_setup_server Setup of Git Remote Server
+
+Setting up a Git "server" really means just creating a remote repository
+that you can potentially share with other developers.
+
+The repository can be accessed via the SSH protocol for those users that have
+accounts on the server.  It can also be accessed by the Git protocol, but
+you'll want to run that protocol over SSH for security.  A common way to
+access a remote Git repository is through the HTTP/HTTPS protocols.
+
+\todo
+   Here we will discuss how to set up for a specific repository host such as
+   github.com or gitorious.org.
+
+\section git_commands Git Basic Commands
+
+We've already covered the <code>config</code> and <code>init</code>
+commands, and touched on a few other commands.  In this section, we briefly
+describe the most common commands.
+
+You can get information using <code>git help</code>.  Adding the
+<code>-a</code> option lists the many command of git.
+Adding the <code>-g</code> option lists some concepts that can be presented.
+Try the "workflow" concept:
+
+\verbatim
+   $ git help workflows
+\endverbatim
+
+The result is a man page summarizing a workflow with Git.
+
+There is also a nice man page, gittutorial(1).
+
+\subsection git_command_add git add
+
+\subsection git_command_status git status
+
+\subsection git_command_commit git commit
+
+\subsection git_command_stash git stash
+
+\subsection git_command_branch git branch
+
+\subsection git_command_merge git merge
+
+\subsection git_command_push git push
+
+\subsection git_command_fetch git fetch
+
+\subsection git_command_pull git pull
+
+\subsection git_command_amend git amend
+
+\subsection git_command_svn git svn
+
+\subsection git_command_tag git tag
+
+\subsection git_command_rebase git rebase
+
+\subsection git_command_reset git reset
+
+\subsection git_command_format_patch git format-patch
+
+\subsection git_command_log git log
+
+\subsection git_command_diff git diff
+
+\subsection git_command_show git show
+
+\subsection git_command_grep git grep
+
+
+\section git_workflow Git Workflow
+
+\section git_tips Git Tips
+
+git status
+git status -sb
+git checkout -b
+git log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d
+   %C(reset)%s%C(green) [%cn]' --decorate --date=short
+git commit --amend -C HEAD
+git rebase -i
+
+Also see the section on \ref git_svn_page for using the Git-to-Subversion
+bridge.
+
+*//*-------------------------------------------------------------------------*/
+
+/*****************************************************************************
+ * xpc_git.dox
+ * --------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *---------------------------------------------------------------------------*/

@@ -1,0 +1,12 @@
+
+s/xml_timer_packet/xml_timer/g
+s/%/\\/g
+s!@!\\!
+s/XPC_\(.*\)_HPP/\1_H/
+s/XPC_\(.*\)_H/\1_H/
+s/\\/2/
+s/\\!@/
+s/<xpc/\(.*\)>/"\1"/
+s/hpp/h/g
+s!xpc::packet::base!ser::packet_base!g
+

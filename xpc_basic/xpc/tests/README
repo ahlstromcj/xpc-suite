@@ -1,0 +1,19 @@
+#******************************************************************************
+# xpc/tests/README -- Chris Ahlstrom 03/02/2008-08/02/2009
+#------------------------------------------------------------------------------
+
+This directory contains the C source-code files for the XPC library test
+applications.
+
+The library source files are in the xpc/src directory.
+
+The header files are in the xpc/include directory.
+
+See the README files in all of the other XPC project directories for more
+information.
+
+#*****************************************************************************
+# README (xpc/tests)
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3
+#-----------------------------------------------------------------------------

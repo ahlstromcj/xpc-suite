@@ -1,0 +1,60 @@
+#*****************************************************************************
+# xpc-1.1.pc.in
+#-----------------------------------------------------------------------------
+##
+# \file       	xpc-1.1.pc.in
+# \library    	xpc_suite
+# \author     	Chris Ahlstrom
+# \date       	2008-02-06
+# \updates    	2012-09-25
+# \version    	$Revision$
+# \license    	$XPC_SUITE_GPL_LICENSE$
+#
+#     Provides a pkg-config file for the XPC library.
+#
+#     This file is a pkg-config file describing the libxpc library, API
+#     version 1.1.  Generates the file xpc-1.1.pc, which will be installed
+#     in /usr/local/lib/pkgconfig/xpc-1.1.pc.in.
+#
+#     Access it using the command
+#
+#        pkg-config xpc-1.1
+#
+#     Note that the name of the package, xpc-1.1, is not used in
+#     installation.  Since we have more than one related library, we use a
+#     common package name, xpc-1.1, instead.
+#
+# \references
+#     -  http://www.openismus.com/documents/linux/building_libraries
+#           /building_libraries.shtml
+#
+#     Also see the README file in this directory for a real-life story about
+#     using pkgconfig.
+#
+#     XPC requires the pthread and math libraries, but we can't put them
+#     below because there isn't a pkgconfig file for either of them.
+#
+#-----------------------------------------------------------------------------
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+xpcincludedir=@xpcincludedir@
+
+Name: xpc-1.1
+Description: Base Cross-Platform Library - library
+Version: @XPC_API_VERSION@
+Requires:
+Conflicts:
+Libs: -L${libdir} -lpthread -lm
+Cflags: -I${xpcincludedir}
+
+#******************************************************************************
+# xpc-1.1.pc.in
+#------------------------------------------------------------------------------
+# Local Variables:
+# End:
+#------------------------------------------------------------------------------
+# vim: ts=3 sw=3 ft=automake
+#------------------------------------------------------------------------------

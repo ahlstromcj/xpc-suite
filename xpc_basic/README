@@ -1,0 +1,64 @@
+#******************************************************************************
+# xpc-1.1/README
+#------------------------------------------------------------------------------
+##
+# \file        README
+# \author      Chris Ahlstrom
+# \date        2011-12-26
+# \update      2013-07-28
+#
+#     Covers the basics of getting into this project.
+#
+#------------------------------------------------------------------------------
+
+This file is the "README" for the refactored build of the XPC "suite".
+
+This build of XPC is a near clone of the original XPC.  We
+want to use a recursive make process, and also support building on Windows
+with mingw.  We wanted to use bjam, but that product had bugs in its Doxygen
+support and it was too difficult to provide our own Doxygen support.  So we
+went back to good old GNU Autotools.  We also want to clean out the cruft
+and structure the projects, documentation, man pages, internationalization,
+and pkgconfig information in a more unified way.  We also split XPC into
+(so far) XPC Basic and XPC Comm.
+
+The documentation is provided almost exclusively in Doxygen format in
+directories named "doc/dox".  One can read them directly in a text editor,
+or build HTML and PDF files using the following commands:
+
+   $ ./bootstrap
+   $ ./build docs
+
+The PDF file will be found in the xpc_basic/release/doc/dox directory.
+
+This is the best way to understand the layout of the XPC projects.
+
+If you just want to have the libraries and test applications built and
+tested, then run the following command
+(which also accepts an '--enable-debug' option):
+
+   $ ./scripts/build --test
+
+Otherwise, run the following command to start to learn more:
+
+   $ ./bootstrap --help
+
+You will probably want to install the bootstrap scripts system-wide using
+the --boot-install option.
+
+Packages that must be installed (exact names may vary on your system) in
+order to build this project:
+
+   automake, autoconf, autopoint, autotools-dev, and autoconf-archive
+   gcc, g++, libtool
+   doxygen
+   gettext
+   graphviz
+   texlive, texlive-latex-base
+   tofrodos
+
+#*****************************************************************************
+# README (xpc-1.1) File-type sh provides a dash of color in vim.
+#-----------------------------------------------------------------------------
+# vim: ts=3 sw=3 et ft=sh
+#-----------------------------------------------------------------------------

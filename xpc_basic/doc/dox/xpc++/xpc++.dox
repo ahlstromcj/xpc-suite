@@ -1,0 +1,46 @@
+/******************************************************************************
+ * doc/dox/xpc++.dox
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides no code.  It provides only a Doxygen "Doxygen
+ *    information" page.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file       xpc++.dox
+
+   This file describes the <b>XPC++</b> utility library, which is considered
+   the basic C++ library in the <b>XPC++</b> suite.
+
+\library    xpc
+\page       xpc_utility_introduction XPC++ C++ Utility Library
+\author     Chris Ahlstrom
+\version    $Revision$ (1.1.0)
+\date       2010-05-30
+\updates    2012-9-25
+\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+
+\section xpcpp_utility_introduction Introduction to the XPC C++ Basic Library
+
+   The <b>XPC++</b> library is a "cross-programming C++" utility library
+   that provides some very basic functionality that just about any
+   application might need.  This library is the main (and most basic)
+   library in the <b>XPC++</b> library suite.
+
+   <b>MORE TO COME</b>
+
+   Although the utility <b>XPC++</b> library is written and somewhat tested,
+   it is a work in progress and we have not yet had time to describe it at
+   a higher level.
+
+   In the meantime, you can build the detailed-design documentation by
+   running <i>doxygen</i> against the <tt>doxygen.cfg</tt> in directory
+   <tt>xpc++/doc/dox</tt>.
+
+ *//*-------------------------------------------------------------------------*/
+
+/******************************************************************************
+ * doc/dox/xpc++.dox
+ *----------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *//*-------------------------------------------------------------------------*/

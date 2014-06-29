@@ -1,0 +1,1 @@
+--no-tabs --tab-size3 --braces-after-if-line --space-after-cast --brace-indent0

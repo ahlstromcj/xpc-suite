@@ -1,0 +1,63 @@
+;;;***************************************************************************
+;;; emacs.rc
+;;;---------------------------------------------------------------------------
+;;;
+;;; \file       	emacs.rc
+;;; \library    	xpc_suite
+;;; \author     	Chris Ahlstrom
+;;; \date       	02/26/2008-03/02/2008
+;;; \version    	$Revision$
+;;; \license    	$XPC_SUITE_GPL_LICENSE$
+;;;
+;;; \usage
+;;;     TBD.
+;;;
+;;;---------------------------------------------------------------------------
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(case-fold-search nil)
+ '(column-number-mode t)
+ '(current-language-environment "ASCII")
+ '(fringe-mode 16 nil (fringe))
+ '(global-font-lock-mode t nil (font-lock))
+ '(save-place t nil (saveplace))
+ '(transient-mark-mode (quote identity)))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
+;;; Chris Ahlstrom additions/preferences
+;;;
+;;; Prevent Extraneous Tabs and the nag screen
+
+(setq indent-tabs-mode nil)
+(setq inhibit-startup-message t)
+
+;;; Not yet tried:
+;;;
+;;; o ido-mode lets you find files an buffers by typing a fraction of the
+;;;   name (ido-mode t)
+;;; o focus follows mouse (setq mouse-autoselect-window t)
+;;; o parentheses matching (blink-matching-paren-on-screen t)
+;;; o working with compressed files (auto-compression-mode 1)
+;;; o open the filename in the buffer (autoload 'find-file-at-point "ffap"
+;;;   nil t)
+
+;;; When using gdb (as started by the gemdb script, for example), set up all
+;;; of the windows automatically.
+
+(setq gdb-many-windows t) 
+
+;;; Instantiate a separate I/O buffer for the application being debugged.
+;;; However, it ends up not showing output to stderr until (?).
+
+(setq gdb-use-inferior-io-buffer t)
+
+;;; vim: filetype=lisp

@@ -1,0 +1,81 @@
+How to manipulate an original codebase, a new repository, a new cloned
+repository, and remote repositories.
+
+On mlsrock (a server):
+
+$ cd
+$ scp blammer:~/.git* .       # we had reasonable git config files on blammer
+
+# Then edit .gitconfig and .gitignore  to suit your needs.
+
+$ cd /home/ahlstrom/ca/mls
+$ mkdir pre-git
+$ cp -r -p svn/xpc_suite-1.1/ pre-git/
+$ cd pre-git/xpc_suite-1.1
+$ find . -name ".svn" -exec rm -rf '{}' \;
+$ git init
+
+$ git add --dry-run . > ~/list.txt
+$ git add --dry-run --force . > ~/list2.txt
+
+# review list.txt and list2.txt to see what important files might be ignored
+
+$ vi ~/.gitignore      # remove any files you really do want
+
+# We couldn't keep contrib/bin from being ignored, so we needed the --force
+# option, just this once.  We shouldn't be modifying these "contributed"
+# files.
+
+$ git add --force .
+
+$ git commit -m "Initial XPC Suite 1.1 revision."
+
+# We now have a full repository in mlsrock's
+# /home/ahlstrom/ca/mls/pre-git/xpc_suite-1.1, but we want a bare
+# repository in mlsrock's /pub/git/mls directory.
+
+$ cd /pub/git/mls             # mkdir mls if necessary
+$ git clone --bare /home/ahlstrom/ca/mls/pre-git/xpc_suite-1.1/.git xpc_suite-1.1.git
+
+On mlsacer (a laptop):
+
+$ scp mlsrock:~/.git* .
+
+$ cp .gitconfig dot-gitconfig 
+$ cp .gitignore dot-gitignore 
+
+$ cd /home/ahlstrom/ca/mls/git
+$ git clone mlsrock:/pub/git/mls/xpc_suite-1.1.git
+$ cd xpc_suite-1.1.git/contrib
+$ mkdir git
+$ mv ~/dot-git* git
+$ git add git
+$ git status         # to verify the two files will be added
+$ git commit -m "...message..."
+
+$ git remote -v      # the bare repository on mlsrock is your push/pull remote
+$ git remote add xpc mlsrock:/pub/git/mls/xpc_suite-1.1.git
+
+# Now we have a short name "xpc" for our repository.  For usage
+# outside the house:
+
+$ git remote add xpc-home mlsbell:/pub/git/mls/xpc_suite-1.1.git
+
+$ git push xpc
+
+On mlsrock:
+
+$ cd ~/ca/mls/git
+$ git clone /pub/git/mls/xpc_suite-1.1.git
+
+# Verify that the dot-git* files now appear in the working directory,
+# /home/ahlstrom/ca/mls/git/xpc_suite-1.1/contrib/git
+
+$ git remote add xpc /pub/git/mls/xpc_suite-1.1.git/
+
+# Now we are ready to edit, push, and pull via the mlsrock XPC git "public"
+# repository, using commands like the following:
+#
+#    git pull xpc
+#    git push xpc
+

@@ -1,0 +1,7 @@
+# .splintrc
+#
+# Chris Ahlstrom -- 07/02/2006
+
+-I..
+-posix-lib
+-DPOSIX

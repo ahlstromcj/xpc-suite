@@ -1,0 +1,47 @@
+contrib/vim-regexps.txt -- Chris Ahlstrom 08/08/2006
+
+Some useful, but tricky, regular expressions for vim.
+
+o  Replace "value != nullptr" with "not_nullptr(value)"
+
+      s/\(\w\w*\) != nullptr/not_nullptr(\1)/
+
+o  Replace "value == nullptr" with "is_nullptr(value)"
+
+      s/\(\w\w*\) == nullptr/is_nullptr(\1)/
+
+o  Replace "value = nullptr" with "set_nullptr(value)"
+
+      s/\(\w\w*\) = nullptr/set_nullptr(\1)/
+
+   However, this is not suitable for pointer definition statements.
+
+o  Replace "value != POSIX_SUCCESS" with "not_posix_success(value)"
+
+      s/\(\w\w*\) != POSIX_SUCCESS/not_posix_success(\1)/
+
+o  Replace "value != POSIX_ERROR" with "not_posix_error(value)"
+
+      s/\(\w\w*\) != POSIX_ERROR/not_posix_error(\1)/
+
+o  Replace "value == POSIX_SUCCESS" with "is_posix_success(value)"
+
+      s/\(\w\w*\) == POSIX_SUCCESS/is_posix_success(\1)/
+
+o  Replace "value == POSIX_ERROR" with "is_posix_error(value)"
+
+      s/\(\w\w*\) == POSIX_ERROR/is_posix_error(\1)/
+
+o  Replace "value = POSIX_SUCCESS" with "set_posix_success(value)"
+
+      s/\(\w\w*\) = POSIX_SUCCESS/set_posix_success(\1)/
+
+   However, this is not suitable for return-code definition statements.
+
+o  Replace "value = POSIX_ERROR" with "set_posix_error(value)"
+
+      s/\(\w\w*\) = POSIX_ERROR/set_posix_error(\1)/
+
+   However, this is not suitable for return-code definition statements.
+
+

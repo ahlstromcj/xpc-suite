@@ -1,0 +1,53 @@
+# hello - the minimalist 'GNU hello world' program
+#
+# Copyright (C) 2008-2009 Chris Ahlstrom
+# This file is distributed under the same license as the 'hello' package.
+# Chris Ahlstrom <ahlstromcj@gmail.com>, 2008-2009.
+# 
+# Software to check out:
+#
+#  gtranslator (Gnome)
+#  translate-toolkit (Python)
+#  kbabel (KDE)
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hello 1.1.0\n"
+"Report-Msgid-Bugs-To: ahlstromcj@gmail.com\n"
+"POT-Creation-Date: 2008-05-10 16:16-0400\n"
+"PO-Revision-Date: 2008-05-11 16:19-0400\n"
+"Last-Translator: Chris Ahlstrom via Google <ahlstromcj@gmail.com>\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/hello-main.c:141
+msgid "LC ALL locale setting"
+msgstr "LC ALL configuracion regional"
+
+#: src/hello-main.c:148
+msgid "current text domain"
+msgstr "texto actual de dominio"
+
+#: src/hello-main.c:152
+msgid "textdomain() failed"
+msgstr "textdomain() no"
+
+#: src/hello-main.c:155
+msgid "bindtextdomain() failed"
+msgstr "bindtextdomain() no"
+
+#: src/hello-main.c:158
+msgid "invalid locale LC ALL"
+msgstr "no validos locale LC ALL"
+
+#: src/hello-main.c:168
+msgid "not enabled; turn on USE GETTEXT and rebuild"
+msgstr "no permitido, a su vez en USE GETTEXT y reconstruir"
+
+#: src/hello-main.c:202
+msgid "Hello, world!"
+msgstr "!Hola, mundo!"
+

@@ -1,0 +1,42 @@
+#*****************************************************************************
+# xpc.pot - XPC suite internationalization support
+#-----------------------------------------------------------------------------
+##
+# \file        xpc.pot
+# \library     XPC
+# \author      Chris Ahlstrom <ahlstromcj@gmail.com>
+# \date        2012-01-01
+# \update      2012-01-01
+# \version     $Revision$
+# \license     $XPC_SUITE_GPL_LICENSE$
+#
+#     This file is the template file for starting a new translation project.
+#
+#     Use it by changing to the top-level XPC po directory, and running the 
+#     following command:
+#
+#        msginit --input=../contrib/po/xpc.pot --output-file=XX.po
+#
+#-----------------------------------------------------------------------------
+
+msgid ""
+msgstr ""
+
+"Project-Id-Version: xpc 1.1.0\n"
+"Report-Msgid-Bugs-To: ahlstromcj@gmail.com\n"
+"POT-Creation-Date: 2012-01-01 11:16-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Chris Ahlstrom <ahlstromcj@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#****************************************************************************
+# Makefile.am (xpc_suite top-level)
+#----------------------------------------------------------------------------
+# Local Variables:
+# End:
+#------------------------------------------------------------------------------
+# vim: ts=3 sw=3 ft=po
+#----------------------------------------------------------------------------

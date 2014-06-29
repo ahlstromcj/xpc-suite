@@ -1,0 +1,54 @@
+/******************************************************************************
+ * doc/dox/xpc/xpc.dox
+ *-----------------------------------------------------------------------------
+ *
+ *    This module provides no code.  It provides only a Doxygen "Doxygen
+ *    information" page.
+ *
+ *------------------------------------------------------------------------*//**
+
+\file       xpc_introduction.dox
+
+   This file describes the <b>XPC C</b> utility library, which is considered
+   the basic library in the <b>XPC</b> suite.
+
+\library    xpc
+\page       xpc_utility_introduction XPC C Utility Library
+\author     Chris Ahlstrom
+\version    $Revision$ (1.1.0)
+\date       2008-04-08
+\updates    2012-05-27
+\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+
+\section xpc_utility_introduction Introduction to the C Unit-Test Library
+
+The <b>XPC</b> library is a "cross-programming C" utility library that provides
+some very basic functionality that just about any application might need.
+This library is the main (and most basic) library in the <b>XPC</b> library
+suite.
+
+The <b>XPC C</b> library (libxpc) is a <b>C</b> library that provides
+functionality useful in most projects.
+
+   -  CPU and operating system identification
+   -  Error and message logging
+   -  GNU gettext support
+   -  Numeric support
+   -  Some minor command-line options handling
+   -  Basic INI-file parsing
+   -  Support for using pthreads.
+   -  Other portability functions.
+
+<b>MORE TO COME</b>
+
+Although the utility <b>XPC</b> library is written and somewhat tested,
+it is a work in progress and we have not yet had time to describe it at
+a higher level.
+
+ *//*-------------------------------------------------------------------------*/
+
+/******************************************************************************
+ * doc/dox/xpc/xpc.dox
+ *----------------------------------------------------------------------------
+ * vim: ts=3 sw=3 et syntax=doxygen
+ *//*-------------------------------------------------------------------------*/
