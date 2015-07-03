@@ -5,7 +5,7 @@
  * \library    xpc_suite
  * \author     Chris Ahlstrom
  * \version    1.1
- * \date       2013-12-01 to 2014-05-30
+ * \date       2013-12-01 to 2015-07-03
  * \license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
  *
  *------------------------------------------------------------------------*//**
@@ -282,7 +282,9 @@ while away from home, you push changes to the repository using:
    $ git push remoteaccess currentbranch
 \endverbatim
 
-\subsection git_setup_server Setup of Git Remote Server
+\section git_setup_server Setup of Git Remote Server
+
+\subsection git_setup_server_home Git Remote Server at Home
 
 Setting up a Git "server" really means just creating a remote repository
 that you can potentially share with other developers.
@@ -292,9 +294,84 @@ accounts on the server.  It can also be accessed by the Git protocol, but
 you'll want to run that protocol over SSH for security.  A common way to
 access a remote Git repository is through the HTTP/HTTPS protocols.
 
-\todo
-   Here we will discuss how to set up for a specific repository host such as
-   github.com or gitorious.org.
+\subsection git_setup_server_github Git Remote Server at GitHub
+
+Let's assume that one has a body of code existing on one's laptop, but
+nowhere else, and that no Git archive for it already exists.  Also, let's
+assume we want to first set up the archive at GitHub, and then clone it back
+to the laptop to serve as a remote workspace for the new GitHub project.
+Finally, let's assume you've already signed up for GitHub and know how to
+log onto that service.
+
+The process here is simple:
+
+   -# Convert your local project into a local Git repository.
+   -# Create your empty remote repository on GitHub.
+   -# Add your GitHub repository as a remote for your local Git repository.
+   -# Push your master branch to the GitHub repository.
+
+<b>Convert local project to local Git repository</b>.
+
+   -# Change to your projects source-code directory, at the top of the
+      project tree.
+   -# Run the command <code>git init</code> there to create an empty git
+      repository..
+   -# Run the command <code>git add .</code> to add the current directory,
+      and all sub-directories, to the new repository.
+   -# Run the command <code>git status</code> if you want to verify that all
+      desired files have been added to the repository.
+   -# Run the command <code>git commit -m "short message"</code>
+      to add the current directory,
+
+<b>Create new repository at GitHub</b>.
+
+   -# Sign up for a GitHub account, if needed, then log into it.
+      Also be sure to add your computer's public key to GitHub, if you
+      haven't already.  (How to do that?  We will document that later.)
+   -# On your home page, click on the "plus sign" at the upper right and
+      select "New Repository".
+   -# Verify that you are the owner, then fill in the repository name and
+      description.
+   -# Make sure it is check-marked as public (unless you want to hide your
+      code and pay for that privilege).
+      There's no need to initialize the repository with a README, since you
+      are importing existing code.  No need to deal with a
+      <code>.gitignore</code> file or a license, if they already exist in
+      your project.
+   -# Click the "Create Repository" button.
+   -# Once the repository is created, take note of the URLs for it:
+      -  <b>HTTPS</b>.
+         <code>https://github.com/username/projectname.git</code>
+      -  <b>SSH</b>.
+         <code>git@:github.com:username/projectname.git</code>
+   -# Add this new remote repository to your local copy and make it the
+      official copy, called "origin";
+      <code>git remote add origin git@:github.com:username/projectname.git</code>
+   -# Push your current code to this repository:
+      <code>git push -u origin master</code>
+
+The <code>-u</code> (or <code>--set-upstream</code>) option
+sets an upstream tracking reference, so that an argument-less <code>git
+pull</code> will pull from this reference,
+Once you push the code, you will see a message like:
+
+\verbatim
+   Branch master set up to track remote branch master from origin.
+\endverbatim
+
+Note that the URL for the home-page for the project is
+
+\verbatim
+   https://github.com/username/projectname
+\endverbatim
+
+This URL can be used when adding GitHub as a remote.
+
+Note that some of this information is also available in Scott Chacon's book,
+"Pro Git", from Apress.
+
+TODO:  talk about pushing and pulling your own changes, and pulling changes
+made by people who have forked your project.
 
 \section git_commands Git Basic Commands
 
@@ -317,47 +394,87 @@ There is also a nice man page, gittutorial(1).
 
 \subsection git_command_add git add
 
+TODO
+
 \subsection git_command_status git status
+
+TODO
 
 \subsection git_command_commit git commit
 
+TODO
+
 \subsection git_command_stash git stash
+
+TODO
 
 \subsection git_command_branch git branch
 
+TODO
+
 \subsection git_command_merge git merge
+
+TODO
 
 \subsection git_command_push git push
 
+TODO
+
 \subsection git_command_fetch git fetch
+
+TODO
 
 \subsection git_command_pull git pull
 
+TODO
+
 \subsection git_command_amend git amend
+
+TODO
 
 \subsection git_command_svn git svn
 
+TODO
+
 \subsection git_command_tag git tag
+
+TODO
 
 \subsection git_command_rebase git rebase
 
+TODO
+
 \subsection git_command_reset git reset
+
+TODO
 
 \subsection git_command_format_patch git format-patch
 
+TODO
+
 \subsection git_command_log git log
+
+TODO
 
 \subsection git_command_diff git diff
 
+TODO
+
 \subsection git_command_show git show
+
+TODO
 
 \subsection git_command_grep git grep
 
+TODO
 
 \section git_workflow Git Workflow
 
+TODO
+
 \section git_tips Git Tips
 
+\verbatim
 git status
 git status -sb
 git checkout -b
@@ -365,6 +482,7 @@ git log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d
    %C(reset)%s%C(green) [%cn]' --decorate --date=short
 git commit --amend -C HEAD
 git rebase -i
+\endverbatim
 
 Also see the section on \ref git_svn_page for using the Git-to-Subversion
 bridge.
