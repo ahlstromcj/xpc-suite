@@ -346,7 +346,7 @@ The process here is simple:
          <code>git@:github.com:username/projectname.git</code>
    -# Add this new remote repository to your local copy and make it the
       official copy, called "origin";
-      <code>git remote add origin git@:github.com:username/projectname.git</code>
+      <code>git remote add origin git@github.com:username/projectname.git</code>
    -# Push your current code to this repository:
       <code>git push -u origin master</code>
 
