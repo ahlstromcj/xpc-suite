@@ -5,7 +5,7 @@
  * \library    xpc_suite
  * \author     Chris Ahlstrom
  * \version    1.1
- * \date       2013-12-01 to 2015-07-03
+ * \date       2013-12-01 to 2015-07-14
  * \license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
  *
  *------------------------------------------------------------------------*//**
@@ -366,6 +366,12 @@ Note that the URL for the home-page for the project is
 \endverbatim
 
 This URL can be used when adding GitHub as a remote.
+
+To clone the new GitHub repository to another computer:
+
+\verbatim
+   git clone git@github.com:username/projectname.git
+\endverbatim
 
 Note that some of this information is also available in Scott Chacon's book,
 "Pro Git", from Apress.
