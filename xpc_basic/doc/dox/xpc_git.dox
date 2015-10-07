@@ -5,7 +5,7 @@
  * \library    xpc_suite
  * \author     Chris Ahlstrom
  * \version    1.1
- * \date       2013-12-01 to 2015-07-14
+ * \date       2013-12-01 to 2015-07-24
  * \license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
  *
  *------------------------------------------------------------------------*//**
@@ -82,8 +82,9 @@ command are shown below.
       -# Template of commit message.
       -# And much more.
    -# <i>Setting up 'git-ignore'</i>.
-      This process provides a list of files, file extensions, and directory
-      that you do not want Git to track.
+      This process provides a list of files, file extensions, and
+      directories, that you do not want Git to track, as well as
+      subsets of those that you do want Git to track anyway.
 
 \subsection git_features Setting Up Git Features
 
@@ -398,25 +399,153 @@ The result is a man page summarizing a workflow with Git.
 
 There is also a nice man page, gittutorial(1).
 
-\subsection git_command_add git add
-
-TODO
-
 \subsection git_command_status git status
 
-TODO
+First, note that git commands can be entered in any directory or
+subdirectory of a project.  Yet the command will still operate on all files
+and directories in the project, starting from the root directory of a
+project.  If files are to be displayed, their paths are shown relative to
+the current working directory.
+
+The <code>git status</code> command examines the files and determines if
+they are new, modified, or unchanged.  If new or modified, they are shown in
+red.  The command also determines if they have been added to the commit
+cache.  If so, then they are shown in green.
+
+\subsection git_command_add git add
+
+When files are shown as red in the <code>git status</code> command, that
+means they have been modified.  If you think they are ready, you can use the
+<code>git add</code> command to add them to the commit cache; they will
+then show up as green in the <code>git status</code> listing.
+
+You can add any or all modified files to the commit cache.  If you add a
+file, and then modify it again, you will have to add it again.
+
+Now, if some files are still red, but you want to commit the green files
+anyway, it is perfectly fine to do so.
 
 \subsection git_command_commit git commit
 
-TODO
+This command takes the files in the git commit cache (they show up as
+green in <code>git status</code>) and commits them.  The most common form of
+this command is:
+
+\verbatim
+   $ git commit -m "This is a message about the commit".
+\endverbatim
+
+Keep the message very short, around 40 characters.  One can leave off the
+message, in which case one can add this message, plus a much longer
+description, in the text editor that one set up git to use.
 
 \subsection git_command_stash git stash
 
-TODO
+This command stores your current local modifications and brings the
+files back to a clean working directory.  Once finished, you can recall the
+stash and continue onward.  Great for double-checking the older revision of
+the code.
 
 \subsection git_command_branch git branch
 
-TODO
+Branching is a complex topic, and not every workflow can be documented.
+Here, we describe a straightforward workflow where there's a master branch,
+and occasionally one side-development branch that ultimately gets merged
+back to master.  We will assume for now that no conflicts occur, and that
+branches occur serially (one developer, who finishes the branch and merges
+it back before going on to the next branch.)
+
+\subsubsection git_command_branch_create Create a branch
+
+Our repository is at a certain commit in <tt>master</tt> at the current latest
+commit in a repository.  We will call this commit <tt>cf384659</tt>, after
+the hypothetical checksum of that commit.
+
+The <tt>HEAD</tt> pointer points to <tt>master</tt>, which points to
+<tt>cf384659</tt>.
+
+Let's create a branch called "feature":
+
+\verbatim
+   $ git branch feature
+\endverbatim
+
+Now, <tt>feature</tt> points to <tt>cf384659</tt>, just like <tt>master</tt>
+does.  <tt>HEAD</tt> still points to <tt>master</tt>.  This means that we
+are still working in <tt>master</tt>.
+
+To switch to the "feature" branch so that we can work on it:
+
+\verbatim
+   $ git checkout feature
+\endverbatim
+
+Now <tt>HEAD</tt> points to <tt>feature</tt>.
+
+There's a git trick that let's you create a new branch and check it out in
+one command:
+
+\verbatim
+   $ git checkout -b 'feature'
+\endverbatim
+
+Verify that you're in the new branch; the asterisk will point to the new
+branch:
+
+\verbatim
+   $ git branch
+   * feature
+     master
+\endverbatim
+
+In this branch, let's edit a
+file or two and commit them.
+
+\verbatim
+   $ vi file1.c file2.c
+   $ git commit -m "Added part 1 of feature."
+\endverbatim
+
+Now there's a new commit just beyond <tt>cf384659</tt>, we'll call it
+<tt>f1958ccc</tt>.  
+<tt>feature</tt> now points to <tt>f1958ccc</tt>, and <tt>HEAD</tt> still
+points to <tt>feature</tt>.
+
+We're not done with <tt>feature</tt>, but we suddenly realize we want to add
+something to <tt>master</tt>.  Let's set <tt>HEAD</tt> back to
+<tt>master</tt>
+
+\verbatim
+   $ git checkout master
+\endverbatim
+
+That was fast!
+Now we can make some edits, commit them, and then go back to
+working on <tt>feature</tt>:
+
+\verbatim
+   $ git checkout feature
+\endverbatim
+
+Now, git won't let you change branches if files are uncommitted, to protect
+from losing changes.  Before you change branches, you must either
+<i>commit</i> the changes or <i>stash</i> them.
+
+After a number of edits and commits on the "feature" branch, we're ready to
+tag it for ease of recovery later, and then merge "feature" back into
+"master".
+
+\subsection git_command_ls_files git ls-files
+
+This command is convenient for finding files, especially ones that did not
+get added to the archive because they were unintentionally present in a 
+<code>.gitignore</code> file.   The following command shows those "other"
+files:
+
+\verbatim
+   $ git ls-files -o
+\endverbatim
+
 
 \subsection git_command_merge git merge
 

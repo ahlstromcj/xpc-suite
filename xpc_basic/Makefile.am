@@ -6,7 +6,7 @@
 # \library     XPC Basic
 # \author      Chris Ahlstrom
 # \date        2011-12-26
-# \updates     2013-10-05
+# \updates     2013-10-06
 # \version     $Revision$
 # \license     $XPC_SUITE_GPL_LICENSE$
 #
@@ -140,12 +140,9 @@ libtool: $(LIBTOOL_DEPS)
 #
 #  	po causes an error, need to fix it, later.
 #
-# SUBDIRS = m4 doc intl include xpccut po
-#           contrib
-#
 #-----------------------------------------------------------------------------
 
-SUBDIRS = m4 include xpccut xpccut++ xpc xpc++ xpchello man doc pkgconfig po
+SUBDIRS = m4 include xpc xpc++ xpchello man doc pkgconfig po
 
 #*****************************************************************************
 # DIST_SUBDIRS

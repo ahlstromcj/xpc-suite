@@ -6,7 +6,7 @@ dnl \file          configure.ac
 dnl \library       XPC Basic
 dnl \author        Chris Ahlstrom
 dnl \date          2011-12-26
-dnl \update        2013-08-17
+dnl \update        2015-10-06
 dnl \version       $Revision$
 dnl \license       $XPC_SUITE_GPL_LICENSE$
 dnl
@@ -717,7 +717,6 @@ dnl Not yet sure how to define this in older versions of Debian.
 dnl
 dnl pkgconfig/xpc-$XPC_API_MAJOR.$XPC_API_MINOR.pc
 dnl pkgconfig/Makefile
-dnl pkgconfig/xpccut-1.0.pc
 dnl tests/Makefile
 dnl doc/Makefile
 dnl man/Makefile
@@ -743,32 +742,18 @@ AC_CONFIG_FILES([
  pkgconfig/Makefile
  pkgconfig/xpc-1.1.pc
  pkgconfig/xpc++-1.1.pc
- pkgconfig/xpccut-1.1.pc
- pkgconfig/xpccut++-1.1.pc
  xpc/Makefile
  xpc/include/Makefile
  xpc/include/xpc/Makefile
  xpc/src/Makefile
  xpc/tests/Makefile
  xpc/w32/Makefile
- xpccut/Makefile
- xpccut/include/Makefile
- xpccut/include/xpc/Makefile
- xpccut/src/Makefile
- xpccut/tests/Makefile
- xpccut/w32/Makefile
  xpc++/Makefile
  xpc++/include/Makefile
  xpc++/include/xpc/Makefile
  xpc++/src/Makefile
  xpc++/tests/Makefile
  xpc++/w32/Makefile
- xpccut++/Makefile
- xpccut++/include/Makefile
- xpccut++/include/xpc/Makefile
- xpccut++/src/Makefile
- xpccut++/tests/Makefile
- xpccut++/w32/Makefile
  xpchello/Makefile
  xpchello/include/Makefile
  xpchello/include/xpc/Makefile
