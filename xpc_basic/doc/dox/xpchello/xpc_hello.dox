@@ -8,17 +8,15 @@
  *------------------------------------------------------------------------*//**
 
 \file       xpc_hello.dox
-
-   This file describes the building of the <b>XPC</b> <i>Hello</i>
-   application.
-
 \library    xpchello application using the xpccut (unit-test) library
-\page       xpc_hello_mainpage XPC "Hello" Application
 \author     Chris Ahlstrom
-\version    $Revision$ (1.1.0)
-\date       2009-04-11
-\updates    2011-12-31
-\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+\date       2009-04-11 to 2011-12-31
+\license    XPC GPL 3
+
+\page       xpc_hello_mainpage XPC "Hello" Application
+
+This file describes the building of the <b>XPC</b> <i>Hello</i>
+application.
 
 This document provides a discussion of the <b>XPC</b> Hello project and how
 it is set up to support the construction of an automake-based application,

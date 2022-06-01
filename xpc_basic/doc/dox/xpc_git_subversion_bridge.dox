@@ -12,11 +12,10 @@
  *------------------------------------------------------------------------*//**
 
 \file    xpc_git-subversion-bridge.dox
+\page    git_svn_page Using Git with Subversion
 
 This document provides procedures for using Git to manage a
 Subversion repository.
-
-\page    git_svn_page Using Git with Subversion
 
 \section git_svn_intro Introduction to the Git-Subversion Bridge
 

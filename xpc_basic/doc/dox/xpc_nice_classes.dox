@@ -8,17 +8,14 @@
  *------------------------------------------------------------------------*//**
 
 \file    xpc_nice_classes.dox
-
-   This file provides a collection of advice from various sources about the
-   creation of good <b>C++</b> classes and functions.
+\author  Chris Ahlstrom
+\date    2009-06-11 to 2012-09-25
+\license XPC GPL 3
 
 \page    xpc_nice_classes Nice Regular Classes and Coding Conventions
-\author  Chris Ahlstrom
-\version $Revision$ (1.1.0)
-\date    2009-06-11
-\updates 2012-09-25
-\license $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
 
+This file provides a collection of advice from various sources about the
+creation of good <b>C++</b> classes and functions.
 This document describes the coding conventions for a <i>nice</i> and
 <i>regular class</i>.
 

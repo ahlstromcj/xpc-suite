@@ -8,18 +8,17 @@
  *------------------------------------------------------------------------*//**
 
 \file       xpc_linkage.dox
+\library    xpc
+\author     Chris Ahlstrom
+\date       2009-04-11 to 2012-09-25
+\license    XPC GPL 3
+
+\page       xpc_linkage XPC Hello Linkage How-To
 
 This document provides a discussion of the <b>XPC</b> <i>Hello</i> project
 and how it is linked to other <b>XPC</b> libraries to create the
 <b>xpchello</b> demonstration application.
 
-\library    xpc
-\page       xpc_linkage XPC Hello Linkage How-To
-\author     Chris Ahlstrom
-\version    $Revision$ (1.1.0)
-\date       2009-04-11
-\updates    2012-09-25
-\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license)
 \contents
    -  \ref xpc_linkage_introduction
    -  \ref xpc_linkage_process

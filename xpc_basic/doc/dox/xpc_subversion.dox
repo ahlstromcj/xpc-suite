@@ -11,17 +11,15 @@
  *------------------------------------------------------------------------*//**
 
 \file       xpc_subversion.dox
-
-   This file provides an overview of Subversion as used to package this
-   Basic of projects.
-
 \library    xpc_Basic
-\page       xpc_subversion XPC Basic and Subversion
 \author     Chris Ahlstrom
-\version    1.1
-\date       2008-02-24
-\update     2013-07-19
-\license    $XPC_Basic_GPL_LICENSE$ (See \ref xpc_Basic_license_subproject)
+\date       2008-02-24 to 2013-07-19
+\license    XPC GPL 3
+
+\page       xpc_subversion XPC Basic and Subversion
+
+This file provides an overview of Subversion as used to package this
+Basic of projects.
 
 \note
    At this time (2012-07-22), I've moved from Subversion to Git, and will

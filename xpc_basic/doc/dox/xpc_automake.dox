@@ -14,11 +14,10 @@
  *------------------------------------------------------------------------*//**
 
 \file xpc_automake.dox
-
-   This section describes the GNU automake setup for the XPC
-   libraries and test applications.
-
 \page xpc_automake GNU Automake in the XPC Library Suite
+
+This section describes the GNU automake setup for the XPC
+libraries and test applications.
 
 \section xpc_am_intro GNU Automake
 

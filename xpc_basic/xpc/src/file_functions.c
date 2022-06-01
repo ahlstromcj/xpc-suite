@@ -9,7 +9,7 @@
  *
  * \author  Chris Ahlstrom
  * \date    2012-06-09
- * \updates 2012-06-11
+ * \updates 2015-11-20
  * \version $Revision$
  *
  *    Newer compilers issue warning for unsafe versions of file-handling
@@ -557,7 +557,8 @@ xpc_file_executable (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-cbool_t xpc_file_is_directory (const char * filename)
+cbool_t
+xpc_file_is_directory (const char * filename)
 {
    cbool_t result = is_file_name_good(filename);
    if (result)
@@ -618,7 +619,8 @@ cbool_t xpc_file_is_directory (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-FILE * xpc_file_open (const char * filename, const char * mode)
+FILE *
+xpc_file_open (const char * filename, const char * mode)
 {
    FILE * filehandle = nullptr;
    if (is_file_name_good(filename) && is_file_mode_good(mode))
@@ -667,7 +669,8 @@ FILE * xpc_file_open (const char * filename, const char * mode)
  *
  *//*-------------------------------------------------------------------------*/
 
-FILE * xpc_file_open_for_read (const char * filename)
+FILE *
+xpc_file_open_for_read (const char * filename)
 {
    FILE * filehandle = 0;
    if (xpc_file_readable(filename))
@@ -711,7 +714,8 @@ FILE * xpc_file_open_for_read (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-FILE * xpc_file_open_for_write (const char * filename)
+FILE *
+xpc_file_open_for_write (const char * filename)
 {
    return xpc_file_open(filename, "w+b");  // create or truncate for updating
 }
@@ -746,7 +750,8 @@ FILE * xpc_file_open_for_write (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-FILE * xpc_file_create_for_write (const char * filename)
+FILE *
+xpc_file_create_for_write (const char * filename)
 {
    return xpc_file_open(filename, "wb");                  // start all over again
 }
@@ -777,7 +782,8 @@ FILE * xpc_file_create_for_write (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-cbool_t xpc_file_close (FILE * filehandle, const char * filename)
+cbool_t
+xpc_file_close (FILE * filehandle, const char * filename)
 {
    cbool_t result = xpc_not_nullptr(filehandle, _("xpc_file_close null handle"));
    if (result)
@@ -819,7 +825,8 @@ cbool_t xpc_file_close (FILE * filehandle, const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-cbool_t file_delete (const char * filename)
+cbool_t
+file_delete (const char * filename)
 {
    cbool_t result = xpc_not_nullptr(filename, _("file_delete null handle"));
    if (result)
@@ -870,7 +877,8 @@ cbool_t file_delete (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-int xpc_platform_slash (void)
+int
+xpc_platform_slash (void)
 {
 #ifdef WIN32
    return '\\';                        // backslash is default
@@ -1011,7 +1019,8 @@ is_path_rooted (const char * filespec)
  *
  *//*-------------------------------------------------------------------------*/
 
-cbool_t xpc_directory_create (const char * dirname)
+cbool_t
+xpc_directory_create (const char * dirname)
 {
    cbool_t result = is_file_name_good(dirname);
    if (result)
@@ -1143,7 +1152,8 @@ xpc_directory_delete (const char * filename)
  *
  *//*-------------------------------------------------------------------------*/
 
-cbool_t xpc_directory_delete_recursive (const char * dirname)
+cbool_t
+xpc_directory_delete_recursive (const char * dirname)
 {
    cbool_t result = is_file_name_good(dirname);
    if (result)
@@ -1227,7 +1237,8 @@ cbool_t xpc_directory_delete_recursive (const char * dirname)
  *
  *//*-------------------------------------------------------------------------*/
 
-off_t xpc_file_handle_seek (int filehandle, off_t offset, int whence)
+off_t
+xpc_file_handle_seek (int filehandle, off_t offset, int whence)
 {
    off_t result = (off_t) (-1);
    cbool_t ok = filehandle != -1;

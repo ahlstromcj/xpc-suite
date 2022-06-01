@@ -8,17 +8,16 @@
  *------------------------------------------------------------------------*//**
 
 \file       xpc_debian.dox
-
-   This file describes how to create a <i>Debian</i> package from an
-   <i>automake</i>-supported project.
-
 \library    libxpccut, the C unit-test library
-\page       xpc_debian Making a Debian Package
 \author     Chris Ahlstrom
-\version    $Revision$ (1.1.0)
-\date       2009-01-01
-\updates    2012-09-25
-\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+\date       2009-01-01 to 2012-09-25
+\license    XPC GPL 3
+
+\page       xpc_debian Making a Debian Package
+
+This file describes how to create a <i>Debian</i> package from an
+<i>automake</i>-supported project.
+
 \contents
 
    -# \ref xpc_debian_introduction 

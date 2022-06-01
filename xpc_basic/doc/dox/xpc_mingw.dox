@@ -5,23 +5,18 @@
  *    This module provides no code.  It provides only a Doxygen "Doxygen
  *    information" page.
  *
- *    \mainpage   XPC Library Suite
- *    \page       xpc_mingw_main_page XPC and Mingw
- *
  *------------------------------------------------------------------------*//**
 
 \file       xpc_mingw.dox
-
-   This file provides information about building XPC in the Mingw
-   environment, along with how to use pthreads in Mingw and Windows.
-
 \library    xpc_mingw
-\mainpage   The XPC Suite with Mingw, Windows, and pthreads-w32
 \author     Chris Ahlstrom
-\version    $Revision$ (1.1)
-\date       2012-01-09
-\update     2012-02-16
-\license    $XPC_SUITE_GPL_LICENSE$ (See \ref xpc_mingw_license_subproject)
+\date       2012-01-09 to 2012-02-16
+\license    XPC GPL 3
+
+\page   The XPC Suite with Mingw, Windows, and pthreads-w32
+
+This file provides information about building XPC in the Mingw
+environment, along with how to use pthreads in Mingw and Windows.
 
 \section xpc_mingw_intro Introduction
 

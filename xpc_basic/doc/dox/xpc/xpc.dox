@@ -8,17 +8,15 @@
  *------------------------------------------------------------------------*//**
 
 \file       xpc_introduction.dox
-
-   This file describes the <b>XPC C</b> utility library, which is considered
-   the basic library in the <b>XPC</b> suite.
-
 \library    xpc
-\page       xpc_utility_introduction XPC C Utility Library
 \author     Chris Ahlstrom
-\version    $Revision$ (1.1.0)
-\date       2008-04-08
-\updates    2012-05-27
-\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
+\date       2008-04-08 to 2012-05-27
+\license    XPC GPL 3
+
+\page       xpc_utility_introduction XPC C Utility Library
+
+This file describes the <b>XPC C</b> utility library, which is considered
+the basic library in the <b>XPC</b> suite.
 
 \section xpc_utility_introduction Introduction to the C Unit-Test Library
 

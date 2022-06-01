@@ -8,18 +8,16 @@
  *------------------------------------------------------------------------*//**
 
 \file       xpc_internationalization.dox
+\library    xpc
+\author     Chris Ahlstrom
+\date       2008-04-11 to 2012-01-15
+\license    XPC GPL 3
+
+\page       xpc_internationalization XPC Hello Internationalization How-To
 
 This document provides a discussion of the <b>XPC</b> <i>Hello</i> project
 and how it is set up to support the internationalization of an
 automake-based application.
-
-\library    xpc
-\page       xpc_internationalization XPC Hello Internationalization How-To
-\author     Chris Ahlstrom
-\version    $Revision$ (1.1.0)
-\date       2008-04-11
-\updates    2012-01-15
-\license    $XPC_SUITE_GPL_LICENSE$ (see \ref xpc_suite_license_subproject)
 
 \section xpc_intl_introduction Introduction to 'gettext' Internationalization
 
